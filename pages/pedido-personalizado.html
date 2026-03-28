@@ -2,13 +2,13 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Pedido Personalizado | Senna Doce</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         .form-pedido-personalizado {
             max-width: 560px;
@@ -178,48 +178,63 @@
     <div class="carrinho-overlay" aria-hidden="true"></div>
     <aside class="carrinho-sidebar">
         <div class="carrinho-header">
-            <h2>Carrinho</h2>
+            <h2>Seu orçamento</h2>
             <button type="button" class="carrinho-close" aria-label="Fechar carrinho">&times;</button>
         </div>
         <div class="carrinho-body">
             <ul id="lista-carrinho"></ul>
             <div class="carrinho-total-wrap">
-                <span class="total-label">Total:</span>
+                <span class="total-label">Total estimado:</span>
                 <div id="total">R$ 0,00</div>
             </div>
-            <div class="carrinho-form">
+            <div class="carrinho-form carrinho-form-orcamento">
+                <p class="carrinho-form-section-title">Dados do cliente</p>
                 <label for="nome">Nome do cliente *</label>
-                <input type="text" id="nome" placeholder="Seu nome" required>
+                <input type="text" id="nome" placeholder="Seu nome" required autocomplete="name">
                 <label for="telefone">Telefone *</label>
-                <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
-                <label for="tipo">Entrega ou Retirada *</label>
+                <input type="tel" id="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
+                <label for="email-cliente">E-mail *</label>
+                <input type="email" id="email-cliente" placeholder="seu@email.com" required autocomplete="email">
+                <p class="carrinho-form-section-title">Dados do evento</p>
+                <label for="data-evento">Data do evento *</label>
+                <input type="date" id="data-evento" required>
+                <label for="tipo-evento">Tipo de evento *</label>
+                <input type="text" id="tipo-evento" placeholder="Casamento, aniversário, corporativo..." required>
+                <label for="convidados">Número de convidados *</label>
+                <input type="number" id="convidados" min="1" step="1" placeholder="Ex: 80" required>
+                <label for="local-evento">Local do evento *</label>
+                <input type="text" id="local-evento" placeholder="Endereço ou nome do espaço" required>
+                <label for="tipo">Entrega ou retirada *</label>
                 <select id="tipo" required>
                     <option value="">Selecione</option>
                     <option value="Entrega">Entrega</option>
                     <option value="Retirada">Retirada</option>
                 </select>
                 <div id="endereco-wrap" style="display: none;">
-                    <label for="endereco">Endereço *</label>
-                    <input type="text" id="endereco" placeholder="Rua, número, bairro">
+                    <label for="endereco">Endereço de entrega *</label>
+                    <input type="text" id="endereco" placeholder="Rua, número, bairro, cidade">
                 </div>
-                <label for="pagamento">Forma de pagamento</label>
+                <label for="pagamento">Forma de pagamento (referência)</label>
                 <select id="pagamento">
                     <option value="">Selecione</option>
                     <option value="Pix">Pix</option>
                     <option value="Dinheiro">Dinheiro</option>
                     <option value="Cartão">Cartão</option>
+                    <option value="Parcelado">Parcelado</option>
                 </select>
-                <label for="observacao">Observações do pedido</label>
-                <textarea id="observacao" placeholder="Alguma observação sobre o pedido"></textarea>
+                <label for="observacao">Observações</label>
+                <textarea id="observacao" placeholder="Detalhes adicionais, horário, alergias, etc."></textarea>
             </div>
         </div>
         <div class="carrinho-footer">
-            <button type="button" class="btn-finalizar-pedido" disabled>Finalizar Pedido</button>
+            <button type="button" class="btn-finalizar-pedido" disabled>Gerar orçamento</button>
         </div>
     </aside>
 
     <script src="../js/config.js"></script>
     <script src="../js/storage.js"></script>
+    <script src="../js/orcamentos-logic.js"></script>
+    <script src="../js/orcamentos-storage.js"></script>
     <script src="../js/carrinho.js"></script>
     <script src="../js/pedido.js"></script>
     <script src="../js/pedido-personalizado.js"></script>

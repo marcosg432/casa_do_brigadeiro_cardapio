@@ -1,80 +1,177 @@
 /**
- * pedido.js - Finalização de pedido e envio para WhatsApp
- * Sistema de pedidos reutilizável para cardápios digitais
+ * pedido.js — Geração de orçamento (carrinho + dados do evento) e aviso por WhatsApp
+ * Ordem: montar objeto → salvar em localStorage ("orcamentos") → WhatsApp → limpar carrinho → UI
  */
 
-/**
- * Monta a mensagem do pedido no formato especificado
- * @returns {string}
- */
-function montarMensagemPedido() {
-    const nome = (document.getElementById('nome') || {}).value?.trim();
-    const telefone = (document.getElementById('telefone') || {}).value?.trim();
-    const tipo = (document.getElementById('tipo') || {}).value?.trim();
-    const endereco = (document.getElementById('endereco') || {}).value?.trim();
-    const pagamento = (document.getElementById('pagamento') || {}).value?.trim();
-    const observacao = (document.getElementById('observacao') || {}).value?.trim();
-
-    let msg = 'NOVO PEDIDO\n\n';
-    msg += 'ITENS:\n';
-    carrinho.forEach(item => {
-        const subtotal = item.preco * item.quantidade;
-        msg += `${item.quantidade}x ${item.nome} - R$ ${formatarPreco(subtotal)}\n`;
+function montarItensOrcamentoDoCarrinho() {
+    return carrinho.map(function (item) {
+        var subtotal = Math.round(item.preco * item.quantidade * 100) / 100;
+        return {
+            nome: item.nome,
+            quantidade: item.quantidade,
+            preco: item.preco,
+            preco_unitario: item.preco,
+            subtotal: subtotal
+        };
     });
-    msg += `\nTotal: R$ ${formatarPreco(calcularTotal())}\n\n`;
-    msg += `Tipo: ${tipo || 'Não informado'}\n`;
-    if (tipo === 'Entrega') {
-        msg += `Endereço: ${endereco || '-'}\n`;
-    }
-    msg += `\nPagamento: ${pagamento || '-'}\n`;
-    msg += `Observações: ${observacao || '-'}\n\n`;
-    msg += `Nome: ${nome}\n`;
-    msg += `Telefone: ${telefone}\n`;
-    msg += '-------------';
+}
 
+function montarMensagemOrcamento(orcId) {
+    var nome = (document.getElementById("nome") || {}).value?.trim();
+    var telefone = (document.getElementById("telefone") || {}).value?.trim();
+    var email = (document.getElementById("email-cliente") || {}).value?.trim();
+    var dataEvento = (document.getElementById("data-evento") || {}).value?.trim();
+    var tipoEvento = (document.getElementById("tipo-evento") || {}).value?.trim();
+    var convidados = (document.getElementById("convidados") || {}).value?.trim();
+    var localEvento = (document.getElementById("local-evento") || {}).value?.trim();
+    var tipo = (document.getElementById("tipo") || {}).value?.trim();
+    var endereco = (document.getElementById("endereco") || {}).value?.trim();
+    var pagamento = (document.getElementById("pagamento") || {}).value?.trim();
+    var observacao = (document.getElementById("observacao") || {}).value?.trim();
+
+    var valorOriginal = calcularTotal();
+    var msg = "NOVO ORÇAMENTO\n";
+    msg += "Ref: " + orcId + "\n\n";
+    msg += "ITENS (pré-orçamento):\n";
+    carrinho.forEach(function (item) {
+        var subtotal = item.preco * item.quantidade;
+        msg += item.quantidade + "x " + item.nome + " - R$ " + formatarPreco(subtotal) + "\n";
+    });
+    msg += "\nTotal estimado: R$ " + formatarPreco(valorOriginal) + "\n\n";
+    msg += "EVENTO\n";
+    msg += "Data: " + (dataEvento || "-") + "\n";
+    msg += "Tipo: " + (tipoEvento || "-") + "\n";
+    msg += "Convidados: " + (convidados || "-") + "\n";
+    msg += "Local: " + (localEvento || "-") + "\n";
+    msg += "Entrega/Retirada: " + (tipo || "-") + "\n";
+    if (tipo === "Entrega") msg += "Endereço: " + (endereco || "-") + "\n";
+    msg += "\nPagamento (ref.): " + (pagamento || "-") + "\n";
+    msg += "Observações: " + (observacao || "-") + "\n\n";
+    msg += "CLIENTE\n";
+    msg += "Nome: " + (nome || "-") + "\n";
+    msg += "Telefone: " + (telefone || "-") + "\n";
+    msg += "E-mail: " + (email || "-") + "\n";
+    msg += "-------------";
     return msg;
 }
 
-/**
- * Valida os dados do formulário
- * @returns {string|null} Mensagem de erro ou null se válido
- */
-function validarFormulario() {
-    const nome = (document.getElementById('nome') || {}).value?.trim();
-    const telefone = (document.getElementById('telefone') || {}).value?.trim();
-    const tipo = (document.getElementById('tipo') || {}).value?.trim();
-    const endereco = (document.getElementById('endereco') || {}).value?.trim();
+function validarFormularioOrcamento() {
+    var nome = (document.getElementById("nome") || {}).value?.trim();
+    var telefone = (document.getElementById("telefone") || {}).value?.trim();
+    var email = (document.getElementById("email-cliente") || {}).value?.trim();
+    var dataEvento = (document.getElementById("data-evento") || {}).value?.trim();
+    var tipoEvento = (document.getElementById("tipo-evento") || {}).value?.trim();
+    var convidados = (document.getElementById("convidados") || {}).value?.trim();
+    var localEvento = (document.getElementById("local-evento") || {}).value?.trim();
+    var tipo = (document.getElementById("tipo") || {}).value?.trim();
+    var endereco = (document.getElementById("endereco") || {}).value?.trim();
 
-    if (!nome) return 'Preencha o nome do cliente.';
-    if (!telefone) return 'Preencha o telefone.';
-    if (!tipo) return 'Selecione Entrega ou Retirada.';
-    if (tipo === 'Entrega' && !endereco) return 'Preencha o endereço para entrega.';
+    if (!nome) return "Preencha o nome do cliente.";
+    if (!telefone) return "Preencha o telefone.";
+    if (!email) return "Preencha o e-mail.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "E-mail inválido.";
+    if (!dataEvento) return "Informe a data do evento.";
+    if (!tipoEvento) return "Informe o tipo de evento.";
+    if (!convidados || parseInt(convidados, 10) < 1) return "Informe o número de convidados.";
+    if (!localEvento) return "Informe o local do evento.";
+    if (!tipo) return "Selecione entrega ou retirada.";
+    if (tipo === "Entrega" && !endereco) return "Preencha o endereço para entrega.";
 
     return null;
 }
 
-/**
- * Finaliza o pedido: valida, monta mensagem e redireciona para WhatsApp
- */
-function finalizarPedido() {
+function gerarOrcamento() {
     if (carrinho.length === 0) {
-        alert('Adicione itens ao carrinho antes de finalizar.');
+        alert("Adicione itens ao orçamento antes de gerar.");
         return;
     }
 
-    const erro = validarFormulario();
+    var erro = validarFormularioOrcamento();
     if (erro) {
         alert(erro);
         return;
     }
 
-    const telefone = CONFIG?.telefoneWhatsApp || '5547999999999';
-    const mensagem = montarMensagemPedido();
-    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+    var nome = (document.getElementById("nome") || {}).value?.trim();
+    var telefone = (document.getElementById("telefone") || {}).value?.trim();
+    var email = (document.getElementById("email-cliente") || {}).value?.trim();
+    var dataEvento = (document.getElementById("data-evento") || {}).value?.trim();
+    var tipoEvento = (document.getElementById("tipo-evento") || {}).value?.trim();
+    var convidados = (document.getElementById("convidados") || {}).value?.trim();
+    var localEvento = (document.getElementById("local-evento") || {}).value?.trim();
+    var tipo = (document.getElementById("tipo") || {}).value?.trim();
+    var endereco = (document.getElementById("endereco") || {}).value?.trim();
+    var pagamento = (document.getElementById("pagamento") || {}).value?.trim();
+    var observacao = (document.getElementById("observacao") || {}).value?.trim();
 
-    window.open(url, '_blank');
+    var entregaTexto = tipo === "Entrega" ? "Entrega — " + (endereco || "") : (tipo || "");
 
-    /* Limpa carrinho após envio */
+    var valorOriginal = Math.round(calcularTotal() * 100) / 100;
+    var id = Date.now();
+    var itens = montarItensOrcamentoDoCarrinho();
+
+    var statusNovo = (CONFIG && CONFIG.STATUS_ORCAMENTO && CONFIG.STATUS_ORCAMENTO.NOVO) || "novo_orcamento";
+    var agora = new Date().toISOString();
+
+    var registro = {
+        id: id,
+        cliente: nome,
+        telefone: telefone,
+        email: email,
+        evento_data: dataEvento,
+        evento_tipo: tipoEvento,
+        convidados: parseInt(convidados, 10) || 0,
+        local: localEvento,
+        entrega: entregaTexto,
+        observacoes: observacao || "",
+        itens: itens,
+        valor_original: valorOriginal,
+        desconto_tipo: null,
+        desconto_valor: null,
+        valor_desconto: 0,
+        valor_final: valorOriginal,
+        degustacao_data: null,
+        degustacao_hora: null,
+        degustacao_obs: null,
+        forma_pagamento: pagamento || "",
+        entrada: null,
+        restante: null,
+        data_pagamento_entrada: null,
+        data_pagamento_final: null,
+        status: statusNovo,
+        contrato_pdf: null,
+        data_criacao: agora,
+        nome_cliente: nome,
+        data_evento: dataEvento,
+        tipo_evento: tipoEvento,
+        local_evento: localEvento,
+        entrega_retirada: tipo,
+        endereco: tipo === "Entrega" ? endereco : null,
+        forma_pagamento_ref: pagamento || null,
+        pagamento: pagamento || "",
+        total: valorOriginal,
+        data: agora,
+        contrato: null
+    };
+
+    try {
+        if (typeof criarOrcamento !== "function") {
+            throw new Error("criarOrcamento não disponível (orcamentos-storage.js).");
+        }
+        criarOrcamento(registro);
+    } catch (e) {
+        console.error(e);
+        alert("Não foi possível salvar o orçamento. Verifique o armazenamento do navegador ou bloqueios.");
+        return;
+    }
+
+    var telefoneWa = CONFIG?.telefoneWhatsApp || "5547999999999";
+    var mensagem = montarMensagemOrcamento(String(id));
+    var url = "https://wa.me/" + telefoneWa + "?text=" + encodeURIComponent(mensagem);
+    window.open(url, "_blank");
+
+    alert("Orçamento salvo (ref. " + id + "). Abrindo o WhatsApp…");
+
     carrinho = [];
     salvarCarrinho(carrinho);
     atualizarCarrinho();
@@ -82,43 +179,37 @@ function finalizarPedido() {
     fecharCarrinho();
 }
 
-/**
- * Mostra ou esconde campo de endereço conforme tipo selecionado
- */
 function toggleCampoEndereco() {
-    const tipo = document.getElementById('tipo');
-    const enderecoWrap = document.getElementById('endereco-wrap');
-    const enderecoInput = document.getElementById('endereco');
+    var tipo = document.getElementById("tipo");
+    var enderecoWrap = document.getElementById("endereco-wrap");
+    var enderecoInput = document.getElementById("endereco");
 
     if (tipo && enderecoWrap) {
-        if (tipo.value === 'Entrega') {
-            enderecoWrap.style.display = 'block';
+        if (tipo.value === "Entrega") {
+            enderecoWrap.style.display = "block";
             if (enderecoInput) enderecoInput.required = true;
         } else {
-            enderecoWrap.style.display = 'none';
+            enderecoWrap.style.display = "none";
             if (enderecoInput) {
                 enderecoInput.required = false;
-                enderecoInput.value = '';
+                enderecoInput.value = "";
             }
         }
     }
 }
 
-/**
- * Inicializa formulário de pedido
- */
 function initPedido() {
-    const btnFinalizar = document.querySelector('.btn-finalizar-pedido');
-    const tipoSelect = document.getElementById('tipo');
+    var btnFinalizar = document.querySelector(".btn-finalizar-pedido");
+    var tipoSelect = document.getElementById("tipo");
 
     if (btnFinalizar) {
-        btnFinalizar.addEventListener('click', finalizarPedido);
+        btnFinalizar.addEventListener("click", gerarOrcamento);
     }
 
     if (tipoSelect) {
-        tipoSelect.addEventListener('change', toggleCampoEndereco);
-        toggleCampoEndereco(); /* Estado inicial */
+        tipoSelect.addEventListener("change", toggleCampoEndereco);
+        toggleCampoEndereco();
     }
 }
 
-document.addEventListener('DOMContentLoaded', initPedido);
+document.addEventListener("DOMContentLoaded", initPedido);

@@ -171,7 +171,7 @@ function initSmoothScroll() {
  */
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll(
-        '.categoria-card, .galeria-item, .avaliacao-card, .produto-card, .produto-card-home'
+        '.section-head, .categoria-card, .galeria-item, .avaliacao-card, .produto-card, .produto-card-home'
     );
 
     const observerOptions = {
@@ -199,6 +199,7 @@ function initScrollAnimations() {
 
     const style = document.createElement('style');
     style.textContent = `
+        .section-head.visible,
         .categoria-card.visible,
         .galeria-item.visible,
         .avaliacao-card.visible,
@@ -227,7 +228,6 @@ function initProdutoModal() {
     const modalIngredientes = modal.querySelector('.modal-produto-ingredientes');
     const ingredientesWrap = modal.querySelector('.modal-produto-ingredientes-wrap');
     const modalPedido = modal.querySelector('.modal-produto-pedido');
-    const modalWhatsapp = modal.querySelector('.modal-produto-whatsapp');
     const btnClose = modal.querySelector('.modal-close');
 
     function getImagemFromCard(card) {
@@ -244,15 +244,12 @@ function initProdutoModal() {
         const descricao = card.dataset.produtoDescricao || card.querySelector('.produto-content p, .produto-content-home p')?.textContent || '';
         const ingredientesStr = card.dataset.produtoIngredientes || '';
         const pedido = card.dataset.produtoPedido || card.querySelector('.produto-preco')?.textContent || '';
-        const whatsapp = card.dataset.produtoWhatsapp || card.querySelector('a[href*="wa.me"]')?.getAttribute('href') || 'https://wa.me/5599999999999';
-
         modalImg.style.backgroundImage = imagem ? `url('${imagem}')` : 'none';
         modalNome.textContent = nome || 'Produto';
         modalDescricao.textContent = descricao;
         modalDescricao.style.display = descricao ? '' : 'none';
         modalPedido.textContent = pedido;
         modalPedido.style.display = pedido ? '' : 'none';
-        modalWhatsapp.href = whatsapp;
 
         if (modalIngredientes) {
             modalIngredientes.innerHTML = '';
@@ -303,19 +300,18 @@ function initHeaderScroll() {
     const header = document.querySelector('.header');
     if (!header) return;
 
-    let lastScroll = 0;
+    const THRESHOLD = 32;
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            header.style.boxShadow = '0 4px 25px rgba(92, 64, 51, 0.15)';
+    function update() {
+        if (window.pageYOffset > THRESHOLD) {
+            header.classList.add('header--scrolled');
         } else {
-            header.style.boxShadow = '0 2px 20px rgba(92, 64, 51, 0.1)';
+            header.classList.remove('header--scrolled');
         }
+    }
 
-        lastScroll = currentScroll;
-    });
+    window.addEventListener('scroll', update, { passive: true });
+    update();
 }
 
 /**

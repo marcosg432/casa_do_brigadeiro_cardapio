@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhe do orçamento | Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <header class="admin-bar">
+        <span><strong>Detalhe do orçamento</strong></span>
+        <span>
+            <a href="dashboard/">Dashboard</a>
+            <span style="opacity:0.6"> · </span>
+            <a href="index.html">Lista</a>
+            <span style="opacity:0.6"> · </span>
+            <a href="../index.html">Site</a>
+        </span>
+    </header>
+
+    <div class="admin-wrap">
+        <p id="admin-detalhe-erro" class="admin-card" style="color:#c0392b" hidden></p>
+
+        <div id="admin-detalhe-conteudo" hidden>
+            <div class="admin-card admin-detalhe">
+                <h1 id="orc-id" style="word-break:break-all"></h1>
+
+                <h2>Dados do cliente</h2>
+                <p><strong>Nome:</strong> <span id="view-nome"></span></p>
+                <p><strong>Telefone:</strong> <span id="view-telefone"></span></p>
+                <p><strong>E-mail:</strong> <span id="view-email"></span></p>
+
+                <h2>Evento</h2>
+                <p><strong>Data:</strong> <span id="view-data-evento"></span></p>
+                <p><strong>Tipo:</strong> <span id="view-tipo-evento"></span></p>
+                <p><strong>Convidados:</strong> <span id="view-convidados"></span></p>
+                <p><strong>Local:</strong> <span id="view-local"></span></p>
+                <p><strong>Entrega / retirada:</strong> <span id="view-entrega"></span></p>
+                <p><strong>Observações:</strong> <span id="view-obs"></span></p>
+
+                <h2>Itens</h2>
+                <ul id="lista-itens"></ul>
+                <p><strong>Valor original (soma do carrinho):</strong> <span id="valor-original"></span></p>
+
+                <h2>Desconto e valor final</h2>
+                <p style="font-size:0.9rem;opacity:0.9">Os preços unitários dos produtos não são alterados. O desconto aplica-se apenas neste orçamento.</p>
+                <label for="desconto-tipo">Tipo de desconto</label>
+                <select id="desconto-tipo">
+                    <option value="">Sem desconto</option>
+                    <option value="reais">Valor fixo (R$)</option>
+                    <option value="percentual">Percentual (%)</option>
+                </select>
+                <label for="desconto-valor">Valor (R$ ou % conforme tipo acima)</label>
+                <input type="text" id="desconto-valor" placeholder="Ex: 50 ou 10" inputmode="decimal">
+
+                <p><strong>Desconto em reais (efeito):</strong> <span id="preview-desconto-reais"></span></p>
+                <p><strong>Valor final:</strong> <span id="preview-valor-final"></span></p>
+
+                <h3 class="admin-secao-titulo">Degustação</h3>
+                <label for="degustacao-data">Data da degustação</label>
+                <input type="date" id="degustacao-data">
+                <label for="degustacao-hora">Horário da degustação</label>
+                <input type="time" id="degustacao-hora">
+                <label for="degustacao-obs">Observações da degustação</label>
+                <textarea id="degustacao-obs" placeholder="Sabor escolhido, feedback, etc."></textarea>
+
+                <h3 class="admin-secao-titulo">Pagamento</h3>
+                <label for="forma-pagamento-adm">Forma de pagamento</label>
+                <select id="forma-pagamento-adm">
+                    <option value="">Selecione</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Cartão">Cartão</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                    <option value="Transferência">Transferência</option>
+                </select>
+                <label for="entrada">Valor de entrada (R$)</label>
+                <input type="text" id="entrada" placeholder="0,00" inputmode="decimal">
+                <label for="restante">Valor restante (R$)</label>
+                <input type="text" id="restante" placeholder="0,00" inputmode="decimal">
+                <label for="data-pag-entrada">Data do pagamento da entrada</label>
+                <input type="date" id="data-pag-entrada">
+                <label for="data-pag-final">Data do pagamento final</label>
+                <input type="date" id="data-pag-final">
+
+                <label for="status-orcamento">Status do fluxo</label>
+                <select id="status-orcamento"></select>
+
+                <div class="admin-acoes">
+                    <button type="button" class="admin-btn" id="btn-salvar">Salvar alterações</button>
+                    <button type="button" class="admin-btn admin-btn-whats" id="btn-whatsapp-orc">Enviar orçamento no WhatsApp</button>
+                    <button type="button" class="admin-btn" id="btn-pdf-orcamento" style="background:#6d5345">Gerar orçamento PDF</button>
+                    <button type="button" class="admin-btn admin-btn-sec" id="btn-contrato">Gerar contrato (PDF)</button>
+                    <button type="button" class="admin-btn admin-btn-sec" id="btn-voltar">Voltar à lista</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/orcamentos-logic.js"></script>
+    <script src="../js/orcamentos-compat.js"></script>
+    <script src="../js/orcamentos-storage.js"></script>
+    <script src="../js/admin-common.js"></script>
+    <script src="../js/contrato-pdf.js"></script>
+    <script src="../js/orcamento-pdf.js"></script>
+    <script src="../js/admin-detalhe-orcamento.js"></script>
+</body>
+</html>

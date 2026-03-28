@@ -1,10 +1,39 @@
 /**
- * Configurações do Sistema de Pedidos
+ * Configurações do Sistema de Pedidos / Orçamentos
  * Alterar apenas este arquivo para configurar em novos cardápios/clientes
  */
 const CONFIG = {
     /** Número do WhatsApp com DDD (ex: 5547999999999) */
     telefoneWhatsApp: "5547999999999",
     /** Nome da empresa para identificação e chave do localStorage */
-    nomeEmpresa: "Senna Doce"
+    nomeEmpresa: "Senna Doce",
+    /** Senha da área administrativa (troque em produção) */
+    senhaAdmin: "senna2025",
+    /** Chaves de status (espelho do banco / fluxo) */
+    STATUS_ORCAMENTO: {
+        NOVO: "novo_orcamento",
+        DEGUST_AGENDADA: "degustacao_agendada",
+        DEGUST_REALIZADA: "degustacao_realizada",
+        DESCONTO_APLICADO: "desconto_aplicado",
+        CONTRATO_GERADO: "contrato_gerado",
+        FECHADO: "fechado",
+        PERDIDO: "perdido"
+    },
+    /** Rótulos para exibição */
+    STATUS_LABELS: {
+        novo_orcamento: "Novo orçamento",
+        degustacao_agendada: "Degustação agendada",
+        degustacao_realizada: "Degustação realizada",
+        desconto_aplicado: "Desconto aplicado",
+        contrato_gerado: "Contrato gerado",
+        fechado: "Fechado",
+        perdido: "Perdido"
+    },
+    /** Dias de validade exibidos no PDF do orçamento */
+    validadeOrcamentoDias: 15,
+    /**
+     * Logo para PDF (opcional): caminho a partir da raiz do site, ex: "assets/logo.png"
+     * Deixe vazio para não carregar imagem (usa só o nome da empresa).
+     */
+    logoOrcamentoRelPath: ""
 };

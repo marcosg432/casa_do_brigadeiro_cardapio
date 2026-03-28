@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamentos | Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <div id="admin-login" class="admin-card admin-login-box">
+        <h1>Área administrativa</h1>
+        <p style="font-size:0.9rem;opacity:0.85">Acesso restrito à confeitaria.</p>
+        <label for="admin-senha">Senha</label>
+        <input type="password" id="admin-senha" placeholder="Senha" autocomplete="current-password">
+        <button type="button" class="admin-btn" id="btn-entrar" style="width:100%">Entrar</button>
+        <p id="login-erro" style="color:#c0392b;display:none;margin-top:0.75rem">Senha incorreta.</p>
+        <p style="margin-top:1rem"><a href="../index.html">← Voltar ao site</a></p>
+    </div>
+
+    <div id="admin-main" hidden>
+        <header class="admin-bar">
+            <span id="admin-titulo-empresa"><strong>Orçamentos</strong></span>
+            <span>
+                <a href="dashboard/">Dashboard</a>
+                <span style="opacity:0.6"> · </span>
+                <a href="../index.html">Site</a>
+                <span style="opacity:0.6"> · </span>
+                <button type="button" class="admin-btn admin-btn-sec" id="btn-sair">Sair</button>
+            </span>
+        </header>
+        <div class="admin-wrap">
+            <div class="admin-card">
+                <h1>Lista de orçamentos</h1>
+                <p style="font-size:0.9rem;opacity:0.85">Os dados ficam neste navegador (localStorage). Para produção com equipe, use PostgreSQL + API ou Supabase.</p>
+                <p id="sem-orcamentos" hidden>Nenhum orçamento salvo ainda. Gere um pelo carrinho do site.</p>
+                <div class="admin-table-wrap">
+                    <table class="admin-table" id="tabela-orcamentos">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Data evento</th>
+                                <th>Valor orig.</th>
+                                <th>Desconto</th>
+                                <th>Valor final</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-orcamentos"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/orcamentos-logic.js"></script>
+    <script src="../js/orcamentos-compat.js"></script>
+    <script src="../js/orcamentos-storage.js"></script>
+    <script src="../js/admin-common.js"></script>
+    <script>
+        (function () {
+            var loginBox = document.getElementById('admin-login');
+            var main = document.getElementById('admin-main');
+            var err = document.getElementById('login-erro');
+
+            function mostrarPainel() {
+                loginBox.hidden = true;
+                main.hidden = false;
+                var t = document.getElementById('admin-titulo-empresa');
+                if (t && typeof CONFIG !== 'undefined') {
+                    t.innerHTML = '<strong>Orçamentos</strong> — ' + (CONFIG.nomeEmpresa || '');
+                }
+                renderTabela();
+            }
+
+            function renderTabela() {
+                var lista = listarOrcamentos();
+                var tbody = document.getElementById('tbody-orcamentos');
+                var vazio = document.getElementById('sem-orcamentos');
+                var tab = document.getElementById('tabela-orcamentos');
+                tbody.innerHTML = '';
+                if (!lista.length) {
+                    vazio.hidden = false;
+                    tab.hidden = true;
+                    return;
+                }
+                vazio.hidden = true;
+                tab.hidden = false;
+
+                lista.forEach(function (o) {
+                    var nomeCliente = o.cliente != null && o.cliente !== '' ? o.cliente : o.nome_cliente;
+                    var dataEvt = eventoDataOrc(o);
+                    var vOrig = valorOriginalOrcCompat(o);
+                    var vFin = valorFinalOrc(o);
+                    var dr = descontoEquivalenteEmReais(vOrig, o.desconto_tipo, o.desconto_valor);
+                    var stKey = statusNormalizado(o);
+                    var label = (CONFIG.STATUS_LABELS && CONFIG.STATUS_LABELS[stKey]) ? CONFIG.STATUS_LABELS[stKey] : o.status;
+                    var badgeClass = 'status-badge ' + classeCssStatus(stKey);
+                    var tr = document.createElement('tr');
+                    tr.innerHTML =
+                        '<td>' + escapeCell(nomeCliente) + '</td>' +
+                        '<td>' + escapeCell(dataEvt || '—') + '</td>' +
+                        '<td>' + formatarMoeda(vOrig) + '</td>' +
+                        '<td>' + formatarMoeda(dr) + '</td>' +
+                        '<td><strong>' + formatarMoeda(vFin) + '</strong></td>' +
+                        '<td><span class="' + badgeClass + '">' + escapeCell(label) + '</span></td>' +
+                        '<td><a class="admin-btn" href="orcamento.html?id=' + encodeURIComponent(o.id) + '">Ver detalhes</a></td>';
+                    tbody.appendChild(tr);
+                });
+            }
+
+            function escapeCell(s) {
+                if (s == null) return '';
+                var d = document.createElement('div');
+                d.textContent = String(s);
+                return d.innerHTML;
+            }
+
+            document.getElementById('btn-entrar').addEventListener('click', function () {
+                var input = document.getElementById('admin-senha');
+                err.style.display = 'none';
+                if (adminLogin(input.value)) {
+                    input.value = '';
+                    mostrarPainel();
+                } else {
+                    err.style.display = 'block';
+                }
+            });
+
+            document.getElementById('btn-sair').addEventListener('click', function () {
+                adminLogout();
+                main.hidden = true;
+                loginBox.hidden = false;
+            });
+
+            if (adminEstaAutenticado()) {
+                mostrarPainel();
+            }
+        })();
+    </script>
+</body>
+</html>
