@@ -1,5 +1,5 @@
 /**
- * Candy Li Doces Finos — Cardápio Digital
+ * Candy Li Doces Finos — vitrine de doces finos artesanais
  * Script principal - animações e funcionalidades
  */
 

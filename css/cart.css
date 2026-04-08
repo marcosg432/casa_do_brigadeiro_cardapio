@@ -10,11 +10,11 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: var(--marrom);
-    color: var(--branco);
-    border: 1px solid rgba(198, 169, 105, 0.35);
+    background: var(--gradient-cta);
+    color: var(--text-on-rose);
+    border: 1px solid var(--accent-rose-muted);
     cursor: pointer;
-    box-shadow: 0 10px 32px var(--sombra-media);
+    box-shadow: var(--sombra-dourada), 0 10px 32px var(--sombra);
     z-index: 998;
     display: flex;
     align-items: center;
@@ -24,8 +24,8 @@
 
 .carrinho-toggle:hover {
     transform: translateY(-4px) scale(1.03);
-    background: var(--marrom-escuro);
-    box-shadow: 0 16px 40px var(--sombra-forte);
+    background: var(--gradient-cta-hover);
+    box-shadow: 0 0 30px var(--accent-rose-glow), 0 16px 40px var(--sombra-forte);
 }
 
 .carrinho-toggle svg {
@@ -74,8 +74,10 @@
     height: 100vh;
     height: 100dvh;
     max-height: 100dvh;
-    background: var(--branco);
-    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+    background: var(--surface-card);
+    color: var(--text-primary);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.45);
+    border-left: 1px solid var(--accent-rose-line);
     z-index: 1001;
     display: flex;
     flex-direction: column;
@@ -91,17 +93,17 @@
 /* Header do carrinho */
 .carrinho-header {
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--bege-escuro);
+    border-bottom: 1px solid var(--accent-rose-line);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--branco);
+    background: var(--secondary-bg);
 }
 
 .carrinho-header h2 {
     font-family: var(--fonte-titulo);
     font-size: 1.5rem;
-    color: var(--marrom);
+    color: var(--text-primary);
     margin: 0;
 }
 
@@ -111,7 +113,7 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    color: var(--marrom);
+    color: var(--text-secondary);
     font-size: 1.5rem;
     line-height: 1;
     border-radius: 4px;
@@ -119,7 +121,8 @@
 }
 
 .carrinho-close:hover {
-    background: var(--bege-escuro);
+    background: rgba(196, 165, 175, 0.16);
+    color: var(--accent-rose-bright);
 }
 
 /* Corpo do carrinho - lista + form */
@@ -240,7 +243,7 @@
 /* Total */
 .carrinho-total-wrap {
     padding: 1rem 0;
-    border-top: 2px solid var(--dourado);
+    border-top: 2px solid var(--accent-rose-muted);
     margin-top: 0.5rem;
 }
 
@@ -253,7 +256,7 @@
 #total {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--marrom);
+    color: var(--accent-rose-bright);
 }
 
 /* Formulário cliente / orçamento */
@@ -289,12 +292,14 @@
 .carrinho-form textarea {
     width: 100%;
     padding: 0.6rem 0.75rem;
-    border: 1px solid var(--bege-escuro);
-    border-radius: 8px;
+    border: 1px solid var(--accent-rose-line);
+    border-radius: 10px;
     font-size: 0.95rem;
     font-family: inherit;
     margin-bottom: 1rem;
     box-sizing: border-box;
+    background: var(--surface-elevated);
+    color: var(--text-primary);
 }
 
 .carrinho-form textarea {
@@ -307,33 +312,33 @@
     flex-shrink: 0;
     padding: 1rem 1.5rem;
     padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
-    border-top: 1px solid var(--bege-escuro);
-    background: var(--branco);
-    box-shadow: 0 -6px 24px rgba(90, 62, 54, 0.06);
+    border-top: 1px solid var(--accent-rose-line);
+    background: var(--secondary-bg);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
 }
 
 .btn-finalizar-pedido {
     width: 100%;
     padding: 1rem 1.5rem;
     min-height: 48px;
-    background: var(--dourado);
-    color: var(--marrom-escuro);
-    border: none;
+    background: var(--gradient-cta);
+    color: var(--text-on-rose);
+    border: 1px solid var(--accent-rose-muted);
     border-radius: 999px;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 8px 28px rgba(198, 169, 105, 0.38);
+    box-shadow: var(--sombra-dourada), 0 8px 28px var(--sombra);
     transition: transform var(--transicao-rapida), box-shadow var(--transicao-rapida), background var(--transicao-rapida), color var(--transicao-rapida);
 }
 
 .btn-finalizar-pedido:hover:not(:disabled) {
     transform: translateY(-2px);
-    background: var(--marrom);
-    color: var(--branco);
-    box-shadow: 0 12px 32px var(--sombra-media);
+    background: var(--gradient-cta-hover);
+    color: var(--text-on-rose);
+    box-shadow: 0 0 32px var(--accent-rose-glow), 0 12px 32px var(--sombra-forte);
 }
 
 .btn-finalizar-pedido:disabled {
@@ -354,21 +359,21 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--branco);
-    background: var(--marrom);
-    border: 1px solid var(--marrom);
+    color: var(--text-on-rose);
+    background: var(--gradient-cta);
+    border: 1px solid var(--accent-rose-muted);
     border-radius: 999px;
     cursor: pointer;
     transition: background var(--transicao-rapida), color var(--transicao-rapida), border-color var(--transicao-rapida), transform var(--transicao-rapida), box-shadow var(--transicao-rapida);
-    box-shadow: 0 6px 18px var(--sombra);
+    box-shadow: var(--sombra-dourada), 0 6px 18px var(--sombra);
 }
 
 .btn-adicionar-carrinho:hover {
-    background: var(--dourado);
-    color: var(--marrom-escuro);
-    border-color: var(--dourado);
+    background: var(--gradient-cta-hover);
+    color: var(--text-on-rose);
+    border-color: rgba(255, 255, 255, 0.32);
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(198, 169, 105, 0.35);
+    box-shadow: 0 0 28px var(--accent-rose-glow), 0 10px 24px var(--sombra-media);
 }
 
 @media (max-width: 768px) {

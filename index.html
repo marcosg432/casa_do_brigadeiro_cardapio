@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Candy Li Doces Finos | Cardápio Digital</title>
+    <title>Candy Li Doces Finos | Doces finos artesanais</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="preload" href="assets/logo-candy-li.png" as="image">
     <link rel="preload" href="assets/bolos-vitrine/bolo_chocolate.webp" as="image">
     <link rel="preload" href="assets/bolos-vitrine/bolo_ninho.webp" as="image">
     <link rel="preload" href="assets/bolos-vitrine/bolo_dois_amores.webp" as="image">
@@ -13,12 +14,9 @@
     <link rel="preload" href="assets/sobremesas-tortas/cheesecake_frutas_vermelhas.webp" as="image">
     <link rel="preload" href="assets/doces-finos/brigadeiro_gourmet.webp" as="image">
     <link rel="preload" href="assets/doces-festas/bandeja_enorme_doces.webp" as="image">
-    <link rel="preload" href="assets/salgados/salgados_variados.webp" as="image">
-    <link rel="preload" href="assets/salgados/coxinha_tradicional.webp" as="image">
-    <link rel="preload" href="assets/salgados/coxinha_costela_catupiry.webp" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Botão Carrinho -->
@@ -33,8 +31,8 @@
     </button>
 
     <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5599999999999?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20e%20gostaria%20de%20fazer%20um%20pedido." 
-       class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fazer pedido no WhatsApp">
+    <a href="https://wa.me/5519981178167?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Candy%20Li%20e%20gostaria%20de%20encomendar%20doces%20finos." 
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <span>Pedir</span>
     </a>
@@ -42,25 +40,29 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
-            <a href="index.html" class="logo">Candy Li Doces Finos</a>
+            <a href="index.html" class="logo" aria-label="Candy Li — Doces finos, página inicial">
+                <img src="assets/logo-candy-li.png" alt="" class="logo-img" width="400" height="120" decoding="async" fetchpriority="high">
+            </a>
             <button class="nav-toggle" aria-label="Abrir menu">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li class="nav-dropdown">
-                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Cardápio</button>
+                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Doces finos</button>
                     <ul class="nav-dropdown-menu" role="menu">
-                        <li><a href="pages/bolos-vitrine.html">Bolos da vitrine</a></li>
-                        <li><a href="pages/doces-finos.html">Doces finos</a></li>
-                        <li><a href="pages/doces-festas.html">Doces para festas</a></li>
-                        <li><a href="pages/sobremesas-tortas.html">Sobremesas e tortas</a></li>
-                        <li><a href="pages/bolos-personalizados.html">Bolos personalizados</a></li>
-                        <li><a href="pages/salgados.html">Salgados</a></li>
+                        <li><a href="pages/linha-classica.html">🌿 Linha Clássica R$4</a></li>
+                        <li><a href="pages/linha-exclusiva.html">💎 Linha Exclusiva</a></li>
+                        <li><a href="pages/linha-afetiva.html">🌸 Linha Afetiva R$2,50</a></li>
                     </ul>
                 </li>
-                <li><a href="pages/pedido-personalizado.html">Pedido Personalizado</a></li>
-                <li><a href="https://wa.me/5599999999999?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20e%20gostaria%20de%20fazer%20um%20pedido." class="nav-whatsapp" target="_blank">Contato</a></li>
+                <li><a href="pages/pedido-personalizado.html">Encomenda sob medida</a></li>
+                <li>
+                    <a href="https://www.instagram.com/candylidoces/" class="nav-social nav-social--instagram" target="_blank" rel="noopener noreferrer" aria-label="Candy Li no Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </li>
+                <li><a href="https://wa.me/5519981178167?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Candy%20Li%20e%20gostaria%20de%20encomendar%20doces%20finos." class="nav-whatsapp" target="_blank">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -98,15 +100,24 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">Confeitaria artesanal · casamentos &amp; eventos</p>
-            <h1 class="hero-title">Candy Li Doces Finos</h1>
-            <p class="hero-subtitle">Doces preparados com ingredientes selecionados e calma de quem entende de mesa bem posta.</p>
-            <p class="hero-text">Bolos personalizados, sobremesas, doces finos e salgados pensados para celebrações que pedem elegância.</p>
+            <p class="hero-eyebrow">Doces finos artesanais</p>
+            <div class="hero-brand" aria-hidden="true">
+                <img src="assets/logo-candy-li.png" alt="" class="hero-brand-img" width="520" height="156" decoding="async">
+            </div>
+            <h1 class="visually-hidden">Candy Li Doces Finos</h1>
+            <p class="hero-subtitle">Cada detalhe é pensado para transformar momentos em experiências únicas.</p>
+            <p class="hero-text">Nossos doces finos são preparados com ingredientes selecionados, unindo delicadeza, sabor e apresentação impecável.</p>
+            <p class="hero-text">Uma confeitaria que valoriza o cuidado, a estética e o prazer de apreciar o que é feito com excelência.</p>
             <div class="hero-buttons">
-                <a href="#categorias" class="btn btn-primary">Explorar cardápio</a>
-                <a href="https://wa.me/5599999999999?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20e%20gostaria%20de%20fazer%20um%20pedido." class="btn btn-whatsapp" target="_blank">
+                <a href="#categorias" class="btn btn-primary">Explorar coleção</a>
+                <a href="https://wa.me/5519981178167?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Candy%20Li%20e%20gostaria%20de%20encomendar%20doces%20finos." class="btn btn-whatsapp" target="_blank">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Fazer pedido no WhatsApp
+                    Conversar no WhatsApp
+                </a>
+            </div>
+            <div class="hero-social">
+                <a href="https://www.instagram.com/candylidoces/" class="hero-social-link" target="_blank" rel="noopener noreferrer" aria-label="Candy Li no Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
             </div>
         </div>
@@ -116,56 +127,35 @@
     <section id="categorias" class="categorias section">
         <div class="container">
             <header class="section-head">
-                <h2 class="section-title">Nossas categorias</h2>
-                <p class="section-subtitle">Um cardápio curado para momentos que merecem ser lembrados</p>
+                <h2 class="section-title">As linhas</h2>
+                <p class="section-subtitle">Uma curadoria de doces finos para momentos que merecem ser lembrados.</p>
             </header>
             <div class="categoria-grid">
                 <article class="categoria-card">
                     <div class="categoria-img" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80');"></div>
                     <div class="categoria-content">
-                        <h3>Bolos da vitrine</h3>
-                        <p>Bolos fresquinhos disponíveis diariamente. Perfeitos para qualquer ocasião.</p>
-                        <a href="pages/bolos-vitrine.html" class="btn btn-secondary">Ver opções</a>
-                    </div>
-                </article>
-                <article class="categoria-card">
-                    <div class="categoria-img" style="background-image: url('assets/carrossel-home/carrossel_005.webp');"></div>
-                    <div class="categoria-content">
-                        <h3>Doces finos</h3>
-                        <p>Doces delicados ideais para aniversários, casamentos e eventos especiais.</p>
-                        <a href="pages/doces-finos.html" class="btn btn-secondary">Ver opções</a>
-                    </div>
-                </article>
-                <article class="categoria-card">
-                    <div class="categoria-img" style="background-image: url('https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&q=80');"></div>
-                    <div class="categoria-content">
-                        <h3>Doces para festas</h3>
-                        <p>Perfeitos para montar sua mesa de festa com sabor e elegância.</p>
-                        <a href="pages/doces-festas.html" class="btn btn-secondary">Ver opções</a>
-                    </div>
-                </article>
-                <article class="categoria-card">
-                    <div class="categoria-img" style="background-image: url('https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80');"></div>
-                    <div class="categoria-content">
-                        <h3>Sobremesas e tortas</h3>
-                        <p>Sobremesas especiais que encantam paladares exigentes.</p>
-                        <a href="pages/sobremesas-tortas.html" class="btn btn-secondary">Ver opções</a>
+                        <h3>🌿 Linha Clássica R$4</h3>
+                        <p>Doces consagrados, presentes nas mais elegantes celebrações.</p>
+                        <p>Sabores tradicionais da confeitaria fina, com apresentação delicada e acabamento impecável, perfeitos para compor mesas atemporais.</p>
+                        <a href="pages/linha-classica.html" class="btn btn-secondary">Explorar</a>
                     </div>
                 </article>
                 <article class="categoria-card">
                     <div class="categoria-img" style="background-image: url('assets/bolos-personalizados/categoria_bolos_personalizados.png');"></div>
                     <div class="categoria-content">
-                        <h3>Bolos personalizados</h3>
-                        <p>Bolos exclusivos para aniversários, festas e momentos especiais. Escolha sabor, tamanho e tema.</p>
-                        <a href="pages/bolos-personalizados.html" class="btn btn-secondary">Ver opções</a>
+                        <h3>💎 Linha Exclusiva</h3>
+                        <p>Criações autorais e clássicos da alta confeitaria francesa.</p>
+                        <p>Uma seleção refinada que une doces exclusivos da casa a releituras inspiradas na confeitaria internacional, com técnicas e ingredientes que elevam cada detalhe.</p>
+                        <a href="pages/linha-exclusiva.html" class="btn btn-secondary">Explorar</a>
                     </div>
                 </article>
                 <article class="categoria-card">
-                    <div class="categoria-img" style="background-image: url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80');"></div>
+                    <div class="categoria-img" style="background-image: url('https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&q=80');"></div>
                     <div class="categoria-content">
-                        <h3>Salgados</h3>
-                        <p>Salgados artesanais crocantes por fora e recheados com muito sabor.</p>
-                        <a href="pages/salgados.html" class="btn btn-secondary">Ver opções</a>
+                        <h3>🌸 Linha Afetiva R$2,50</h3>
+                        <p>Sabores que despertam memórias e aquecem o coração.</p>
+                        <p>Doces tradicionais que marcaram gerações, reinterpretados com o cuidado artesanal e a delicadeza que tornam cada detalhe especial.</p>
+                        <a href="pages/linha-afetiva.html" class="btn btn-secondary">Explorar</a>
                     </div>
                 </article>
             </div>
@@ -176,40 +166,40 @@
     <section id="produtos" class="produtos section">
         <div class="container">
             <header class="section-head">
-                <h2 class="section-title">Destaques do cardápio</h2>
-                <p class="section-subtitle">Selecione com calma — montamos seu orçamento com o mesmo cuidado da confeitaria</p>
+                <h2 class="section-title">Seleção da casa</h2>
+                <p class="section-subtitle">Escolha com calma — cada sugestão é preparada com o rigor de uma confeitaria de alto padrão.</p>
             </header>
             <div class="produtos-grid-home">
-                <article class="produto-card-home" data-produto-imagem="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" data-produto-nome="Bolo de morango" data-produto-preco="45" data-produto-descricao="Bolo fofo com camadas de massa branca, recheio generoso de morangos frescos e chantilly cremoso. Uma combinação clássica que agrada a todos os paladares. Ideal para aniversários e celebrações." data-produto-ingredientes="Massa branca | Morangos frescos | Chantilly | Açúcar" data-produto-pedido="A partir de R$ 45,00">
+                <article class="produto-card-home" data-produto-imagem="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" data-produto-nome="Bolo de morango" data-produto-preco="4" data-produto-descricao="Bolo fofo com camadas de massa branca, recheio generoso de morangos frescos e chantilly cremoso. Uma combinação clássica que agrada a todos os paladares. Ideal para aniversários e celebrações." data-produto-ingredientes="Massa branca | Morangos frescos | Chantilly | Açúcar" data-produto-pedido="R$ 4,00">
                     <div class="produto-img-home" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80');"></div>
                     <div class="produto-content-home">
                         <h3>Bolo de morango</h3>
                         <p>Bolo fofo com recheio de morango fresco e chantilly. Perfeito para aniversários.</p>
-                        <span class="produto-preco">A partir de R$ 45,00</span>
+                        <span class="produto-preco">R$ 4,00</span>
                         <div class="produto-buttons">
                             <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                             <button type="button" class="btn-saiba-mais">Saiba mais</button>
                         </div>
                     </div>
                 </article>
-                <article class="produto-card-home" data-produto-imagem="assets/bolos-vitrine/bolo_chocolate.webp" data-produto-nome="Bolo de chocolate" data-produto-preco="42" data-produto-descricao="Massa úmida de chocolate belga com cobertura irresistível. O clássico que nunca decepciona. Cada fatia derrete na boca com intensidade de cacau premium." data-produto-ingredientes="Chocolate belga | Farinha | Ovos | Manteiga" data-produto-pedido="A partir de R$ 42,00">
+                <article class="produto-card-home" data-produto-imagem="assets/bolos-vitrine/bolo_chocolate.webp" data-produto-nome="Bolo de chocolate" data-produto-preco="4" data-produto-descricao="Massa úmida de chocolate belga com cobertura irresistível. O clássico que nunca decepciona. Cada fatia derrete na boca com intensidade de cacau premium." data-produto-ingredientes="Chocolate belga | Farinha | Ovos | Manteiga" data-produto-pedido="R$ 4,00">
                     <div class="produto-img-home" style="background-image: url('assets/bolos-vitrine/bolo_chocolate.webp');"></div>
                     <div class="produto-content-home">
                         <h3>Bolo de chocolate</h3>
                         <p>Chocolate belga, massa úmida e muito sabor. O clássico que nunca decepciona.</p>
-                        <span class="produto-preco">A partir de R$ 42,00</span>
+                        <span class="produto-preco">R$ 4,00</span>
                         <div class="produto-buttons">
                             <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                             <button type="button" class="btn-saiba-mais">Saiba mais</button>
                         </div>
                     </div>
                 </article>
-                <article class="produto-card-home" data-produto-imagem="assets/bolos-vitrine/bolo_dois_amores.webp" data-produto-preco="48" data-produto-nome="Bolo dois amores" data-produto-descricao="Chocolate e ninho em perfeita harmonia. A combinação preferida dos clientes, com camadas cremosas que equilibram doçura e intensidade. Um verdadeiro casamento de sabores." data-produto-ingredientes="Chocolate | Leite ninho | Chantilly | Leite condensado" data-produto-pedido="A partir de R$ 48,00">
+                <article class="produto-card-home" data-produto-imagem="assets/bolos-vitrine/bolo_dois_amores.webp" data-produto-preco="4" data-produto-nome="Bolo dois amores" data-produto-descricao="Chocolate e ninho em perfeita harmonia. A combinação preferida dos clientes, com camadas cremosas que equilibram doçura e intensidade. Um verdadeiro casamento de sabores." data-produto-ingredientes="Chocolate | Leite ninho | Chantilly | Leite condensado" data-produto-pedido="R$ 4,00">
                     <div class="produto-img-home" style="background-image: url('assets/bolos-vitrine/bolo_dois_amores.webp');"></div>
                     <div class="produto-content-home">
                         <h3>Bolo dois amores</h3>
                         <p>Chocolate e ninho em harmonia. A combinação preferida dos clientes.</p>
-                        <span class="produto-preco">A partir de R$ 48,00</span>
+                        <span class="produto-preco">R$ 4,00</span>
                         <div class="produto-buttons">
                             <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                             <button type="button" class="btn-saiba-mais">Saiba mais</button>
@@ -240,36 +230,36 @@
                         </div>
                     </div>
                 </article>
-                <article class="produto-card-home" data-produto-imagem="assets/doces-finos/brigadeiro_gourmet.webp" data-produto-preco="35" data-produto-nome="Brigadeiro gourmet" data-produto-descricao="Feito com chocolate belga de alta qualidade e preparado à mão com muito cuidado. Cada unidade é uma explosão de sabor. Perfeito para festas, presentes e ocasiões especiais." data-produto-ingredientes="Chocolate belga | Leite condensado | Manteiga | Cacau" data-produto-pedido="Caixa com 20 unidades R$ 35,00">
+                <article class="produto-card-home" data-produto-imagem="assets/doces-finos/brigadeiro_gourmet.webp" data-produto-preco="4" data-produto-nome="Brigadeiro gourmet" data-produto-descricao="Feito com chocolate belga de alta qualidade e preparado à mão com muito cuidado. Cada unidade é uma explosão de sabor. Perfeito para festas, presentes e ocasiões especiais." data-produto-ingredientes="Chocolate belga | Leite condensado | Manteiga | Cacau" data-produto-pedido="R$ 4,00">
                     <div class="produto-img-home" style="background-image: url('assets/doces-finos/brigadeiro_gourmet.webp');"></div>
                     <div class="produto-content-home">
                         <h3>Brigadeiro gourmet</h3>
-                        <p>Chocolate belga, feito à mão. Perfeito para festas e presentes.</p>
-                        <span class="produto-preco">Caixa com 20 unidades R$ 35,00</span>
+                        <p>Chocolate belga, feito à mão. Ideal para mesas curadas e presentes especiais.</p>
+                        <span class="produto-preco">R$ 4,00</span>
                         <div class="produto-buttons">
                             <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                             <button type="button" class="btn-saiba-mais">Saiba mais</button>
                         </div>
                     </div>
                 </article>
-                <article class="produto-card-home" data-produto-imagem="assets/doces-festas/beijinhos_bandeja_dourada.webp" data-produto-preco="32" data-produto-nome="Beijinho" data-produto-descricao="Leite condensado e coco ralado numa combinação irresistível. O doce que derrete na boca e traz lembranças de festas de infância. Tradição brasileira com sabor impecável." data-produto-ingredientes="Leite condensado | Coco ralado | Manteiga | Coco fresco" data-produto-pedido="Caixa com 20 unidades R$ 32,00">
+                <article class="produto-card-home" data-produto-imagem="assets/doces-festas/beijinhos_bandeja_dourada.webp" data-produto-preco="2.5" data-produto-nome="Beijinho" data-produto-descricao="Leite condensado e coco ralado numa combinação irresistível. O doce que derrete na boca e traz lembranças de festas de infância. Tradição brasileira com sabor impecável." data-produto-ingredientes="Leite condensado | Coco ralado | Manteiga | Coco fresco" data-produto-pedido="R$ 2,50">
                     <div class="produto-img-home" style="background-image: url('assets/doces-festas/beijinhos_bandeja_dourada.webp');"></div>
                     <div class="produto-content-home">
                         <h3>Beijinho</h3>
                         <p>Leite condensado e coco. O doce que derrete na boca.</p>
-                        <span class="produto-preco">Caixa com 20 unidades R$ 32,00</span>
+                        <span class="produto-preco">R$ 2,50</span>
                         <div class="produto-buttons">
                             <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                             <button type="button" class="btn-saiba-mais">Saiba mais</button>
                         </div>
                     </div>
                 </article>
-                <article class="produto-card-home" data-produto-imagem="assets/salgados/coxinha_costela_catupiry.webp" data-produto-preco="8" data-produto-nome="Coxinha de costela com catupiry" data-produto-descricao="Massa crocante por fora, recheio generoso de costela desfiada e catupiry cremoso. A preferida da casa, preparada com receita exclusiva. Ideal para eventos e lanches." data-produto-ingredientes="Massa de batata | Costela desfiada | Catupiry | Temperos" data-produto-pedido="Unidade R$ 8,00 | 10 unidades R$ 70,00">
-                    <div class="produto-img-home" style="background-image: url('assets/salgados/coxinha_costela_catupiry.webp');"></div>
+                <article class="produto-card-home" data-produto-imagem="assets/bolos-vitrine/bolo_ninho.webp" data-produto-preco="4" data-produto-nome="Bolo de ninho" data-produto-descricao="Massa fofa com recheio cremoso de leite ninho. Sabor suave e delicado, pensado para mesas que pedem conforto e requinte." data-produto-ingredientes="Leite ninho | Farinha | Ovos | Manteiga" data-produto-pedido="R$ 4,00">
+                    <div class="produto-img-home" style="background-image: url('assets/bolos-vitrine/bolo_ninho.webp');"></div>
                     <div class="produto-content-home">
-                        <h3>Coxinha de costela com catupiry</h3>
-                        <p>Crocante por fora, recheio cremoso e muito sabor. A preferida da casa.</p>
-                        <span class="produto-preco">Unidade R$ 8,00 | 10 unidades R$ 70,00</span>
+                        <h3>Bolo de ninho</h3>
+                        <p>Massa fofa e recheio cremoso de leite ninho — delicadeza em cada fatia.</p>
+                        <span class="produto-preco">R$ 4,00</span>
                         <div class="produto-buttons">
                             <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                             <button type="button" class="btn-saiba-mais">Saiba mais</button>
@@ -284,8 +274,8 @@
     <section class="galeria section">
         <div class="container">
             <header class="section-head">
-                <h2 class="section-title">Nosso trabalho</h2>
-                <p class="section-subtitle">Algumas mesas e lembranças que tivemos o orgulho de assinar</p>
+                <h2 class="section-title">Nosso olhar</h2>
+                <p class="section-subtitle">Mesa e detalhe que traduzem a assinatura Candy Li.</p>
             </header>
             <!-- Imagens: assets/carrossel-home/ (seleção para não repetir só o 1º slide do hero) -->
             <div class="galeria-grid">
@@ -304,7 +294,7 @@
         <div class="container">
             <header class="section-head">
                 <h2 class="section-title">O que nossos clientes dizem</h2>
-                <p class="section-subtitle">Confiança construída em cada evento</p>
+                <p class="section-subtitle">Confiança cultivada em cada celebração.</p>
             </header>
             <div class="avaliacoes-grid">
                 <div class="avaliacao-card">
@@ -319,7 +309,7 @@
                 </div>
                 <div class="avaliacao-card">
                     <div class="avaliacao-estrelas">★★★★★</div>
-                    <p class="avaliacao-texto">"Salgados crocantes e deliciosos. Sempre peço para eventos e nunca decepcionam. Atendimento excelente!"</p>
+                    <p class="avaliacao-texto">"Ateliê impecável — do primeiro contato à entrega, tudo com excelência. A mesa de doces elevou nosso momento."</p>
                     <span class="avaliacao-autor">— Carlos Mendes</span>
                 </div>
             </div>
@@ -329,11 +319,11 @@
     <!-- CTA -->
     <section class="cta section">
         <div class="container">
-            <h2 class="cta-title">Vamos conversar sobre o seu evento?</h2>
-            <p class="cta-text">Conte-nos data, estilo e sonhos de mesa — retornamos com carinho e clareza.</p>
-            <a href="https://wa.me/5599999999999?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20e%20gostaria%20de%20fazer%20um%20pedido." class="btn btn-primary btn-large" target="_blank">
+            <h2 class="cta-title">Sua mesa de doces merece este cuidado.</h2>
+            <p class="cta-text">Conte-nos inspiração, data e detalhes — retornamos com a delicadeza e a clareza que a ocasião pede.</p>
+            <a href="https://wa.me/5519981178167?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Candy%20Li%20e%20gostaria%20de%20encomendar%20doces%20finos." class="btn btn-primary btn-large" target="_blank">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Pedir no WhatsApp
+                Falar no WhatsApp
             </a>
         </div>
     </section>
@@ -344,25 +334,25 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Candy Li Doces Finos</h3>
-                    <p>Confeitaria artesanal com olhar de evento: bolos, doces finos e salgados para quando a ocasião pede mais que sobremesa — pede lembrança.</p>
+                    <p>Confeitaria artesanal especializada em doces finos: ingredientes nobres, técnica apurada e apresentação que honra mesas exigentes.</p>
                 </div>
-                <nav class="footer-nav" aria-label="Acesso rápido ao cardápio">
-                    <span class="footer-links-title">Cardápio</span>
+                <nav class="footer-nav" aria-label="Acesso às linhas de doces finos">
+                    <span class="footer-links-title">Coleção</span>
                     <ul class="footer-nav-list">
-                        <li><a href="pages/bolos-vitrine.html">Bolos da vitrine</a></li>
-                        <li><a href="pages/doces-finos.html">Doces finos</a></li>
-                        <li><a href="pages/bolos-personalizados.html">Bolos personalizados</a></li>
-                        <li><a href="pages/pedido-personalizado.html">Pedido personalizado</a></li>
+                        <li><a href="pages/linha-classica.html">🌿 Linha Clássica R$4</a></li>
+                        <li><a href="pages/linha-exclusiva.html">💎 Linha Exclusiva</a></li>
+                        <li><a href="pages/linha-afetiva.html">🌸 Linha Afetiva R$2,50</a></li>
+                        <li><a href="pages/pedido-personalizado.html">Encomenda sob medida</a></li>
                     </ul>
                 </nav>
                 <div class="footer-social">
                     <span class="footer-links-title">Contato</span>
                     <div class="footer-links">
-                        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                        <a href="https://www.instagram.com/candylidoces/" target="_blank" rel="noopener noreferrer" aria-label="Candy Li no Instagram">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         Instagram
                     </a>
-                    <a href="https://wa.me/5599999999999?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <a href="https://wa.me/5519981178167?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Candy%20Li%20e%20gostaria%20de%20encomendar%20doces%20finos." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         WhatsApp
                     </a>
@@ -413,10 +403,10 @@
                 <input type="tel" id="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
                 <label for="email-cliente">E-mail *</label>
                 <input type="email" id="email-cliente" placeholder="seu@email.com" required autocomplete="email">
-                <p class="carrinho-form-section-title">Dados do evento</p>
-                <label for="data-evento">Data do evento *</label>
+                <p class="carrinho-form-section-title">Sua celebraÃ§Ã£o</p>
+                <label for="data-evento">Data da celebraÃ§Ã£o *</label>
                 <input type="date" id="data-evento" required>
-                <label for="tipo-evento">Tipo de evento *</label>
+                <label for="tipo-evento">OcasiÃ£o *</label>
                 <input type="text" id="tipo-evento" placeholder="Casamento, aniversário, corporativo..." required>
                 <label for="convidados">Número de convidados *</label>
                 <input type="number" id="convidados" min="1" step="1" placeholder="Ex: 80" required>

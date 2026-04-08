@@ -286,7 +286,7 @@
             var fresh = getOrcamentoPorId(orcamentoAtual.id);
             if (!fresh) return;
             var msg = montarWhatsAppDetalhe(fresh);
-            var tel = (CONFIG && CONFIG.telefoneWhatsApp) ? CONFIG.telefoneWhatsApp : "5547999999999";
+            var tel = (CONFIG && CONFIG.telefoneWhatsApp) ? CONFIG.telefoneWhatsApp : "5519981178167";
             window.open("https://wa.me/" + tel + "?text=" + encodeURIComponent(msg), "_blank");
         });
 

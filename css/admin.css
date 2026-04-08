@@ -1,7 +1,7 @@
 /* Área administrativa — orçamentos */
 .admin-body {
     margin: 0;
-    font-family: "Outfit", system-ui, sans-serif;
+    font-family: "Manrope", system-ui, sans-serif;
     background: #f5f0ea;
     color: #3d2c24;
     min-height: 100vh;
@@ -43,7 +43,7 @@
 
 .admin-card h1,
 .admin-card h2 {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     margin-top: 0;
     color: #5c4033;
 }
@@ -207,7 +207,7 @@
 }
 
 .admin-secao-titulo {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-size: 1.25rem;
     color: #5c4033;
     margin: 1.5rem 0 0.75rem 0;
@@ -260,7 +260,7 @@
 
 .dashboard-chart h2 {
     margin-top: 0;
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     color: #5c4033;
 }
 
