@@ -217,6 +217,62 @@
     color: var(--marrom);
 }
 
+.carrinho-item-controles--com-qty {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.carrinho-item-qty-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+    max-width: 100%;
+}
+
+.carrinho-item-qty-input {
+    width: 2.75rem;
+    min-width: 2.5rem;
+    max-width: 4.5rem;
+    padding: 0.2rem 0.15rem;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--marrom);
+    border-radius: 4px;
+    line-height: 1.2;
+}
+
+.carrinho-item-qty-input:focus {
+    outline: 2px solid var(--accent-rose-muted, rgba(196, 165, 175, 0.6));
+    outline-offset: 1px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.carrinho-item-qty-hint {
+    margin: 0;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--marrom);
+    opacity: 0.72;
+    line-height: 1.25;
+    text-align: right;
+    max-width: 11rem;
+}
+
+.carrinho-item-qty button:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+}
+
+.carrinho-item-qty button:disabled:hover {
+    background: transparent;
+}
+
 .carrinho-item-remove {
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
@@ -424,6 +480,12 @@
     .carrinho-item-qty button {
         min-width: 44px;
         min-height: 44px;
+    }
+
+    .carrinho-item-qty-input {
+        min-height: 44px;
+        width: 3rem;
+        font-size: 1rem;
     }
 
     .carrinho-toggle {

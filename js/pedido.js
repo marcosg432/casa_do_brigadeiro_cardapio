@@ -3,15 +3,36 @@
  * Ordem: montar objeto → salvar em localStorage ("orcamentos") → WhatsApp → limpar carrinho → UI
  */
 
+function qtdMinDoItemCarrinho(item) {
+    var m = parseInt(item && item.qtdMin != null ? item.qtdMin : 1, 10);
+    if (!Number.isFinite(m) || m < 1) return 1;
+    return m;
+}
+
+function validarQuantidadesCarrinho() {
+    for (var i = 0; i < carrinho.length; i++) {
+        var item = carrinho[i];
+        if (!item) continue;
+        var min = qtdMinDoItemCarrinho(item);
+        var q = parseInt(String(item.quantidade), 10);
+        if (!Number.isFinite(q) || q < min) {
+            return "A quantidade de \"" + String(item.nome || "").replace(/"/g, "'") + "\" deve ser no mínimo " + min + " unidade(s). Ajuste no carrinho e tente novamente.";
+        }
+    }
+    return null;
+}
+
 function montarItensOrcamentoDoCarrinho() {
     return carrinho.map(function (item) {
         var subtotal = Math.round(item.preco * item.quantidade * 100) / 100;
+        var min = qtdMinDoItemCarrinho(item);
         return {
             nome: item.nome,
             quantidade: item.quantidade,
             preco: item.preco,
             preco_unitario: item.preco,
-            subtotal: subtotal
+            subtotal: subtotal,
+            qtd_min: min
         };
     });
 }
@@ -89,6 +110,12 @@ function validarFormularioOrcamento() {
 function gerarOrcamento() {
     if (carrinho.length === 0) {
         alert("Adicione itens ao orçamento antes de gerar.");
+        return;
+    }
+
+    var errQtd = validarQuantidadesCarrinho();
+    if (errQtd) {
+        alert(errQtd);
         return;
     }
 

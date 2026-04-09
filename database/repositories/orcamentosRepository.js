@@ -1,5 +1,33 @@
 const { getDb } = require('../db');
 
+/**
+ * Garante que cada item do orçamento respeita quantidade mínima (qtd_min / qtdMin).
+ * @param {object} obj - payload do orçamento
+ * @returns {string|null} mensagem de erro ou null
+ */
+function validarQuantidadesItensOrcamento(obj) {
+  if (!obj || typeof obj !== 'object') return null;
+  const itens = obj.itens;
+  if (itens == null) return null;
+  if (!Array.isArray(itens)) {
+    return 'Campo "itens" deve ser uma lista.';
+  }
+  for (let i = 0; i < itens.length; i++) {
+    const it = itens[i];
+    if (!it || typeof it !== 'object') continue;
+    const min = Math.max(
+      1,
+      parseInt(it.qtd_min != null ? it.qtd_min : it.qtdMin != null ? it.qtdMin : 1, 10) || 1
+    );
+    const q = parseInt(it.quantidade, 10);
+    const nome = String(it.nome || 'Produto').slice(0, 120);
+    if (!Number.isFinite(q) || q < min) {
+      return `Quantidade inválida para "${nome}": o pedido mínimo é ${min} unidade(s).`;
+    }
+  }
+  return null;
+}
+
 function listar() {
   const db = getDb();
   const rows = db.prepare(
@@ -16,6 +44,8 @@ function buscarPorId(id) {
 }
 
 function inserir(obj) {
+  const errQtd = validarQuantidadesItensOrcamento(obj);
+  if (errQtd) throw new Error(errQtd);
   const db = getDb();
   const id = Number(obj.id);
   if (!id || Number.isNaN(id)) {
@@ -39,6 +69,8 @@ function atualizar(id, patch) {
   if (!atual) return null;
   const merged = Object.assign({}, atual, patch);
   merged.id = Number(id);
+  const errQtd = validarQuantidadesItensOrcamento(merged);
+  if (errQtd) throw new Error(errQtd);
   const db = getDb();
   const now = new Date().toISOString();
   db.prepare(`
@@ -48,6 +80,8 @@ function atualizar(id, patch) {
 }
 
 function substituir(obj) {
+  const errQtd = validarQuantidadesItensOrcamento(obj);
+  if (errQtd) throw new Error(errQtd);
   const id = Number(obj.id);
   if (!id) throw new Error('id inválido');
   const db = getDb();
