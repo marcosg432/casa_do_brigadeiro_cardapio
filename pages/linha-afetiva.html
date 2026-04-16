@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="pagina-linha-afetiva">
     <button type="button" class="scroll-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
@@ -49,10 +49,12 @@
         </nav>
     </header>
 
-    <section class="page-hero">
-        <h1>🌸 Linha Afetiva R$2,50</h1>
-        <p>Sabores que despertam memórias e aquecem o coração.</p>
-        <p>Doces tradicionais que marcaram gerações, reinterpretados com o cuidado artesanal e a delicadeza que tornam cada detalhe especial.</p>
+    <section class="page-hero page-hero--linha-afetiva" aria-labelledby="titulo-linha-afetiva">
+        <div class="page-hero-inner">
+            <h1 id="titulo-linha-afetiva">🌸 Linha Afetiva R$2,50</h1>
+            <p>Sabores que despertam memórias e aquecem o coração.</p>
+            <p>Doces tradicionais que marcaram gerações, reinterpretados com o cuidado artesanal e a delicadeza que tornam cada detalhe especial.</p>
+        </div>
     </section>
     <main class="container">
         <div class="doces-grid produtos-grid">
@@ -60,6 +62,66 @@
                 <div class="produto-img" style="background-image: url('../assets/linha-afetiva/linha-afetiva-brigadeiro-tradicional.webp');"></div>
                 <div class="produto-content">
                     <h3>Brigadeiro tradicional</h3>
+                    <div class="produto-buttons">
+                        <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        <button type="button" class="btn-saiba-mais">Saiba mais</button>
+                    </div>
+                </div>
+            </article>
+            <article class="produto-card" data-produto-imagem="../assets/linha-afetiva/linha-afetiva-brigadeiro-ninho-nutella.jpeg" data-produto-nome="Brigadeiro de ninho com Nutella" data-produto-preco="2.5" data-produto-descricao="Brigadeiro de leite em pó tipo ninho com recheio ou centro de Nutella — combinação cremosa na linha afetiva." data-produto-ingredientes="Leite condensado | Leite em pó | Chocolate Nutella | Manteiga" data-produto-pedido="R$ 2,50">
+                <div class="produto-img" style="background-image: url('../assets/linha-afetiva/linha-afetiva-brigadeiro-ninho-nutella.jpeg');"></div>
+                <div class="produto-content">
+                    <h3>Brigadeiro de ninho com Nutella</h3>
+                    <div class="produto-buttons">
+                        <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        <button type="button" class="btn-saiba-mais">Saiba mais</button>
+                    </div>
+                </div>
+            </article>
+            <article class="produto-card" data-produto-imagem="../assets/linha-afetiva/linha-afetiva-brisa-de-cafe.webp" data-produto-nome="Brisa de café" data-produto-preco="2.5" data-produto-descricao="Doce leve com notas suaves de café na proposta afetiva da casa — textura delicada e sabor que combina tradição e carinho." data-produto-ingredientes="Chocolate branco | Café | Leite condensado | Manteiga" data-produto-pedido="R$ 2,50">
+                <div class="produto-img" style="background-image: url('../assets/linha-afetiva/linha-afetiva-brisa-de-cafe.webp');"></div>
+                <div class="produto-content">
+                    <h3>Brisa de café</h3>
+                    <div class="produto-buttons">
+                        <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        <button type="button" class="btn-saiba-mais">Saiba mais</button>
+                    </div>
+                </div>
+            </article>
+            <article class="produto-card" data-produto-imagem="../assets/linha-afetiva/linha-afetiva-dois-amores.webp" data-produto-nome="Dois amores" data-produto-preco="2.5" data-produto-descricao="O encontro do chocolate e do creme branco em um doce caseiro — textura cremosa e sabor marcante na linha afetiva." data-produto-ingredientes="Leite condensado | Chocolate | Leite em pó | Manteiga" data-produto-pedido="R$ 2,50">
+                <div class="produto-img" style="background-image: url('../assets/linha-afetiva/linha-afetiva-dois-amores.webp');"></div>
+                <div class="produto-content">
+                    <h3>Dois amores</h3>
+                    <div class="produto-buttons">
+                        <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        <button type="button" class="btn-saiba-mais">Saiba mais</button>
+                    </div>
+                </div>
+            </article>
+            <article class="produto-card" data-produto-imagem="../assets/linha-afetiva/linha-afetiva-brigadeiro-nutella.webp" data-produto-nome="Brigadeiro de Nutella" data-produto-preco="2.5" data-produto-descricao="Brigadeiro cremoso com chocolate de avelã e Nutella na linha afetiva — sabor intenso e textura de festa em casa." data-produto-ingredientes="Leite condensado | Chocolate Nutella | Chocolate em pó | Manteiga" data-produto-pedido="R$ 2,50">
+                <div class="produto-img produto-img--enquadre-nutella" style="background-image: url('../assets/linha-afetiva/linha-afetiva-brigadeiro-nutella.webp');"></div>
+                <div class="produto-content">
+                    <h3>Brigadeiro de Nutella</h3>
+                    <div class="produto-buttons">
+                        <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        <button type="button" class="btn-saiba-mais">Saiba mais</button>
+                    </div>
+                </div>
+            </article>
+            <article class="produto-card produto-card--foto-alta-brulee" data-produto-imagem="../assets/linha-afetiva/linha-afetiva-brigadeiro-creme-brulee.webp" data-produto-nome="Brigadeiro de creme Brûlée" data-produto-preco="2.5" data-produto-descricao="Brigadeiro cremoso com inspiração em crème brûlée — notas de baunilha e caramelo na linha afetiva." data-produto-ingredientes="Leite condensado | Creme de leite | Baunilha | Açúcar | Chocolate branco" data-produto-pedido="R$ 2,50">
+                <div class="produto-img" style="background-image: url('../assets/linha-afetiva/linha-afetiva-brigadeiro-creme-brulee.webp');"></div>
+                <div class="produto-content">
+                    <h3>Brigadeiro de creme Brûlée</h3>
+                    <div class="produto-buttons">
+                        <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        <button type="button" class="btn-saiba-mais">Saiba mais</button>
+                    </div>
+                </div>
+            </article>
+            <article class="produto-card" data-produto-imagem="../assets/linha-afetiva/linha-afetiva-brigadeiro-limao-siciliano.webp" data-produto-nome="Brigadeiro de limão siciliano" data-produto-preco="2.5" data-produto-descricao="Brigadeiro com limão siciliano na linha afetiva — frescor cítrico e textura cremosa." data-produto-ingredientes="Leite condensado | Limão siciliano | Chocolate branco | Manteiga" data-produto-pedido="R$ 2,50">
+                <div class="produto-img produto-img--enquadre-limao-siciliano" style="background-image: url('../assets/linha-afetiva/linha-afetiva-brigadeiro-limao-siciliano.webp');"></div>
+                <div class="produto-content">
+                    <h3>Brigadeiro de limão siciliano</h3>
                     <div class="produto-buttons">
                         <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                         <button type="button" class="btn-saiba-mais">Saiba mais</button>

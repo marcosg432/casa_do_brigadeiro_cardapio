@@ -245,7 +245,15 @@ function initProdutoModal() {
         const ingredientesStr = card.dataset.produtoIngredientes || '';
         const pedido = card.dataset.produtoPedido || card.querySelector('.produto-preco')?.textContent || '';
         modalImg.style.backgroundImage = imagem ? `url('${imagem}')` : 'none';
-        modalImg.style.backgroundPosition = card.classList.contains('doces-img-foco-medio') ? '50% 38%' : '';
+        const imgDiv = card.querySelector('.produto-img, .produto-img-home');
+        const imgEl = card.querySelector('.img-container img, .produto-img-container img');
+        if (imgDiv) {
+            modalImg.style.backgroundPosition = getComputedStyle(imgDiv).backgroundPosition || '';
+        } else if (imgEl) {
+            modalImg.style.backgroundPosition = getComputedStyle(imgEl).objectPosition || '';
+        } else {
+            modalImg.style.backgroundPosition = '';
+        }
         modalNome.textContent = nome || 'Produto';
         modalDescricao.textContent = descricao;
         modalDescricao.style.display = descricao ? '' : 'none';

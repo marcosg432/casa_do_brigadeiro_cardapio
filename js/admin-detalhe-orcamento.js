@@ -127,6 +127,29 @@
         document.getElementById("view-entrega").textContent = (o.entrega || o.entrega_retirada || "") + (o.endereco ? " — " + o.endereco : "");
         document.getElementById("view-obs").textContent = o.observacoes || "—";
 
+        function setCampoContrato(id, valor) {
+            var el = document.getElementById(id);
+            if (el) el.value = valor != null && valor !== "" ? String(valor) : "";
+        }
+        setCampoContrato("contrato-numero-exibicao", o.contrato_numero_exibicao);
+        setCampoContrato("contrato-cliente-rg", o.cliente_rg);
+        setCampoContrato("contrato-cliente-cpf", o.cliente_cpf);
+        setCampoContrato("contrato-cliente-nasc", o.cliente_data_nascimento);
+        setCampoContrato("contrato-cliente-endereco", o.cliente_endereco_linha);
+        setCampoContrato("contrato-cliente-cep", o.cliente_cep);
+        setCampoContrato("contrato-telefone-fixo", o.telefone_fixo);
+        setCampoContrato("contrato-contato-nome", o.contato_nome);
+        setCampoContrato("contrato-contato-celular", o.contato_celular);
+        setCampoContrato("contrato-local-festa", o.evento_local_festa);
+        setCampoContrato("contrato-horario-entrega", o.evento_horario_entrega);
+        setCampoContrato("contrato-local-cerimonia", o.evento_local_cerimonia);
+        setCampoContrato("contrato-horario-festa", o.evento_horario_festa);
+        setCampoContrato("contrato-cerimonialista", o.evento_cerimonialista);
+        setCampoContrato("contrato-cerimonialista-tel", o.evento_cerimonialista_tel);
+        setCampoContrato("contrato-fotografo", o.evento_fotografo);
+        setCampoContrato("contrato-fotografo-tel", o.evento_fotografo_tel);
+        setCampoContrato("contrato-quitado-em", o.pagamento_valor_quitado_em);
+
         var ul = document.getElementById("lista-itens");
         ul.innerHTML = "";
         (o.itens || []).forEach(function (it) {
@@ -214,7 +237,25 @@
             entrada: entrada,
             restante: restante,
             data_pagamento_entrada: strInput("data-pag-entrada") || null,
-            data_pagamento_final: strInput("data-pag-final") || null
+            data_pagamento_final: strInput("data-pag-final") || null,
+            contrato_numero_exibicao: strInput("contrato-numero-exibicao") || null,
+            cliente_rg: strInput("contrato-cliente-rg") || null,
+            cliente_cpf: strInput("contrato-cliente-cpf") || null,
+            cliente_data_nascimento: strInput("contrato-cliente-nasc") || null,
+            cliente_endereco_linha: strInput("contrato-cliente-endereco") || null,
+            cliente_cep: strInput("contrato-cliente-cep") || null,
+            telefone_fixo: strInput("contrato-telefone-fixo") || null,
+            contato_nome: strInput("contrato-contato-nome") || null,
+            contato_celular: strInput("contrato-contato-celular") || null,
+            evento_local_festa: strInput("contrato-local-festa") || null,
+            evento_horario_entrega: strInput("contrato-horario-entrega") || null,
+            evento_local_cerimonia: strInput("contrato-local-cerimonia") || null,
+            evento_horario_festa: strInput("contrato-horario-festa") || null,
+            evento_cerimonialista: strInput("contrato-cerimonialista") || null,
+            evento_cerimonialista_tel: strInput("contrato-cerimonialista-tel") || null,
+            evento_fotografo: strInput("contrato-fotografo") || null,
+            evento_fotografo_tel: strInput("contrato-fotografo-tel") || null,
+            pagamento_valor_quitado_em: strInput("contrato-quitado-em") || null
         };
     }
 

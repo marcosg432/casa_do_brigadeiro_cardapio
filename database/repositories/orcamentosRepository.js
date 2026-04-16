@@ -12,13 +12,16 @@ function validarQuantidadesItensOrcamento(obj) {
   if (!Array.isArray(itens)) {
     return 'Campo "itens" deve ser uma lista.';
   }
+  const PADRAO_MIN = 50;
   for (let i = 0; i < itens.length; i++) {
     const it = itens[i];
     if (!it || typeof it !== 'object') continue;
-    const min = Math.max(
-      1,
-      parseInt(it.qtd_min != null ? it.qtd_min : it.qtdMin != null ? it.qtdMin : 1, 10) || 1
+    const rawMin = parseInt(
+      it.qtd_min != null ? it.qtd_min : it.qtdMin != null ? it.qtdMin : PADRAO_MIN,
+      10
     );
+    const min =
+      !Number.isFinite(rawMin) || rawMin < 1 ? PADRAO_MIN : Math.max(PADRAO_MIN, rawMin);
     const q = parseInt(it.quantidade, 10);
     const nome = String(it.nome || 'Produto').slice(0, 120);
     if (!Number.isFinite(q) || q < min) {

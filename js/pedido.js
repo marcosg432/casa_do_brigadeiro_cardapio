@@ -4,9 +4,17 @@
  */
 
 function qtdMinDoItemCarrinho(item) {
-    var m = parseInt(item && item.qtdMin != null ? item.qtdMin : 1, 10);
-    if (!Number.isFinite(m) || m < 1) return 1;
-    return m;
+    if (typeof resolverQtdMin === 'function') {
+        return resolverQtdMin(item && item.qtdMin != null ? item.qtdMin : null);
+    }
+    var padrao = 50;
+    if (typeof CONFIG !== 'undefined' && CONFIG.pedidoMinimoUnidades != null) {
+        var p = parseInt(String(CONFIG.pedidoMinimoUnidades), 10);
+        if (Number.isFinite(p) && p >= 1) padrao = p;
+    }
+    var m = parseInt(item && item.qtdMin != null ? item.qtdMin : padrao, 10);
+    if (!Number.isFinite(m) || m < 1) return padrao;
+    return Math.max(padrao, m);
 }
 
 function validarQuantidadesCarrinho() {
@@ -57,8 +65,17 @@ function montarMensagemOrcamento(orcId) {
     var observacao = campoTrimOrcamento("observacao");
 
     var valorOriginal = calcularTotal();
+    var minPadrao = 50;
+    if (typeof getPedidoMinimoPadrao === 'function') {
+        minPadrao = getPedidoMinimoPadrao();
+    } else if (typeof CONFIG !== 'undefined' && CONFIG.pedidoMinimoUnidades != null) {
+        var mp = parseInt(String(CONFIG.pedidoMinimoUnidades), 10);
+        if (Number.isFinite(mp) && mp >= 1) minPadrao = mp;
+    }
+
     var msg = "NOVO ORÇAMENTO\n";
     msg += "Ref: " + orcId + "\n\n";
+    msg += "Pedido mínimo (padrão): " + minPadrao + " un. por produto e sabor.\n\n";
     msg += "ITENS (pré-orçamento):\n";
     carrinho.forEach(function (item) {
         var subtotal = item.preco * item.quantidade;

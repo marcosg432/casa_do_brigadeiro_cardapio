@@ -135,6 +135,19 @@
     padding: 1rem 1.5rem;
 }
 
+/* Aviso de pedido mínimo global (valor em CONFIG.pedidoMinimoUnidades) */
+.carrinho-pedido-minimo-aviso {
+    margin: 0 0 1rem 0;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--text-secondary);
+    background: rgba(196, 165, 175, 0.08);
+    border: 1px solid var(--accent-rose-line);
+    border-radius: var(--radius-sm, 12px);
+}
+
 /* Lista de itens */
 #lista-carrinho {
     list-style: none;

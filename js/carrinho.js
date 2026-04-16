@@ -9,27 +9,41 @@ let carrinho = [];
 const QTD_LISTA_DELEGATED = 'data-carrinho-qty-delegated';
 
 /**
- * Quantidade mínima por item (inteiro >= 1)
+ * Pedido mínimo global (unidades por produto/sabor), configurável em config.js
+ * @returns {number}
+ */
+function getPedidoMinimoPadrao() {
+    if (typeof CONFIG !== 'undefined' && CONFIG.pedidoMinimoUnidades != null) {
+        const n = parseInt(String(CONFIG.pedidoMinimoUnidades), 10);
+        if (Number.isFinite(n) && n >= 1) return n;
+    }
+    return 50;
+}
+
+/**
+ * Quantidade mínima por item: padrão do CONFIG; valor explícito no card não pode ser menor que o padrão.
  * @param {*} v
  * @returns {number}
  */
 function resolverQtdMin(v) {
+    const padrao = getPedidoMinimoPadrao();
+    if (v == null || v === '') return padrao;
     const n = parseInt(String(v), 10);
-    if (!Number.isFinite(n) || n < 1) return 1;
-    return n;
+    if (!Number.isFinite(n) || n < 1) return padrao;
+    return Math.max(padrao, n);
 }
 
 /**
- * Lê data-produto-qtd-min do card (ou 1)
+ * Lê data-produto-qtd-min do card (opcional); sem atributo usa o pedido mínimo global.
  * @param {HTMLElement} card
  * @returns {number}
  */
 function lerQtdMinDoCard(card) {
-    if (!card) return 1;
+    if (!card) return getPedidoMinimoPadrao();
     const raw = card.dataset.produtoQtdMin != null
         ? card.dataset.produtoQtdMin
         : card.getAttribute('data-produto-qtd-min');
-    return resolverQtdMin(raw != null && raw !== '' ? raw : 1);
+    return resolverQtdMin(raw != null && raw !== '' ? raw : null);
 }
 
 /**
@@ -38,7 +52,7 @@ function lerQtdMinDoCard(card) {
  * @returns {object}
  */
 function normalizarItemCarrinho(item) {
-    const min = resolverQtdMin(item.qtdMin);
+    const min = resolverQtdMin(item != null ? item.qtdMin : null);
     let q = parseInt(String(item.quantidade), 10);
     if (!Number.isFinite(q) || q < 1) q = min;
     if (q < min) q = min;
@@ -99,7 +113,7 @@ function vincularDelegacaoQuantidadeLista(listaEl) {
  * Adiciona produto ao carrinho ou aumenta quantidade se já existir
  * @param {string} nome - Nome do produto
  * @param {number} preco - Preço unitário
- * @param {number} [qtdMinProduto] - Pedido mínimo (padrão 1); na 1ª inclusão a quantidade inicia neste valor
+ * @param {number} [qtdMinProduto] - Pedido mínimo (padrão CONFIG); na 1ª inclusão a quantidade inicia neste valor
  */
 function adicionarCarrinho(nome, preco, qtdMinProduto) {
     const precoNum = typeof preco === 'number' ? preco : parseFloat(String(preco).replace(',', '.')) || 0;
@@ -313,8 +327,27 @@ function initCarrinho() {
         });
     });
 
+    garantirAvisoPedidoMinimoGlobal();
     atualizarCarrinho();
     atualizarBadge();
+}
+
+/**
+ * Texto fixo no painel do orçamento sobre o pedido mínimo por produto (valor vindo de CONFIG).
+ */
+function garantirAvisoPedidoMinimoGlobal() {
+    const lista = document.getElementById('lista-carrinho');
+    if (!lista || !lista.parentNode) return;
+    let el = document.getElementById('carrinho-pedido-minimo-aviso');
+    if (!el) {
+        el = document.createElement('p');
+        el.id = 'carrinho-pedido-minimo-aviso';
+        el.className = 'carrinho-pedido-minimo-aviso';
+        el.setAttribute('role', 'note');
+        lista.parentNode.insertBefore(el, lista);
+    }
+    const min = getPedidoMinimoPadrao();
+    el.textContent = 'Pedido mínimo de ' + min + ' unidades por produto e por sabor (padrão do cardápio).';
 }
 
 document.addEventListener('DOMContentLoaded', initCarrinho);

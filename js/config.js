@@ -12,6 +12,11 @@ const CONFIG = {
     storageId: "senna_doce",
     /** Nome da confeitaria exibido no site, PDFs, WhatsApp e admin */
     nomeEmpresa: "Candy Li Doces Finos",
+    /**
+     * Pedido mínimo em unidades por produto e por sabor (orçamento / cardápio).
+     * Usado como padrão para todos os itens; `data-produto-qtd-min` no card só pode aumentar esse mínimo.
+     */
+    pedidoMinimoUnidades: 50,
     /** Senha da área administrativa (troque em produção) */
     senhaAdmin: "senna2025",
     /** Chaves de status (espelho do banco / fluxo) */
@@ -34,6 +39,18 @@ const CONFIG = {
         fechado: "Fechado",
         perdido: "Perdido"
     },
+    /**
+     * Dados da CONTRATADA no contrato de prestação de serviços (PDF admin).
+     * Ajuste nome, CPF e endereço conforme documento da empresa.
+     */
+    contratadaLegal: {
+        nome: "ALINE FERNANDA MANOEL",
+        cpf: "334.444.138.82",
+        endereco: "Rua Raul Dantas Darce, 171, Piracicaba / SP"
+    },
+    /** Texto exibido na cláusula de pagamento (PIX / comprovante) */
+    contratoPixCnpj: "41.919.042/0001-08",
+    contratoEmailsComprovante: "candylidoces@hotmail.com",
     /** Dias de validade exibidos no PDF do orçamento */
     validadeOrcamentoDias: 15,
     /**

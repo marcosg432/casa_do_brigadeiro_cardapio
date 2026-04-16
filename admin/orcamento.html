@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -40,6 +40,78 @@
                 <p><strong>Local:</strong> <span id="view-local"></span></p>
                 <p><strong>Entrega / retirada:</strong> <span id="view-entrega"></span></p>
                 <p><strong>Observações:</strong> <span id="view-obs"></span></p>
+
+                <details class="admin-contrato-anexo" open>
+                    <summary class="admin-contrato-anexo-sumario">Anexo contratual (PDF) — dados opcionais</summary>
+                    <p class="admin-contrato-anexo-hint">Preencha para o contrato sair completo como na planilha (RG, CPF, horários, cerimonialista etc.). O que ficar em branco aparece como “—” no PDF.</p>
+                    <label for="contrato-numero-exibicao">Nº do contrato (exibição no PDF)</label>
+                    <input type="text" id="contrato-numero-exibicao" placeholder="Ex.: 2027346 — vazio usa o ID do orçamento" autocomplete="off">
+                    <div class="admin-grid-2">
+                        <div>
+                            <label for="contrato-cliente-rg">RG</label>
+                            <input type="text" id="contrato-cliente-rg" autocomplete="off">
+                        </div>
+                        <div>
+                            <label for="contrato-cliente-cpf">CPF</label>
+                            <input type="text" id="contrato-cliente-cpf" autocomplete="off">
+                        </div>
+                    </div>
+                    <label for="contrato-cliente-nasc">Data de nascimento (cliente)</label>
+                    <input type="date" id="contrato-cliente-nasc">
+                    <label for="contrato-cliente-endereco">Endereço (logradouro, cidade)</label>
+                    <input type="text" id="contrato-cliente-endereco" placeholder="Se vazio, pode usar o local do evento no PDF onde aplicável" autocomplete="street-address">
+                    <label for="contrato-cliente-cep">CEP</label>
+                    <input type="text" id="contrato-cliente-cep" inputmode="numeric" autocomplete="postal-code">
+                    <div class="admin-grid-2">
+                        <div>
+                            <label for="contrato-telefone-fixo">Telefone fixo</label>
+                            <input type="tel" id="contrato-telefone-fixo" autocomplete="tel">
+                        </div>
+                        <div>
+                            <label for="contrato-contato-nome">Nome de contato (evento)</label>
+                            <input type="text" id="contrato-contato-nome" autocomplete="name">
+                        </div>
+                    </div>
+                    <label for="contrato-contato-celular">Celular (contato)</label>
+                    <input type="tel" id="contrato-contato-celular" autocomplete="tel">
+                    <h3 class="admin-secao-titulo">Evento (anexo)</h3>
+                    <label for="contrato-local-festa">Local da festa</label>
+                    <input type="text" id="contrato-local-festa" placeholder="Se vazio, usa o campo Local do orçamento">
+                    <div class="admin-grid-2">
+                        <div>
+                            <label for="contrato-horario-entrega">Horário de entrega</label>
+                            <input type="text" id="contrato-horario-entrega" placeholder="Ex.: 14h">
+                        </div>
+                        <div>
+                            <label for="contrato-horario-festa">Horário da festa</label>
+                            <input type="text" id="contrato-horario-festa" placeholder="Ex.: 17h">
+                        </div>
+                    </div>
+                    <label for="contrato-local-cerimonia">Local da cerimônia</label>
+                    <input type="text" id="contrato-local-cerimonia">
+                    <div class="admin-grid-2">
+                        <div>
+                            <label for="contrato-cerimonialista">Cerimonialista</label>
+                            <input type="text" id="contrato-cerimonialista">
+                        </div>
+                        <div>
+                            <label for="contrato-cerimonialista-tel">Telefone (cerimonialista)</label>
+                            <input type="tel" id="contrato-cerimonialista-tel">
+                        </div>
+                    </div>
+                    <div class="admin-grid-2">
+                        <div>
+                            <label for="contrato-fotografo">Fotógrafo</label>
+                            <input type="text" id="contrato-fotografo">
+                        </div>
+                        <div>
+                            <label for="contrato-fotografo-tel">Telefone (fotógrafo)</label>
+                            <input type="tel" id="contrato-fotografo-tel">
+                        </div>
+                    </div>
+                    <label for="contrato-quitado-em">Valor quitado em (data)</label>
+                    <input type="date" id="contrato-quitado-em">
+                </details>
 
                 <h2>Itens</h2>
                 <ul id="lista-itens"></ul>

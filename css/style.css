@@ -83,6 +83,29 @@
     --bp-tablet: 992px;
     --bp-mobile: 768px;
     --bp-mobile-small: 480px;
+
+    /* Faixa da foto: estilo delivery (cover, largura total, altura fixa) */
+    --produto-foto-altura: 300px;
+    --produto-modal-foto-altura: 340px;
+    /* Foco do produto em fotos verticais (doce no topo da imagem): % menor = mais peso no topo */
+    --produto-img-position: center 32%;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --produto-foto-altura: 288px;
+    }
+}
+
+/* Linha Afetiva: brigadeiros frequentemente no terço superior da foto */
+body.pagina-linha-afetiva {
+    --produto-img-position: center 22%;
+}
+
+@media (max-width: 480px) {
+    :root {
+        --produto-foto-altura: 268px;
+    }
 }
 
 /* Reset e Base */
@@ -145,7 +168,7 @@ ul {
 /* Container - respirado, alinhamento boutique */
 .container {
     width: 100%;
-    max-width: 1220px;
+    max-width: 1380px;
     margin: 0 auto;
     padding: 0 clamp(1.25rem, 4vw, 2.75rem);
 }
@@ -1078,8 +1101,8 @@ ul {
 }
 
 .categoria-img {
-    height: min(320px, 38vw);
-    min-height: 240px;
+    height: min(360px, 42vw);
+    min-height: 268px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1124,7 +1147,7 @@ ul {
 .produtos-grid-home {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(1.85rem, 4vw, 2.6rem);
+    gap: clamp(2.15rem, 4.5vw, 3.15rem);
 }
 
 @media (min-width: 576px) {
@@ -1136,7 +1159,7 @@ ul {
 @media (min-width: 769px) {
     .produtos-grid-home {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2.25rem;
+        gap: 2.75rem;
     }
 }
 
@@ -1208,14 +1231,44 @@ ul {
     border-color: rgba(196, 165, 175, 0.36);
 }
 
+/* Container da foto (largura 100%; <img> com cover + foco central, estilo apps de delivery). */
+.img-container,
+.produto-img-container {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    height: var(--produto-foto-altura);
+    min-height: var(--produto-foto-altura);
+    max-height: var(--produto-foto-altura);
+    overflow: hidden;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    background-color: var(--surface-elevated);
+}
+
+.img-container img,
+.produto-img-container img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--produto-img-position);
+    display: block;
+}
+
 .produto-img-home {
     position: relative;
-    height: min(280px, 32vw);
-    min-height: 220px;
+    height: var(--produto-foto-altura);
+    min-height: var(--produto-foto-altura);
+    max-height: var(--produto-foto-altura);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
     background-size: cover;
-    background-position: center;
+    background-position: var(--produto-img-position);
     background-repeat: no-repeat;
-    transition: transform 0.85s var(--ease-premium);
+    background-color: var(--surface-elevated);
+    transition: box-shadow 0.85s var(--ease-premium);
 }
 
 .produto-img-home::after {
@@ -1228,13 +1281,13 @@ ul {
 }
 
 .produto-card-home:hover .produto-img-home {
-    transform: scale(1.03);
+    box-shadow: inset 0 0 0 1px rgba(196, 165, 175, 0.12);
 }
 
 .produto-content-home {
     position: relative;
     z-index: 3;
-    padding: 1.95rem 1.75rem 2.1rem;
+    padding: 2.35rem 2rem 2.5rem;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -1243,7 +1296,7 @@ ul {
 
 .produto-content-home h3 {
     font-family: var(--fonte-titulo);
-    font-size: clamp(1.2rem, 1.95vw, 1.42rem);
+    font-size: clamp(1.3rem, 2.15vw, 1.55rem);
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
@@ -1629,6 +1682,112 @@ ul {
     color: var(--dourado);
 }
 
+/* Lembrancinhas — Caixas especiais em lista (tabela de preços, sem foto no card) */
+.caixas-especiais-lista {
+    max-width: 40rem;
+    margin: 0 auto clamp(3rem, 8vw, 5rem);
+    padding: clamp(1.75rem, 4vw, 2.35rem) clamp(1.25rem, 3vw, 1.75rem);
+    border-radius: var(--radius-md);
+    background:
+        radial-gradient(ellipse 120% 80% at 50% 0%, rgba(196, 165, 175, 0.1) 0%, transparent 55%),
+        linear-gradient(165deg, rgba(48, 28, 24, 0.45) 0%, rgba(15, 28, 38, 0.94) 100%);
+    border: 1px solid rgba(196, 165, 175, 0.16);
+    box-shadow: var(--shadow-card);
+}
+
+.caixas-especiais-grupo + .caixas-especiais-grupo {
+    margin-top: clamp(2rem, 5vw, 2.75rem);
+    padding-top: clamp(1.75rem, 4vw, 2.25rem);
+    border-top: 1px solid rgba(247, 243, 239, 0.1);
+}
+
+.caixas-especiais-grupo-titulo {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(2rem, 5vw, 2.65rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 1.25rem;
+    padding-left: 1rem;
+    border-left: 3px solid rgba(247, 243, 239, 0.38);
+    line-height: 1.15;
+}
+
+.caixas-especiais-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.caixas-especiais-ul li {
+    margin: 0;
+}
+
+.produto-card.caixas-especiais-item {
+    flex-direction: column;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(247, 243, 239, 0.1) !important;
+}
+
+.caixas-especiais-ul > li:last-child .produto-card.caixas-especiais-item {
+    border-bottom: none !important;
+}
+
+.produto-card.caixas-especiais-item::before,
+.produto-card.caixas-especiais-item::after {
+    display: none !important;
+}
+
+.produto-card.caixas-especiais-item:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(247, 243, 239, 0.1);
+}
+
+.produto-card.caixas-especiais-item .produto-content {
+    padding: 1.15rem 0.35rem 1.2rem;
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    .produto-card.caixas-especiais-item .produto-content {
+        padding-left: 0.65rem;
+        padding-right: 0.65rem;
+    }
+}
+
+.caixas-especiais-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.caixas-especiais-nome {
+    font-family: var(--fonte-corpo);
+    font-size: 1.02rem;
+    font-weight: 400;
+    color: rgba(247, 243, 239, 0.95);
+    line-height: 1.45;
+    flex: 1 1 12rem;
+}
+
+.caixas-especiais-preco {
+    font-family: var(--fonte-corpo);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.produto-card.caixas-especiais-item .produto-buttons {
+    margin-top: 0.65rem;
+}
+
 /* ============================================
    Páginas de Cardápio
    ============================================ */
@@ -1658,6 +1817,94 @@ ul {
     font-weight: 300;
     font-size: 1.05rem;
     line-height: 1.65;
+}
+
+/* Linha Afetiva — topo com foto de celebração (fundo + overlay para leitura) */
+.page-hero--linha-afetiva {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: none;
+}
+
+.page-hero--linha-afetiva::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/linha-afetiva/linha-afetiva-hero-celebracao.png');
+    background-size: cover;
+    background-position: center 38%;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.page-hero--linha-afetiva::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(15, 28, 38, 0.78) 0%, rgba(21, 42, 56, 0.5) 45%, rgba(15, 28, 38, 0.9) 100%),
+        radial-gradient(ellipse 90% 70% at 50% 35%, transparent 0%, rgba(15, 28, 38, 0.55) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.page-hero--linha-afetiva .page-hero-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.page-hero--linha-afetiva h1 {
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
+}
+
+.page-hero--linha-afetiva p {
+    color: rgba(252, 248, 244, 0.92);
+    text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Linha Exclusiva — topo com mesa de doces (fundo + overlay para leitura) */
+.page-hero--linha-exclusiva {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: none;
+}
+
+.page-hero--linha-exclusiva::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/linha-exclusiva/linha-exclusiva-categoria-home.webp');
+    background-size: cover;
+    background-position: center 42%;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.page-hero--linha-exclusiva::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(15, 28, 38, 0.82) 0%, rgba(21, 42, 56, 0.52) 48%, rgba(15, 28, 38, 0.92) 100%),
+        radial-gradient(ellipse 95% 65% at 50% 40%, transparent 0%, rgba(15, 28, 38, 0.5) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.page-hero--linha-exclusiva .page-hero-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.page-hero--linha-exclusiva h1 {
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
+}
+
+.page-hero--linha-exclusiva p {
+    color: rgba(252, 248, 244, 0.92);
+    text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
 }
 
 .cardapio-intro {
@@ -1698,8 +1945,8 @@ ul {
 .produtos-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(1.65rem, 3.5vw, 2.35rem);
-    padding: 2.25rem 0 4.5rem;
+    gap: clamp(2rem, 4vw, 2.9rem);
+    padding: 2.65rem 0 5.1rem;
 }
 
 @media (min-width: 576px) {
@@ -1711,7 +1958,7 @@ ul {
 @media (min-width: 769px) {
     .produtos-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 2.5rem;
     }
 }
 
@@ -1773,12 +2020,17 @@ ul {
 
 .produto-img {
     position: relative;
-    height: min(260px, 32vw);
-    min-height: 200px;
+    height: var(--produto-foto-altura);
+    min-height: var(--produto-foto-altura);
+    max-height: var(--produto-foto-altura);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
     background-size: cover;
-    background-position: center;
+    background-position: var(--produto-img-position);
     background-repeat: no-repeat;
-    transition: transform 0.85s var(--ease-premium);
+    background-color: var(--surface-elevated);
+    transition: box-shadow 0.85s var(--ease-premium);
 }
 
 .produto-img::after {
@@ -1791,13 +2043,31 @@ ul {
 }
 
 .produto-card:hover .produto-img {
-    transform: scale(1.03);
+    box-shadow: inset 0 0 0 1px rgba(196, 165, 175, 0.12);
+}
+
+/* Modificadores opcionais no HTML: enquadramento fino quando uma foto exige outro foco */
+.produto-img.produto-img--foco-topo,
+.doces-grid .produto-card .produto-img.produto-img--foco-topo {
+    background-position: center 14%;
+}
+.produto-img.produto-img--foco-centro,
+.doces-grid .produto-card .produto-img.produto-img--foco-centro {
+    background-position: center 50%;
+}
+.img-container img.produto-img--foco-topo,
+.produto-img-container img.produto-img--foco-topo {
+    object-position: center 14%;
+}
+.img-container img.produto-img--foco-centro,
+.produto-img-container img.produto-img--foco-centro {
+    object-position: center 50%;
 }
 
 .produto-content {
     position: relative;
     z-index: 3;
-    padding: 1.85rem 1.65rem 2rem;
+    padding: 2.25rem 2rem 2.45rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -1805,7 +2075,7 @@ ul {
 
 .produto-content h3 {
     font-family: var(--fonte-titulo);
-    font-size: clamp(1.18rem, 1.95vw, 1.36rem);
+    font-size: clamp(1.26rem, 2.1vw, 1.52rem);
     color: var(--text-primary);
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -1990,16 +2260,20 @@ ul {
 }
 
 .modal-produto-img {
-    height: 260px;
+    height: var(--produto-modal-foto-altura);
+    min-height: var(--produto-modal-foto-altura);
+    box-sizing: border-box;
+    padding: 0;
     background-size: cover;
-    background-position: center;
+    background-position: var(--produto-img-position);
     background-repeat: no-repeat;
+    background-color: var(--surface-elevated);
 }
 
 .modal-produto-body {
     padding: 1.75rem 2rem 2rem;
     overflow-y: auto;
-    max-height: calc(90vh - 260px);
+    max-height: calc(90vh - var(--produto-modal-foto-altura));
 }
 
 .modal-produto-nome {
@@ -2082,14 +2356,14 @@ ul {
     }
 
     .modal-produto-img {
-        height: 220px;
-        background-size: cover;
-        background-position: center;
+        height: var(--produto-modal-foto-altura);
+        min-height: var(--produto-modal-foto-altura);
     }
 
     .modal-produto-body {
         padding: 1.75rem 1.5rem 2rem;
-        max-height: calc(92vh - 220px);
+        max-height: calc(92vh - var(--produto-modal-foto-altura));
+        max-height: calc(92dvh - var(--produto-modal-foto-altura));
     }
 
     .modal-produto-nome {
@@ -2131,12 +2405,13 @@ ul {
     }
 
     .modal-produto-img {
-        height: 200px;
+        height: 280px;
+        min-height: 280px;
     }
 
     .modal-produto-body {
         padding: 1.5rem 1.25rem 1.75rem;
-        max-height: calc(95vh - 200px);
+        max-height: calc(95vh - 280px);
     }
 
     .modal-produto-nome {
@@ -2792,7 +3067,7 @@ article.bolos-pick-corte[aria-pressed='true'] {
 @media (min-width: 769px) {
     .doces-grid.produtos-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        gap: 2.05rem;
     }
 }
 
@@ -2808,42 +3083,38 @@ article.bolos-pick-corte[aria-pressed='true'] {
     }
 }
 
-/* Doces finos: cover + centro = preenche a faixa do card (sem barras laterais), proporção preservada, foco no meio (catálogo / apps). */
+/* Doces: cover + foco no produto (faixa cheia, sem barras laterais em fotos verticais). */
 .doces-grid .produto-card .produto-img {
-    height: 230px;
-    min-height: 230px;
-    max-height: 230px;
+    height: var(--produto-foto-altura);
+    min-height: var(--produto-foto-altura);
+    max-height: var(--produto-foto-altura);
     flex-shrink: 0;
     background-size: cover;
-    background-position: center center;
+    background-position: var(--produto-img-position);
     background-repeat: no-repeat;
     background-color: var(--surface-elevated);
     border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
-/* Fotos em que o doce está na região central com bastante “mesa”: 50% puro recorta feio; desloca o eixo vertical para o assunto ficar no miolo do card. */
-.doces-grid .produto-card.doces-img-foco-medio .produto-img {
-    background-position: 50% 38%;
-}
-
 .doces-grid .produto-card:hover .produto-img {
-    transform: scale(1.03);
+    box-shadow: inset 0 0 0 1px rgba(196, 165, 175, 0.12);
 }
 
-@media (max-width: 768px) {
-    .doces-grid .produto-card .produto-img {
-        height: 210px;
-        min-height: 210px;
-        max-height: 210px;
-    }
+/* Linha Afetiva — Brigadeiro de Nutella: enquadramento vertical da foto (mesma altura do card) */
+body.pagina-linha-afetiva .doces-grid .produto-card .produto-img.produto-img--enquadre-nutella {
+    background-position: center 85%;
 }
 
-@media (max-width: 480px) {
-    .doces-grid .produto-card .produto-img {
-        height: 200px;
-        min-height: 200px;
-        max-height: 200px;
-    }
+/* Linha Afetiva — Brigadeiro de limão siciliano: só reposiciona o recorte da foto (altura da faixa inalterada) */
+body.pagina-linha-afetiva .doces-grid .produto-card .produto-img.produto-img--enquadre-limao-siciliano {
+    background-position: center 48%;
+}
+
+/* Linha Afetiva — Brigadeiro de creme Brûlée: faixa de foto mais alta (só este card) */
+body.pagina-linha-afetiva .doces-grid .produto-card.produto-card--foto-alta-brulee .produto-img {
+    height: calc(var(--produto-foto-altura) + 5.25rem);
+    min-height: calc(var(--produto-foto-altura) + 5.25rem);
+    max-height: calc(var(--produto-foto-altura) + 5.25rem);
 }
 
 /* Bolos de Corte — grade e cards (pedido-personalizado.html) */
@@ -2994,7 +3265,7 @@ article.bolos-pick-corte[aria-pressed='true'] {
 
 body.pagina-doces-finos .modal-produto-img {
     background-size: cover;
-    background-position: center center;
+    background-position: var(--produto-img-position);
     background-color: var(--rosa-claro);
 }
 
@@ -3028,19 +3299,9 @@ body.pagina-doces-finos .modal-produto-img {
 }
 
 .sobremesas-grid .produto-img {
-    height: 260px;
-}
-
-@media (max-width: 768px) {
-    .sobremesas-grid .produto-img {
-        height: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .sobremesas-grid .produto-img {
-        height: 180px;
-    }
+    height: var(--produto-foto-altura);
+    min-height: var(--produto-foto-altura);
+    max-height: var(--produto-foto-altura);
 }
 
 /* Destaque para salgados */
@@ -3106,7 +3367,7 @@ body.pagina-doces-finos .modal-produto-img {
     .produtos-grid-home,
     .produtos-grid,
     .categoria-grid {
-        gap: 1.75rem;
+        gap: 2rem;
     }
 }
 
@@ -3513,11 +3774,11 @@ body.pagina-doces-finos .modal-produto-img {
     }
 
     .categoria-img {
-        height: 220px;
+        height: 248px;
     }
 
     .categoria-content {
-        padding: 1.75rem;
+        padding: 1.9rem;
     }
 
     .categoria-content h3 {
@@ -3530,11 +3791,6 @@ body.pagina-doces-finos .modal-produto-img {
         font-size: 1rem;
         line-height: 1.6;
         margin-bottom: 1.5rem;
-    }
-
-    .produto-img-home,
-    .produto-img {
-        height: 210px;
     }
 
     .produto-content-home,
@@ -3710,14 +3966,8 @@ body.pagina-doces-finos .modal-produto-img {
     }
 
     .categoria-img {
-        height: 220px;
-        min-height: 200px;
-    }
-
-    .produto-img-home,
-    .produto-img {
-        height: 230px;
-        min-height: 200px;
+        height: 248px;
+        min-height: 220px;
     }
 
     .galeria-item {
@@ -3784,25 +4034,20 @@ body.pagina-doces-finos .modal-produto-img {
     }
 
     .categoria-img {
-        height: 200px;
+        height: 220px;
     }
 
     .categoria-content {
-        padding: 1.5rem;
+        padding: 1.65rem;
     }
 
     .categoria-content h3 {
         font-size: 1.35rem;
     }
 
-    .produto-img-home,
-    .produto-img {
-        height: 195px;
-    }
-
     .produto-content-home,
     .produto-content {
-        padding: 1.25rem;
+        padding: 1.5rem 1.35rem 1.55rem;
     }
 
     .produto-content-home h3,
