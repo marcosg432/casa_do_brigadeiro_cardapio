@@ -3117,6 +3117,15 @@ body.pagina-linha-afetiva .doces-grid .produto-card.produto-card--foto-alta-brul
     max-height: calc(var(--produto-foto-altura) + 5.25rem);
 }
 
+/* Somente o card «Surpresa de avelã»: enquadramento da foto (não altera altura nem outros cards) */
+.doces-grid .produto-card .produto-img.produto-img--enquadre-surpresa-avela {
+    background-position: center 60%;
+}
+
+.produto-card-home .produto-img-home.produto-img--enquadre-surpresa-avela {
+    background-position: center 60%;
+}
+
 /* Bolos de Corte — grade e cards (pedido-personalizado.html) */
 .bolos-corte-grid.doces-grid.produtos-grid {
     grid-template-columns: 1fr;
