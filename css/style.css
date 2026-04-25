@@ -1109,6 +1109,12 @@ ul {
     transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Home — só o card «Linha Clássica»: enquadramento da foto (sem alterar altura do bloco) */
+.categoria-img.categoria-img--linha-classica-home {
+    /* Só recorte vertical; sem alterar height */
+    background-position: center 80%;
+}
+
 .categoria-card:hover .categoria-img {
     transform: scale(1.03);
 }
@@ -3123,6 +3129,16 @@ body.pagina-linha-afetiva .doces-grid .produto-card.produto-card--foto-alta-brul
 }
 
 .produto-card-home .produto-img-home.produto-img--enquadre-surpresa-avela {
+    background-position: center 60%;
+}
+
+/* Só o card «Pirâmide de Nutella»: enquadramento da foto (sem alterar altura da faixa) */
+.doces-grid .produto-card .produto-img.produto-img--enquadre-piramide-nutella {
+    background-position: center 10%;
+}
+
+/* Só o card «Pérola Negra»: enquadramento da foto (sem alterar altura da faixa) */
+.doces-grid .produto-card .produto-img.produto-img--enquadre-perola-negra {
     background-position: center 60%;
 }
 
