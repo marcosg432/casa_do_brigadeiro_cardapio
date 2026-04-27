@@ -29,12 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * Carrossel da Hero Section
  * Troca automática com fade a cada 3s, pausa no hover
- * Imagens em assets/carrossel-home/ (somente home). Pré-carregadas para evitar delay.
+ * Cada seção com .hero-carousel (home, bolos, etc.) tem autoplay independente. Pré-carrega as imagens.
  */
 function initHeroCarousel() {
-    const hero = document.querySelector('.hero-carousel');
-    if (!hero) return;
+    const heroes = document.querySelectorAll('.hero-carousel');
+    if (!heroes.length) return;
 
+    heroes.forEach((hero) => {
+        initOneHeroCarousel(hero);
+    });
+}
+
+function initOneHeroCarousel(hero) {
     const slides = hero.querySelectorAll('.hero-slide');
 
     /* Pré-carregar imagens do carrossel */

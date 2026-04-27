@@ -52,12 +52,27 @@
         </nav>
     </header>
 
-    <section class="page-hero">
-        <h1>Coleção de Bolos</h1>
-        <p>Sabores exclusivos preparados com ingredientes selecionados.</p>
+    <!-- Carrossel de banner: assets/carrossel-bolos/ (fotos reais, exclusivo desta página) -->
+    <section class="hero hero-carousel page-hero--bolos" aria-label="Destaques de bolos">
+        <div class="hero-slides">
+            <div class="hero-slide active">
+                <div class="hero-slide-bg" style="background-image: url('../assets/carrossel-bolos/bolos-banner-01.webp');"></div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-slide-bg" style="background-image: url('../assets/carrossel-bolos/bolos-banner-02.webp');"></div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-slide-bg" style="background-image: url('../assets/carrossel-bolos/bolos-banner-03.jpg');"></div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="page-hero-inner hero-content page-hero--bolos-content">
+            <h1 id="conteudo-principal-heading">Coleção de Bolos</h1>
+            <p>Sabores exclusivos preparados com ingredientes selecionados.</p>
+        </div>
     </section>
 
-    <main id="conteudo-principal" class="container bolos-page">
+    <main id="conteudo-principal" class="container bolos-page" aria-labelledby="conteudo-principal-heading">
         <div class="cardapio-intro">
             <p><strong>Dois jeitos de pedir.</strong> Monte seu bolo escolhendo um sabor pronto e o peso — ou escolha um modelo de <strong>bolo de corte</strong> para eventos. Toque nas opções e finalize no WhatsApp.</p>
         </div>
@@ -103,9 +118,9 @@
                 <span class="bolos-pick-sabor-titulo">Floresta Negra</span>
                 <span class="bolos-pick-sabor-desc">Ganache de chocolate meio amargo com cereja e lascas de chocolate, com segunda camada de nata batida</span>
             </button>
-            <button type="button" class="bolos-pick-sabor bolos-pick-sabor--linha" data-categoria="especialidades" data-sabor="Abacaxi com Coco (Amaretto)" aria-pressed="false">
-                <span class="bolos-pick-sabor-titulo">Abacaxi com Coco (Amaretto)</span>
-                <span class="bolos-pick-sabor-desc">Brigadeiro cremoso de coco com compota de abacaxi e toque de amaretto</span>
+            <button type="button" class="bolos-pick-sabor bolos-pick-sabor--linha" data-categoria="especialidades" data-sabor="Abacaxi com coco" aria-pressed="false">
+                <span class="bolos-pick-sabor-titulo">Abacaxi com coco</span>
+                <span class="bolos-pick-sabor-desc">Brigadeiro cremoso de coco com compota de abacaxi</span>
             </button>
             <button type="button" class="bolos-pick-sabor bolos-pick-sabor--linha" data-categoria="especialidades" data-sabor="Sensação com Suflair" aria-pressed="false">
                 <span class="bolos-pick-sabor-titulo">Sensação com Suflair</span>
@@ -135,9 +150,8 @@
                     </header>
                     <nav class="sabores-lista bolos-tamanhos-lista bolos-tamanhos-lista--pick" aria-label="Tamanhos disponíveis">
                         <ul>
-                            <li><button type="button" class="bolos-pick-tamanho" data-kg="1" data-label="1 kg" aria-pressed="false">1 kg</button></li>
-                            <li><button type="button" class="bolos-pick-tamanho" data-kg="1.5" data-label="1,5 kg" aria-pressed="false">1,5 kg</button></li>
-                            <li><button type="button" class="bolos-pick-tamanho" data-kg="2" data-label="2 kg" aria-pressed="false">2 kg</button></li>
+                            <li><button type="button" class="bolos-pick-tamanho" data-kg="3" data-label="3 kg" aria-pressed="false">3 kg</button></li>
+                            <li><button type="button" class="bolos-pick-tamanho" data-kg="4" data-label="4 kg" aria-pressed="false">4 kg</button></li>
                         </ul>
                     </nav>
 

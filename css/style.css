@@ -1825,6 +1825,37 @@ ul {
     line-height: 1.65;
 }
 
+/* Coleção de Bolos — carrossel no topo (assets/carrossel-bolos/, não reutilizar na home) */
+body.pagina-bolos .page-hero--bolos {
+    min-height: clamp(20rem, 50vh, 36rem);
+    padding: clamp(5.5rem, 12vw, 7.5rem) 1.5rem clamp(2.5rem, 5vw, 3.5rem);
+}
+
+body.pagina-bolos .page-hero--bolos .page-hero--bolos-content {
+    max-width: 40rem;
+}
+
+body.pagina-bolos .page-hero--bolos h1 {
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2.15rem, 4.5vw, 3.15rem);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
+}
+
+body.pagina-bolos .page-hero--bolos p {
+    color: rgba(247, 243, 239, 0.9);
+    max-width: 34rem;
+    margin: 0 auto;
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
+}
+
 /* Linha Afetiva — topo com foto de celebração (fundo + overlay para leitura) */
 .page-hero--linha-afetiva {
     position: relative;
@@ -3156,6 +3187,16 @@ body.pagina-linha-afetiva .doces-grid .produto-card .produto-img.produto-img--en
     background-position: center 48%;
 }
 
+/* Linha Afetiva — Brigadeiro Tradicional: só recorte/posição da foto (só este card) */
+body.pagina-linha-afetiva .doces-grid .produto-card .produto-img.produto-img--enquadre-brigadeiro-tradicional {
+    background-position: center 58%;
+}
+
+/* Linha Afetiva — Doce de Leite com Nozes: mesma lógica do banner Linha Clássica na home — só posição, sem zoom */
+body.pagina-linha-afetiva .doces-grid .produto-card .produto-img.produto-img--enquadre-doce-de-leite-nozes {
+    background-position: center 80%;
+}
+
 /* Linha Afetiva — Brigadeiro de creme Brûlée: faixa de foto mais alta (só este card) */
 body.pagina-linha-afetiva .doces-grid .produto-card.produto-card--foto-alta-brulee .produto-img {
     height: calc(var(--produto-foto-altura) + 5.25rem);
@@ -3180,6 +3221,11 @@ body.pagina-linha-afetiva .doces-grid .produto-card.produto-card--foto-alta-brul
 /* Só o card «Pérola Negra»: enquadramento da foto (sem alterar altura da faixa) */
 .doces-grid .produto-card .produto-img.produto-img--enquadre-perola-negra {
     background-position: center 60%;
+}
+
+/* Só o card «Mini Trufa» (não o Coração): mesma lógica de recorte do banner Linha Clássica na home — só posição, sem zoom */
+.doces-grid .produto-card .produto-img.produto-img--enquadre-mini-trufa {
+    background-position: center 80%;
 }
 
 /* Bolos de Corte — grade e cards (pedido-personalizado.html) */

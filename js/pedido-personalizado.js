@@ -237,7 +237,7 @@
                 return;
             }
             if (!tamanhoLabel || !tamanhoSelecionado) {
-                alert('Selecione o tamanho do bolo (1 kg, 1,5 kg ou 2 kg).');
+                alert('Selecione o tamanho do bolo (3 kg ou 4 kg).');
                 return;
             }
             if (!categoriaSelecionada) {
