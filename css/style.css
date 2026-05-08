@@ -3719,6 +3719,14 @@ body.pagina-doces-finos .modal-produto-img {
     }
 }
 
+/* Mobile estreito: aumenta a logo da nav sem alterar a altura da barra */
+@media (max-width: 576px) {
+    .logo-img {
+        transform: translateX(-0.35rem) scale(1.75);
+        transform-origin: left center;
+    }
+}
+
 /* Mobile - 768px */
 @media (max-width: 768px) {
     html {
