@@ -232,7 +232,7 @@ function gerarOrcamento() {
         return;
     }
 
-    var telefoneWa = (typeof CONFIG !== "undefined" && CONFIG.telefoneWhatsApp) ? CONFIG.telefoneWhatsApp : "5519981178167";
+    var telefoneWa = (typeof CONFIG !== "undefined" && CONFIG.telefoneWhatsApp) ? CONFIG.telefoneWhatsApp : "5519974190997";
     var mensagem = montarMensagemOrcamento(String(id));
     var url = "https://wa.me/" + telefoneWa + "?text=" + encodeURIComponent(mensagem);
     window.open(url, "_blank");

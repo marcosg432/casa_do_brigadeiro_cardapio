@@ -227,7 +227,7 @@
     }
 
     function enviarWhatsApp() {
-        var tel = (typeof CONFIG !== 'undefined' && CONFIG.telefoneWhatsApp) ? CONFIG.telefoneWhatsApp : '5519981178167';
+        var tel = (typeof CONFIG !== 'undefined' && CONFIG.telefoneWhatsApp) ? CONFIG.telefoneWhatsApp : '5519974190997';
         var msg;
         var valorStr;
 

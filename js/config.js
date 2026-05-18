@@ -3,8 +3,8 @@
  * Alterar apenas este arquivo para configurar em novos cardápios/clientes
  */
 const CONFIG = {
-    /** Número do WhatsApp com DDD (ex: 5519981178167) */
-    telefoneWhatsApp: "5519981178167",
+    /** Número do WhatsApp com DDD (ex: 5519974190997) */
+    telefoneWhatsApp: "5519974190997",
     /**
      * Slug estável para chaves de localStorage/sessão (carrinho, orçamentos legado, admin).
      * Não altere após deploy se quiser manter dados já gravados no navegador.
