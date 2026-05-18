@@ -366,7 +366,7 @@ function gerarContratoPDF(orcamento) {
 }
 
 /**
- * Cláusulas fixas (modelo Candy Li / lead). Atualize aqui se o texto jurídico mudar.
+ * Cláusulas fixas (modelo Casa do Brigadeiro / lead). Atualize aqui se o texto jurídico mudar.
  */
 function obterTextoClausulasContrato(cfg) {
     var pix = (cfg && cfg.contratoPixCnpj) || "";

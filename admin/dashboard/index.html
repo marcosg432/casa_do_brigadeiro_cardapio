@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Candy Li Doces Finos · Admin</title>
+    <title>Dashboard | Casa do Brigadeiro ï¿½ Admin</title>
     <link rel="stylesheet" href="../../css/admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +13,8 @@
     <header class="admin-bar">
         <span><strong>Dashboard</strong></span>
         <span>
-            <a href="../index.html">Orçamentos</a>
-            <span style="opacity:0.6"> · </span>
+            <a href="../index.html">Orï¿½amentos</a>
+            <span style="opacity:0.6"> ï¿½ </span>
             <a href="../../index.html">Site</a>
         </span>
     </header>
@@ -22,14 +22,14 @@
     <div class="admin-wrap">
         <div id="dashboard-storage-aviso" class="admin-card" style="display:none;background:#eef6ff;border:1px solid #90caf9;font-size:0.88rem;line-height:1.5;margin-bottom:1rem"></div>
         <div id="dashboard-login-msg" class="admin-card" hidden>
-            <p>Faça login em <a href="../index.html">Orçamentos</a> primeiro.</p>
+            <p>Faï¿½a login em <a href="../index.html">Orï¿½amentos</a> primeiro.</p>
         </div>
 
         <div id="dashboard-conteudo" hidden>
             <div class="dashboard-cards" id="dashboard-cards"></div>
 
             <div class="dashboard-chart">
-                <h2>Orçamentos por status</h2>
+                <h2>Orï¿½amentos por status</h2>
                 <div class="chart-bars" id="chart-bars"></div>
             </div>
         </div>
@@ -65,8 +65,8 @@
                 if (av && (location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
                     av.style.display = "block";
                     av.textContent = location.protocol === "file:"
-                        ? "Use http://localhost (npx serve) para o site e o admin — file:// não compartilha orçamentos com esta página."
-                        : "Use o mesmo host (só localhost ou só 127.0.0.1) no cardápio e aqui; cada um guarda dados separados.";
+                        ? "Use http://localhost (npx serve) para o site e o admin ï¿½ file:// nï¿½o compartilha orï¿½amentos com esta pï¿½gina."
+                        : "Use o mesmo host (sï¿½ localhost ou sï¿½ 127.0.0.1) no cardï¿½pio e aqui; cada um guarda dados separados.";
                 }
                 document.getElementById("dashboard-conteudo").hidden = false;
                 var lista = listarOrcamentos();
@@ -94,9 +94,9 @@
 
                 var cards = document.getElementById("dashboard-cards");
                 cards.innerHTML =
-                    cardHtml("Total de orçamentos", String(total)) +
-                    cardHtml("Em degustação", String(emDeg)) +
-                    cardHtml("Aprovados (pós-degust.)", String(aprovados)) +
+                    cardHtml("Total de orï¿½amentos", String(total)) +
+                    cardHtml("Em degustaï¿½ï¿½o", String(emDeg)) +
+                    cardHtml("Aprovados (pï¿½s-degust.)", String(aprovados)) +
                     cardHtml("Fechados", String(fechados)) +
                     cardHtml("Perdidos", String(perdidos)) +
                     cardHtml("Valor em propostas abertas", fmt(valorPropostas)) +

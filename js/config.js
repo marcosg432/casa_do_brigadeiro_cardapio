@@ -11,7 +11,7 @@ const CONFIG = {
      */
     storageId: "senna_doce",
     /** Nome da confeitaria exibido no site, PDFs, WhatsApp e admin */
-    nomeEmpresa: "Candy Li Doces Finos",
+    nomeEmpresa: "Casa do Brigadeiro",
     /**
      * Pedido mínimo em unidades por produto e por sabor (orçamento / cardápio).
      * Usado como padrão para todos os itens; `data-produto-qtd-min` no card só pode aumentar esse mínimo.

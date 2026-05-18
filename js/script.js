@@ -1,5 +1,5 @@
 /**
- * Candy Li Doces Finos — vitrine de doces finos artesanais
+ * Casa do Brigadeiro — vitrine de doces finos artesanais
  * Script principal - animações e funcionalidades
  */
 

@@ -1,4 +1,4 @@
--- SQLite — orçamentos, produtos e categorias (cardápio Candy Li)
+-- SQLite — orçamentos, produtos e categorias (cardápio Casa do Brigadeiro)
 
 CREATE TABLE IF NOT EXISTS categorias (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
