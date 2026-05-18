@@ -23,9 +23,9 @@
 }
 
 .carrinho-toggle:hover {
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(-3px);
     background: var(--gradient-cta-hover);
-    box-shadow: 0 0 30px var(--accent-rose-glow), 0 16px 40px var(--sombra-forte);
+    box-shadow: 0 8px 28px rgba(146, 106, 45, 0.15);
 }
 
 .carrinho-toggle svg {
@@ -52,7 +52,7 @@
 .carrinho-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(44, 36, 28, 0.22);
     z-index: 999;
     opacity: 0;
     visibility: hidden;
@@ -76,8 +76,8 @@
     max-height: 100dvh;
     background: var(--surface-card);
     color: var(--text-primary);
-    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.45);
-    border-left: 1px solid var(--accent-rose-line);
+    box-shadow: -12px 0 48px rgba(44, 36, 28, 0.08);
+    border-left: 1px solid var(--premium-line);
     z-index: 1001;
     display: flex;
     flex-direction: column;
@@ -93,17 +93,17 @@
 /* Header do carrinho */
 .carrinho-header {
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--accent-rose-line);
+    border-bottom: 1px solid var(--premium-line);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--secondary-bg);
+    background: var(--surface-elevated);
 }
 
 .carrinho-header h2 {
     font-family: var(--fonte-titulo);
     font-size: 1.5rem;
-    color: var(--text-primary);
+    color: var(--premium);
     margin: 0;
 }
 
@@ -121,8 +121,8 @@
 }
 
 .carrinho-close:hover {
-    background: rgba(196, 165, 175, 0.16);
-    color: var(--accent-rose-bright);
+    background: rgba(146, 106, 45, 0.08);
+    color: var(--premium);
 }
 
 /* Corpo do carrinho - lista + form */
@@ -143,7 +143,7 @@
     font-weight: 500;
     line-height: 1.45;
     color: var(--text-secondary);
-    background: rgba(196, 165, 175, 0.08);
+    background: rgba(170, 221, 241, 0.2);
     border: 1px solid var(--accent-rose-line);
     border-radius: var(--radius-sm, 12px);
 }
@@ -261,7 +261,7 @@
 }
 
 .carrinho-item-qty-input:focus {
-    outline: 2px solid var(--accent-rose-muted, rgba(196, 165, 175, 0.6));
+    outline: 2px solid rgba(146, 106, 45, 0.35);
     outline-offset: 1px;
     background: rgba(255, 255, 255, 0.35);
 }
@@ -325,7 +325,7 @@
 #total {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent-rose-bright);
+    color: var(--premium);
 }
 
 /* Formulário cliente / orçamento */
@@ -381,9 +381,9 @@
     flex-shrink: 0;
     padding: 1rem 1.5rem;
     padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
-    border-top: 1px solid var(--accent-rose-line);
+    border-top: 1px solid var(--premium-line);
     background: var(--secondary-bg);
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 -4px 24px rgba(44, 36, 28, 0.06);
 }
 
 .btn-finalizar-pedido {

@@ -1,25 +1,30 @@
 /**
- * PM2 - Candy Li Doces Finos
- * Usa porta 3003 (evita conflito com 22, 80, 3000, 3001, 3002, 53)
- * Funciona sem domínio - acesse via IP:3003
+ * PM2 — Hostinger (Node na porta 3019 atrás do nginx, se aplicável).
+ * Na VPS: npm install -g pm2 && npm ci && npm run pm2:start
  */
+const path = require('path');
+
+const root = __dirname;
+
 module.exports = {
   apps: [
     {
-      name: 'cardapio-senna',
-      script: 'server.js',
-      cwd: __dirname,
+      name: 'casa-do-brigadeiro-cardapio',
+      script: path.join(root, 'server', 'index.js'),
+      cwd: root,
       instances: 1,
-      /* fork evita modo cluster no PM2 (um só processo; menos surpresa com SQLite / listen) */
       exec_mode: 'fork',
       autorestart: true,
       watch: false,
-      /* 150M era agressivo demais com Node 22 + SQLite; sobe o teto para evitar loop errored no PM2 */
-      max_memory_restart: '400M',
+      max_memory_restart: '300M',
       env: {
         NODE_ENV: 'production',
-        PORT: '3003'
-      }
+        PORT: '3019'
+      },
+      error_file: path.join(root, 'logs', 'pm2-error.log'),
+      out_file: path.join(root, 'logs', 'pm2-out.log'),
+      merge_logs: true,
+      time: true
     }
   ]
 };

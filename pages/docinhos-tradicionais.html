@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Docinhos tradicionais | Casa do Brigadeiro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="pagina-docinhos-tradicionais pagina-catalogo-centone">
+    <button type="button" class="scroll-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+    <button type="button" class="carrinho-toggle" aria-label="Abrir carrinho" title="Ver carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="carrinho-badge" style="display: none;">0</span>
+    </button>
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="../index.html" class="logo" aria-label="Casa do Brigadeiro — confeitaria gourmet, página inicial"><img src="../assets/logo-casa-do-brigadeiro.png" alt="Casa do Brigadeiro — confeitaria gourmet" class="logo-img" width="480" height="140" decoding="async"></a>
+            <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li class="nav-dropdown nav-dropdown--doces">
+                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Doces</button>
+                    <ul class="nav-dropdown-menu nav-dropdown-menu--doces" role="menu">
+                        <li><a href="docinhos-tradicionais.html" aria-current="page">Docinhos tradicionais</a></li>
+                        <li><a href="brigadeiros-recheados.html">Brigadeiros recheados</a></li>
+                        <li><a href="brigadeiros-belga.html">Brigadeiros Belga</a></li>
+                        <li><a href="doces-especiais.html">Doces especiais</a></li>
+                        <li><a href="brigadeiros-especiais.html">Brigadeiros especiais</a></li>
+                        <li><a href="especiais.html">Especiais</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown nav-dropdown--bolos">
+                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Bolos</button>
+                    <ul class="nav-dropdown-menu nav-dropdown-menu--bolos" role="menu">
+                        <li><a href="bolo-de-corte.html">Bolo de corte</a></li>
+                        <li><a href="bolos-personalizados.html">Bolos personalizados</a></li>
+                        <li><a href="bento-cake.html">Bento Cake</a></li>
+                        <li><a href="informacoes-encomendas.html">Informações de encomendas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/candylidoces/" class="nav-social nav-social--instagram" target="_blank" rel="noopener noreferrer" aria-label="Candy Li no Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </li>
+                <li><a href="https://wa.me/5519981178167?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20e%20gostaria%20de%20fazer%20um%20pedido." class="nav-whatsapp" target="_blank">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dt-wrap">
+        <nav class="dt-breadcrumb container" aria-label="Trilha de navegação">
+            <ol class="dt-breadcrumb-list">
+                <li><a href="../index.html">Início</a></li>
+                <li aria-hidden="true" class="dt-breadcrumb-sep"><span></span></li>
+                <li><span class="dt-breadcrumb-muted">Doces</span></li>
+                <li aria-hidden="true" class="dt-breadcrumb-sep"><span></span></li>
+                <li><span aria-current="page">Docinhos tradicionais</span></li>
+            </ol>
+        </nav>
+
+        <header class="dt-hero">
+            <div class="container dt-hero-inner">
+                <p class="dt-hero-eyebrow">Casa do Brigadeiro</p>
+                <h1 class="dt-hero-title">Docinhos Tradicionais</h1>
+                <p class="dt-hero-subtitle">Clássicos artesanais preparados com delicadeza e sabor inesquecível.</p>
+                <div class="dt-hero-accent" aria-hidden="true">
+                    <span class="dt-hero-line"></span>
+                    <span class="dt-hero-ornament"></span>
+                    <span class="dt-hero-line"></span>
+                </div>
+            </div>
+        </header>
+
+        <section class="dt-intro container" aria-labelledby="dt-intro-heading">
+            <h2 id="dt-intro-heading" class="visually-hidden">Sobre o preço e o carrinho</h2>
+            <p class="dt-intro-text">Um <strong>cento</strong> (100 docinhos) por <strong>R$&nbsp;160,00</strong>. Os sabores listados são opções do mesmo produto. No carrinho, a quantidade inicia em 100 unidades (1 cento).</p>
+        </section>
+
+        <!-- Composição editorial única: coluna visual + painel de menu (referência estrutural) -->
+        <section class="dt-editorial container" aria-labelledby="dt-editorial-heading">
+            <h2 id="dt-editorial-heading" class="visually-hidden">Seleção de docinhos tradicionais</h2>
+            <div class="dt-editorial-inner">
+                <div class="dt-stack-visual">
+                    <figure class="dt-stack-frame">
+                        <div class="dt-produto-photo dt-produto-photo--em-breve" role="img" aria-label="Fotografia em breve — Bicho de É">
+                            <span class="produto-em-breve">Em breve</span>
+                        </div>
+                    </figure>
+                    <figure class="dt-stack-frame">
+                        <div class="dt-produto-photo dt-produto-photo--em-breve" role="img" aria-label="Fotografia em breve — Casadinho">
+                            <span class="produto-em-breve">Em breve</span>
+                        </div>
+                    </figure>
+                    <figure class="dt-stack-frame">
+                        <div class="dt-produto-photo dt-produto-photo--em-breve" role="img" aria-label="Fotografia em breve — Beijinho">
+                            <span class="produto-em-breve">Em breve</span>
+                        </div>
+                    </figure>
+                </div>
+
+                <aside class="dt-menu-panel">
+                    <div class="dt-menu-panel-inner">
+                        <article
+                            class="dt-centone"
+                            data-produto-nome="Cento de docinhos tradicionais"
+                            data-produto-preco="1.6"
+                            data-produto-qtd-min="100"
+                            data-produto-descricao="Cento (100 unidades) de docinhos tradicionais artesanais. Sabores disponíveis: Bicho de É — brigadeiro tradicional com granulado de chocolate; Casadinho — brigadeiro gourmet metade chocolate e metade brigadeiro branco; Beijinho — brigadeiro cremoso com coco delicadamente finalizado."
+                            data-produto-ingredientes="Bicho de É | Casadinho | Beijinho"
+                            data-produto-pedido="R$ 160,00 o cento">
+                            <p class="dt-menu-kicker">Casa do Brigadeiro</p>
+                            <h2 class="dt-menu-title">Sabores tradicionais</h2>
+                            <p class="dt-menu-lead">Um cento de docinhos feitos com calma e precisão — textura macia, acabamento impecável e o gosto da confeitaria de raiz. Abaixo, os sabores que podem compor o seu cento.</p>
+                            <div class="dt-menu-accent" aria-hidden="true"></div>
+
+                            <p class="dt-flavors-label">Sabores disponíveis</p>
+                            <ul class="dt-flavors-list" aria-label="Sabores disponíveis no cento">
+                                <li>Bicho de É</li>
+                                <li>Casadinho</li>
+                                <li>Beijinho</li>
+                            </ul>
+                            <p class="dt-flavors-note">Bicho de É: brigadeiro tradicional com granulado de chocolate. Casadinho: metade chocolate e metade brigadeiro branco. Beijinho: brigadeiro cremoso com coco delicadamente finalizado.</p>
+
+                            <div class="dt-preco-box dt-preco-box--inline">
+                                <span class="dt-preco-valor">R$&nbsp;160,00</span>
+                                <span class="dt-preco-nota">o cento</span>
+                            </div>
+                            <button type="button" class="btn-adicionar-carrinho dt-btn-carrinho">
+                                <svg class="dt-btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                                <span>Adicionar ao carrinho</span>
+                            </button>
+                        </article>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Casa do Brigadeiro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="carrinho-overlay" aria-hidden="true"></div>
+    <aside class="carrinho-sidebar">
+        <div class="carrinho-header">
+            <h2>Seu orçamento</h2>
+            <button type="button" class="carrinho-close" aria-label="Fechar carrinho">&times;</button>
+        </div>
+        <div class="carrinho-body">
+            <ul id="lista-carrinho"></ul>
+            <div class="carrinho-total-wrap">
+                <span class="total-label">Total estimado:</span>
+                <div id="total">R$ 0,00</div>
+            </div>
+            <div class="carrinho-form carrinho-form-orcamento">
+                <p class="carrinho-form-section-title">Dados do cliente</p>
+                <label for="nome">Nome do cliente *</label>
+                <input type="text" id="nome" placeholder="Seu nome" required autocomplete="name">
+                <label for="telefone">Telefone *</label>
+                <input type="tel" id="telefone" placeholder="(00) 00000-0000" required autocomplete="tel">
+                <label for="email-cliente">E-mail *</label>
+                <input type="email" id="email-cliente" placeholder="seu@email.com" required autocomplete="email">
+                <label for="cpf-cliente">CPF</label>
+                <input type="text" id="cpf-cliente" placeholder="Opcional" inputmode="numeric" autocomplete="off" maxlength="18">
+                <label for="rg-cliente">RG</label>
+                <input type="text" id="rg-cliente" placeholder="Opcional" autocomplete="off" maxlength="32">
+                <p class="carrinho-form-section-title">Sua celebração</p>
+                <label for="data-evento">Data da celebração *</label>
+                <input type="date" id="data-evento" required>
+                <label for="tipo-evento">Ocasião *</label>
+                <input type="text" id="tipo-evento" placeholder="Casamento, aniversário..." required>
+                <label for="convidados">Número de convidados *</label>
+                <input type="number" id="convidados" min="1" step="1" placeholder="Ex: 80" required>
+                <label for="local-evento">Local do evento *</label>
+                <input type="text" id="local-evento" placeholder="Endereço ou espaço" required>
+                <label for="tipo">Entrega ou retirada *</label>
+                <select id="tipo" required>
+                    <option value="">Selecione</option>
+                    <option value="Entrega">Entrega</option>
+                    <option value="Retirada">Retirada</option>
+                </select>
+                <div id="endereco-wrap" style="display: none;">
+                    <label for="endereco">Endereço de entrega *</label>
+                    <input type="text" id="endereco" placeholder="Rua, número, bairro, cidade">
+                </div>
+                <label for="pagamento">Forma de pagamento (referência)</label>
+                <select id="pagamento">
+                    <option value="">Selecione</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                    <option value="Cartão">Cartão</option>
+                    <option value="Parcelado">Parcelado</option>
+                </select>
+                <label for="observacao">Observações</label>
+                <textarea id="observacao" placeholder="Detalhes adicionais"></textarea>
+            </div>
+        </div>
+        <div class="carrinho-footer">
+            <button type="button" class="btn-finalizar-pedido" disabled>Gerar orçamento</button>
+        </div>
+    </aside>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/orcamentos-logic.js"></script>
+    <script src="../js/orcamentos-storage.js"></script>
+    <script src="../js/carrinho.js"></script>
+    <script src="../js/pedido.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

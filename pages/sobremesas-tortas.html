@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <button type="button" class="scroll-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
@@ -25,20 +25,30 @@
 
     <header class="header">
         <nav class="nav container">
-            <a href="../index.html" class="logo" aria-label="Candy Li — Doces finos, página inicial"><img src="../assets/logo-candy-li.png" alt="" class="logo-img" width="400" height="120" decoding="async"></a>
+            <a href="../index.html" class="logo" aria-label="Casa do Brigadeiro — confeitaria gourmet, página inicial"><img src="../assets/logo-casa-do-brigadeiro.png" alt="Casa do Brigadeiro — confeitaria gourmet" class="logo-img" width="480" height="140" decoding="async"></a>
             <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
-                <li class="nav-dropdown">
-                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Doces finos</button>
-                    <ul class="nav-dropdown-menu" role="menu">
-                        <li><a href="linha-classica.html">🌿 Linha Clássica R$ 4,50</a></li>
-                        <li><a href="linha-exclusiva.html">💎 Linha Exclusiva R$6,00</a></li>
-                        <li><a href="linha-afetiva.html">🌸 Linha Afetiva R$2,50</a></li>
-                        <li><a href="lembrancinhas-especiais.html">🎁 Lembrancinhas especiais</a></li>
+                <li class="nav-dropdown nav-dropdown--doces">
+                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Doces</button>
+                    <ul class="nav-dropdown-menu nav-dropdown-menu--doces" role="menu">
+                        <li><a href="docinhos-tradicionais.html">Docinhos tradicionais</a></li>
+                        <li><a href="brigadeiros-recheados.html">Brigadeiros recheados</a></li>
+                        <li><a href="brigadeiros-belga.html">Brigadeiros Belga</a></li>
+                        <li><a href="doces-especiais.html">Doces especiais</a></li>
+                        <li><a href="brigadeiros-especiais.html">Brigadeiros especiais</a></li>
+                        <li><a href="especiais.html">Especiais</a></li>
                     </ul>
                 </li>
-                <li><a href="pedido-personalizado.html">Bolos</a></li>
+                <li class="nav-dropdown nav-dropdown--bolos">
+                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Bolos</button>
+                    <ul class="nav-dropdown-menu nav-dropdown-menu--bolos" role="menu">
+                        <li><a href="bolo-de-corte.html">Bolo de corte</a></li>
+                        <li><a href="bolos-personalizados.html">Bolos personalizados</a></li>
+                        <li><a href="bento-cake.html">Bento Cake</a></li>
+                        <li><a href="informacoes-encomendas.html">Informações de encomendas</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="https://www.instagram.com/candylidoces/" class="nav-social nav-social--instagram" target="_blank" rel="noopener noreferrer" aria-label="Candy Li no Instagram">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -56,8 +66,8 @@
 
     <main class="container">
         <div class="sobremesas-grid produtos-grid">
-            <article class="produto-card" data-produto-imagem="../assets/sobremesas-tortas/cheesecake_frutas_vermelhas.webp" data-produto-nome="Cheesecake de frutas vermelhas" data-produto-preco="18" data-produto-descricao="Base crocante, recheio cremoso de cream cheese e cobertura de frutas vermelhas frescas. Sofisticado e delicioso." data-produto-ingredientes="Cream cheese | Frutas vermelhas | Biscoito" data-produto-pedido="Fatia R$ 18,00 | Inteiro R$ 95,00">
-                <div class="produto-img" style="background-image: url('../assets/sobremesas-tortas/cheesecake_frutas_vermelhas.webp');"></div>
+            <article class="produto-card" data-produto-nome="Cheesecake de frutas vermelhas" data-produto-preco="18" data-produto-descricao="Base crocante, recheio cremoso de cream cheese e cobertura de frutas vermelhas frescas. Sofisticado e delicioso." data-produto-ingredientes="Cream cheese | Frutas vermelhas | Biscoito" data-produto-pedido="Fatia R$ 18,00 | Inteiro R$ 95,00">
+                <div class="produto-img produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
                 <div class="produto-content">
                     <h3>Cheesecake de frutas vermelhas</h3>
                     <div class="produto-buttons">
@@ -65,8 +75,8 @@
                     </div>
                 </div>
             </article>
-            <article class="produto-card" data-produto-imagem="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" data-produto-nome="Torta de chocolate" data-produto-preco="50" data-produto-descricao="Torta de chocolate intenso com base crocante. Para os amantes de cacau." data-produto-ingredientes="Chocolate | Farinha | Manteiga" data-produto-pedido="A partir de R$ 50,00">
-                <div class="produto-img" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80');"></div>
+            <article class="produto-card" data-produto-nome="Torta de chocolate" data-produto-preco="50" data-produto-descricao="Torta de chocolate intenso com base crocante. Para os amantes de cacau." data-produto-ingredientes="Chocolate | Farinha | Manteiga" data-produto-pedido="A partir de R$ 50,00">
+                <div class="produto-img produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
                 <div class="produto-content">
                     <h3>Torta de chocolate</h3>
                     <div class="produto-buttons">
@@ -74,8 +84,8 @@
                     </div>
                 </div>
             </article>
-            <article class="produto-card" data-produto-imagem="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80" data-produto-nome="Torta de morango" data-produto-preco="55" data-produto-descricao="Base crocante, creme de ninho e morangos frescos. Sobremesa irresistível." data-produto-ingredientes="Biscoito | Creme ninho | Morangos" data-produto-pedido="A partir de R$ 55,00">
-                <div class="produto-img" style="background-image: url('https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80');"></div>
+            <article class="produto-card" data-produto-nome="Torta de morango" data-produto-preco="55" data-produto-descricao="Base crocante, creme de ninho e morangos frescos. Sobremesa irresistível." data-produto-ingredientes="Biscoito | Creme ninho | Morangos" data-produto-pedido="A partir de R$ 55,00">
+                <div class="produto-img produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
                 <div class="produto-content">
                     <h3>Torta de morango</h3>
                     <div class="produto-buttons">
@@ -83,8 +93,8 @@
                     </div>
                 </div>
             </article>
-            <article class="produto-card" data-produto-imagem="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80" data-produto-nome="Sobremesa na travessa" data-produto-preco="65" data-produto-descricao="Sobremesa cremosa servida na travessa. Ideal para reunir a família." data-produto-ingredientes="Creme | Biscoito | Frutas" data-produto-pedido="Travessa R$ 65,00">
-                <div class="produto-img" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80');"></div>
+            <article class="produto-card" data-produto-nome="Sobremesa na travessa" data-produto-preco="65" data-produto-descricao="Sobremesa cremosa servida na travessa. Ideal para reunir a família." data-produto-ingredientes="Creme | Biscoito | Frutas" data-produto-pedido="Travessa R$ 65,00">
+                <div class="produto-img produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
                 <div class="produto-content">
                     <h3>Sobremesa na travessa</h3>
                     <div class="produto-buttons">
@@ -92,8 +102,8 @@
                     </div>
                 </div>
             </article>
-            <article class="produto-card" data-produto-imagem="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" data-produto-nome="Copos da felicidade" data-produto-preco="15" data-produto-descricao="Camadas de brownie, creme e coberturas em copo individual. Praticidade e sabor." data-produto-ingredientes="Brownie | Creme | Morango" data-produto-pedido="Unidade R$ 15,00">
-                <div class="produto-img" style="background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80');"></div>
+            <article class="produto-card" data-produto-nome="Copos da felicidade" data-produto-preco="15" data-produto-descricao="Camadas de brownie, creme e coberturas em copo individual. Praticidade e sabor." data-produto-ingredientes="Brownie | Creme | Morango" data-produto-pedido="Unidade R$ 15,00">
+                <div class="produto-img produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
                 <div class="produto-content">
                     <h3>Copos da felicidade</h3>
                     <div class="produto-buttons">
@@ -101,8 +111,8 @@
                     </div>
                 </div>
             </article>
-            <article class="produto-card" data-produto-imagem="../assets/sobremesas-tortas/sobremesa_ninho_morango.webp" data-produto-nome="Sobremesa de ninho com morango" data-produto-preco="22" data-produto-descricao="Creme de ninho cremoso com morangos frescos. Combinação clássica e deliciosa." data-produto-ingredientes="Leite ninho | Morangos | Chantilly" data-produto-pedido="Porção R$ 22,00">
-                <div class="produto-img" style="background-image: url('../assets/sobremesas-tortas/sobremesa_ninho_morango.webp');"></div>
+            <article class="produto-card" data-produto-nome="Sobremesa de ninho com morango" data-produto-preco="22" data-produto-descricao="Creme de ninho cremoso com morangos frescos. Combinação clássica e deliciosa." data-produto-ingredientes="Leite ninho | Morangos | Chantilly" data-produto-pedido="Porção R$ 22,00">
+                <div class="produto-img produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
                 <div class="produto-content">
                     <h3>Sobremesa de ninho com morango</h3>
                     <div class="produto-buttons">

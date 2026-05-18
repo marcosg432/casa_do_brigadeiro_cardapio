@@ -21,6 +21,19 @@ function getPedidoMinimoPadrao() {
 }
 
 /**
+ * Quantidade mínima efetiva no carrinho (respeita itens “luxo” com mínimo baixo).
+ * @param {object} item
+ * @returns {number}
+ */
+function minimoQuantidadeItem(item) {
+    if (item && item.luxo === true) {
+        const n = parseInt(String(item.qtdMin != null ? item.qtdMin : 1), 10);
+        return Number.isFinite(n) && n >= 1 ? n : 1;
+    }
+    return resolverQtdMin(item && item.qtdMin != null ? item.qtdMin : null);
+}
+
+/**
  * Quantidade mínima por item: padrão do CONFIG; valor explícito no card não pode ser menor que o padrão.
  * @param {*} v
  * @returns {number}
@@ -52,16 +65,18 @@ function lerQtdMinDoCard(card) {
  * @returns {object}
  */
 function normalizarItemCarrinho(item) {
-    const min = resolverQtdMin(item != null ? item.qtdMin : null);
+    const min = minimoQuantidadeItem(item);
     let q = parseInt(String(item.quantidade), 10);
     if (!Number.isFinite(q) || q < 1) q = min;
     if (q < min) q = min;
-    return {
+    const out = {
         nome: item.nome,
         preco: typeof item.preco === 'number' ? item.preco : parseFloat(String(item.preco).replace(',', '.')) || 0,
         quantidade: q,
         qtdMin: min
     };
+    if (item.luxo === true) out.luxo = true;
+    return out;
 }
 
 /**
@@ -72,7 +87,7 @@ function normalizarItemCarrinho(item) {
 function commitQuantidadeFromInput(index, inputEl) {
     const item = carrinho[index];
     if (!item || !inputEl) return;
-    const min = resolverQtdMin(item.qtdMin);
+    const min = minimoQuantidadeItem(item);
     const raw = String(inputEl.value || '').trim();
     let n = parseInt(raw, 10);
     if (!Number.isFinite(n) || n < 1) n = min;
@@ -113,21 +128,39 @@ function vincularDelegacaoQuantidadeLista(listaEl) {
  * Adiciona produto ao carrinho ou aumenta quantidade se já existir
  * @param {string} nome - Nome do produto
  * @param {number} preco - Preço unitário
- * @param {number} [qtdMinProduto] - Pedido mínimo (padrão CONFIG); na 1ª inclusão a quantidade inicia neste valor
+ * @param {number} qtdMinProduto - Pedido mínimo (padrão CONFIG); na 1ª inclusão a quantidade inicia neste valor
+ * @param {{ luxo?: boolean, quantidade?: number }} [opcoes] — luxo: ignora pedido mínimo global; quantidade: unidades ao adicionar
  */
-function adicionarCarrinho(nome, preco, qtdMinProduto) {
+function adicionarCarrinho(nome, preco, qtdMinProduto, opcoes) {
+    const op = opcoes || {};
+    const luxo = op.luxo === true;
     const precoNum = typeof preco === 'number' ? preco : parseFloat(String(preco).replace(',', '.')) || 0;
-    const qtdMin = resolverQtdMin(qtdMinProduto);
+    const qtdMin = luxo
+        ? Math.max(1, parseInt(String(qtdMinProduto), 10) || 1)
+        : resolverQtdMin(qtdMinProduto);
+    const qtdEscolhida = luxo && op.quantidade != null
+        ? Math.max(1, parseInt(String(op.quantidade), 10) || 1)
+        : null;
     const itemExistente = carrinho.find(item => item.nome === nome && item.preco === precoNum);
 
     if (itemExistente) {
-        itemExistente.quantidade += 1;
-        itemExistente.qtdMin = resolverQtdMin(itemExistente.qtdMin || qtdMin);
-        if (itemExistente.quantidade < itemExistente.qtdMin) {
-            itemExistente.quantidade = itemExistente.qtdMin;
+        const inc = luxo && qtdEscolhida != null ? qtdEscolhida : 1;
+        itemExistente.quantidade += inc;
+        if (luxo) {
+            itemExistente.luxo = true;
+            itemExistente.qtdMin = qtdMin;
+        } else {
+            itemExistente.qtdMin = resolverQtdMin(itemExistente.qtdMin || qtdMin);
+        }
+        const minEf = minimoQuantidadeItem(itemExistente);
+        if (itemExistente.quantidade < minEf) {
+            itemExistente.quantidade = minEf;
         }
     } else {
-        carrinho.push({ nome, preco: precoNum, quantidade: qtdMin, qtdMin });
+        const qInicial = luxo && qtdEscolhida != null ? Math.max(qtdMin, qtdEscolhida) : qtdMin;
+        const novo = { nome, preco: precoNum, quantidade: qInicial, qtdMin: qtdMin };
+        if (luxo) novo.luxo = true;
+        carrinho.push(novo);
     }
 
     salvarCarrinho(carrinho);
@@ -156,7 +189,7 @@ function alterarQuantidade(index, acao) {
     const item = carrinho[index];
     if (!item) return;
 
-    const min = resolverQtdMin(item.qtdMin);
+    const min = minimoQuantidadeItem(item);
     let q = parseInt(String(item.quantidade), 10);
     if (!Number.isFinite(q)) q = min;
     if (q < min) q = min;
@@ -196,7 +229,7 @@ function atualizarCarrinho() {
     }
 
     carrinho.forEach((item, index) => {
-        const min = resolverQtdMin(item.qtdMin);
+        const min = minimoQuantidadeItem(item);
         const q = parseInt(String(item.quantidade), 10);
         const subtotal = item.preco * q;
         const noLimiteMin = q <= min;
@@ -322,8 +355,20 @@ function initCarrinho() {
             const nome = card.dataset.produtoNome || card.getAttribute('data-produto-nome');
             const preco = parseFloat(card.dataset.produtoPreco || card.getAttribute('data-produto-preco')) ||
                 extrairPreco(card.querySelector('.produto-preco')?.textContent || '');
-            const qtdMin = lerQtdMinDoCard(card);
-            adicionarCarrinho(nome, preco, qtdMin);
+            const luxo = card.dataset.produtoLuxo === 'true' || card.getAttribute('data-produto-luxo') === 'true';
+            let qtdMin;
+            if (luxo) {
+                const raw = card.dataset.produtoQtdMin != null ? card.dataset.produtoQtdMin : card.getAttribute('data-produto-qtd-min');
+                qtdMin = Math.max(1, parseInt(String(raw != null && raw !== '' ? raw : '1'), 10) || 1);
+            } else {
+                qtdMin = lerQtdMinDoCard(card);
+            }
+            const opcoes = luxo ? { luxo: true } : undefined;
+            if (luxo) {
+                const qEl = card.querySelector('[data-des-qty-val]');
+                opcoes.quantidade = Math.max(1, parseInt(String(qEl && qEl.textContent ? qEl.textContent : '1'), 10) || 1);
+            }
+            adicionarCarrinho(nome, preco, qtdMin, opcoes);
         });
     });
 

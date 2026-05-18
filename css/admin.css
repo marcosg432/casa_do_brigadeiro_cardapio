@@ -1,14 +1,14 @@
 /* Área administrativa — orçamentos */
 .admin-body {
     margin: 0;
-    font-family: "Manrope", system-ui, sans-serif;
-    background: #f5f0ea;
-    color: #3d2c24;
+    font-family: "Poppins", system-ui, sans-serif;
+    background: #eddec3;
+    color: #2c241c;
     min-height: 100vh;
 }
 
 .admin-bar {
-    background: #5c4033;
+    background: #926a2d;
     color: #fff;
     padding: 1rem 1.5rem;
     display: flex;
@@ -43,9 +43,9 @@
 
 .admin-card h1,
 .admin-card h2 {
-    font-family: "Fraunces", Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
     margin-top: 0;
-    color: #5c4033;
+    color: #926a2d;
 }
 
 .admin-extra-itens {

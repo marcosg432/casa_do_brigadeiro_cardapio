@@ -1,15 +1,18 @@
 {
-  "name": "cardapio-senna",
+  "name": "casa-do-brigadeiro-cardapio",
   "version": "1.0.0",
-  "description": "Candy Li Doces Finos - Cardápio Digital",
-  "main": "index.html",
-  "scripts": {
-    "start": "node server.js",
-    "open": "node -e \"var p=String(Number(process.env.PORT)||3003);require('child_process').execSync(process.platform==='win32'?'cmd /c start \\\"\\\" \\\"http://localhost:'+p+'/\\\"':'open http://localhost:'+p+'/',{stdio:'inherit'})\"",
-    "open:all": "node open-both.js",
-    "build": "echo 'Projeto estático - sem build'"
-  },
+  "private": true,
+  "description": "Cardápio digital + API SQLite (orçamentos)",
+  "main": "server/index.js",
   "engines": {
     "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "open:all": "node open-both.js",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:reload": "pm2 reload ecosystem.config.cjs --update-env",
+    "pm2:stop": "pm2 stop ecosystem.config.cjs",
+    "pm2:logs": "pm2 logs casa-do-brigadeiro-cardapio"
   }
 }

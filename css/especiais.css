@@ -1,0 +1,593 @@
+/* ========== Especial — vitrine exclusiva (experiências premium) ========== */
+body.pagina-especial {
+    --esp-bege: #eddec3;
+    --esp-rosa: #ebb2d1;
+    --esp-azul: #aaddf1;
+    --esp-marrom: #926a2d;
+    --esp-ink: #2c241c;
+    --esp-font-serif: 'Playfair Display', Georgia, serif;
+    --esp-font-accent: 'Cormorant Garamond', Georgia, serif;
+    --esp-font-sans: 'Poppins', 'Inter', system-ui, sans-serif;
+    background:
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(235, 178, 209, 0.28), transparent 55%),
+        radial-gradient(ellipse 90% 50% at 100% 30%, rgba(170, 221, 241, 0.18), transparent 50%),
+        linear-gradient(180deg, #fffefb 0%, rgba(252, 246, 250, 0.96) 40%, rgba(255, 252, 249, 1) 100%);
+    color: var(--esp-ink);
+}
+
+body.pagina-especial .scroll-to-top {
+    bottom: max(1.15rem, calc(env(safe-area-inset-bottom, 0) + 0.75rem));
+}
+
+body.pagina-especial .esp-wrap {
+    padding-bottom: clamp(3.5rem, 10vw, 6rem);
+}
+
+/* —— Hero cinematográfico (mais rosa / contraste emocional) —— */
+body.pagina-especial .esp-hero {
+    position: relative;
+    margin: 0 auto clamp(2rem, 5vw, 3.25rem);
+    max-width: min(1180px, 100% - 2rem);
+    border-radius: clamp(24px, 4.5vw, 40px);
+    overflow: hidden;
+    min-height: clamp(22rem, 58vh, 38rem);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.88) inset,
+        0 32px 80px rgba(146, 106, 45, 0.12);
+}
+
+body.pagina-especial .esp-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(125deg, rgba(146, 106, 45, 0.38) 0%, rgba(235, 178, 209, 0.35) 38%, rgba(170, 221, 241, 0.32) 100%),
+        radial-gradient(ellipse 70% 55% at 20% 45%, rgba(255, 252, 249, 0.45), transparent 60%),
+        linear-gradient(175deg, rgba(237, 222, 195, 0.92) 0%, rgba(255, 240, 248, 0.55) 50%, rgba(237, 222, 195, 0.75) 100%);
+}
+
+body.pagina-especial .esp-hero-bloom {
+    position: absolute;
+    inset: -20% -10% auto;
+    height: 70%;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(235, 178, 209, 0.45), transparent 70%);
+    pointer-events: none;
+}
+
+body.pagina-especial .esp-hero-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.055;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body.pagina-especial .esp-hero-ornament {
+    position: absolute;
+    top: clamp(1.25rem, 3vw, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(14rem, 55vw);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), rgba(170, 221, 241, 0.75), transparent);
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+body.pagina-especial .esp-hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(22rem, 58vh, 38rem);
+    padding: clamp(2.25rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2.75rem);
+    text-align: center;
+}
+
+body.pagina-especial .esp-hero-eyebrow {
+    font-family: var(--esp-font-accent);
+    font-size: 0.82rem;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(255, 254, 251, 0.95);
+    text-shadow: 0 2px 18px rgba(44, 36, 28, 0.35);
+    margin: 0 0 0.75rem;
+}
+
+body.pagina-especial .esp-hero-title {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(2.35rem, 6.5vw, 3.75rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #fffefb;
+    margin: 0 0 1rem;
+    line-height: 1.08;
+    text-shadow: 0 6px 36px rgba(44, 36, 28, 0.42);
+}
+
+body.pagina-especial .esp-hero-subtitle {
+    font-family: var(--esp-font-sans);
+    font-size: clamp(0.95rem, 2.2vw, 1.12rem);
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 38rem;
+    color: rgba(255, 252, 249, 0.96);
+    text-shadow: 0 2px 20px rgba(44, 36, 28, 0.32);
+    margin: 0;
+}
+
+body.pagina-especial .esp-hero-footer-line {
+    width: min(10rem, 42vw);
+    height: 1px;
+    margin: 1.75rem auto 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), rgba(235, 178, 209, 0.85), transparent);
+}
+
+/* —— Selos —— */
+body.pagina-especial .esp-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0 0 0.85rem;
+}
+
+body.pagina-especial .esp-chip {
+    font-family: var(--esp-font-sans);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.38rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: linear-gradient(135deg, rgba(255, 248, 252, 0.92), rgba(255, 252, 249, 0.88));
+    color: rgba(74, 52, 42, 0.92);
+    box-shadow: 0 4px 14px rgba(146, 106, 45, 0.08);
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+body.pagina-especial .esp-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(235, 178, 209, 0.22);
+}
+
+body.pagina-especial .esp-chip--rosa {
+    border-color: rgba(235, 178, 209, 0.65);
+    background: linear-gradient(135deg, rgba(255, 232, 244, 0.95), rgba(255, 252, 249, 0.92));
+}
+
+body.pagina-especial .esp-chip--marrom {
+    border-color: rgba(146, 106, 45, 0.35);
+    color: var(--esp-marrom);
+    background: linear-gradient(135deg, rgba(237, 222, 195, 0.55), rgba(255, 252, 249, 0.95));
+}
+
+body.pagina-especial .esp-chip--azul {
+    border-color: rgba(170, 221, 241, 0.65);
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.9), rgba(255, 252, 249, 0.95));
+}
+
+/* —— Destaque principal (gigante) —— */
+body.pagina-especial .esp-showpiece {
+    max-width: min(1180px, 100% - 2rem);
+    margin: 0 auto clamp(2.5rem, 6vw, 4rem);
+}
+
+body.pagina-especial .esp-showpiece-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.88fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: stretch;
+    padding: clamp(1.5rem, 3.5vw, 2.75rem);
+    border-radius: clamp(22px, 4vw, 34px);
+    background:
+        linear-gradient(155deg, rgba(255, 254, 251, 0.99) 0%, rgba(255, 252, 249, 0.97) 45%, rgba(252, 246, 250, 0.99) 100%),
+        radial-gradient(ellipse 70% 55% at 0% 30%, rgba(235, 178, 209, 0.14), transparent 55%),
+        linear-gradient(135deg, rgba(170, 221, 241, 0.1) 0%, transparent 42%);
+    border: 1px solid rgba(235, 178, 209, 0.35);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.95) inset,
+        0 28px 72px rgba(146, 106, 45, 0.1);
+    transition:
+        box-shadow 0.4s ease,
+        transform 0.45s cubic-bezier(0.25, 0.9, 0.3, 1);
+}
+
+body.pagina-especial .esp-showpiece-inner:hover {
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.98) inset,
+        0 36px 88px rgba(146, 106, 45, 0.12);
+}
+
+body.pagina-especial .esp-showpiece--hero .esp-showpiece-inner {
+    min-height: clamp(18rem, 42vw, 26rem);
+    padding: clamp(1.75rem, 4vw, 3rem);
+}
+
+body.pagina-especial .esp-visual {
+    position: relative;
+    border-radius: clamp(18px, 3.2vw, 28px);
+    overflow: hidden;
+    min-height: clamp(16rem, 38vw, 24rem);
+    background:
+        linear-gradient(145deg, rgba(237, 222, 195, 0.5) 0%, rgba(255, 252, 249, 0.92) 100%),
+        linear-gradient(215deg, rgba(235, 178, 209, 0.22) 0%, rgba(170, 221, 241, 0.18) 100%);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.8) inset,
+        0 20px 50px rgba(44, 36, 28, 0.09);
+}
+
+body.pagina-especial .esp-showpiece--hero .esp-visual {
+    min-height: clamp(18.5rem, 44vw, 28rem);
+}
+
+body.pagina-especial .esp-visual-glow {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.5), transparent 45%),
+        linear-gradient(165deg, rgba(146, 106, 45, 0.1) 0%, rgba(235, 178, 209, 0.12) 100%);
+}
+
+body.pagina-especial .esp-visual-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--esp-font-accent);
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(146, 106, 45, 0.4);
+}
+
+body.pagina-especial .esp-editorial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: clamp(0.25rem, 1.5vw, 0.75rem) 0;
+}
+
+body.pagina-especial .esp-showpiece--hero .esp-editorial {
+    padding-right: clamp(0, 2vw, 0.5rem);
+}
+
+body.pagina-especial .esp-product-title {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.65rem, 3.8vw, 2.45rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--esp-ink);
+    margin: 0;
+    line-height: 1.15;
+}
+
+body.pagina-especial .esp-showpiece--hero .esp-product-title {
+    font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+}
+
+body.pagina-especial .esp-product-desc {
+    font-family: var(--esp-font-sans);
+    font-size: 0.9rem;
+    line-height: 1.72;
+    color: rgba(44, 36, 28, 0.68);
+    margin: 0;
+    max-width: 28rem;
+}
+
+body.pagina-especial .esp-price-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-top: 0.35rem;
+}
+
+body.pagina-especial .esp-price {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--esp-marrom);
+    letter-spacing: 0.02em;
+}
+
+body.pagina-especial .esp-price-unit {
+    font-family: var(--esp-font-accent);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(146, 106, 45, 0.75);
+}
+
+body.pagina-especial .esp-qty {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(146, 106, 45, 0.14);
+    background: rgba(255, 252, 249, 0.92);
+    box-shadow: 0 4px 16px rgba(44, 36, 28, 0.05);
+    overflow: hidden;
+}
+
+body.pagina-especial .esp-qty-btn {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: linear-gradient(180deg, rgba(237, 222, 195, 0.4) 0%, rgba(255, 252, 249, 0.95) 100%);
+    color: var(--esp-marrom);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease;
+}
+
+body.pagina-especial .esp-qty-btn:hover {
+    background: linear-gradient(180deg, rgba(235, 178, 209, 0.35) 0%, rgba(255, 252, 249, 1) 100%);
+}
+
+body.pagina-especial .esp-qty-btn:active {
+    transform: scale(0.96);
+}
+
+body.pagina-especial .esp-qty-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+body.pagina-especial .esp-qty-val {
+    min-width: 2.35rem;
+    text-align: center;
+    font-family: var(--esp-font-sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+body.pagina-especial .esp-btn-add {
+    margin-top: 0.75rem;
+    width: 100%;
+    max-width: 18rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.88rem 1.45rem;
+    font-family: var(--esp-font-sans);
+    font-size: 0.87rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #fffefb !important;
+    background: linear-gradient(180deg, #a67c3d 0%, var(--esp-marrom) 45%, #7a5522 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 12px 32px rgba(146, 106, 45, 0.24);
+    cursor: pointer;
+    transition:
+        transform 0.3s cubic-bezier(0.25, 0.9, 0.3, 1),
+        box-shadow 0.3s ease,
+        filter 0.28s ease;
+}
+
+body.pagina-especial .esp-btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(146, 106, 45, 0.28);
+    filter: brightness(1.04);
+}
+
+body.pagina-especial .esp-btn-add:active {
+    transform: translateY(0);
+}
+
+body.pagina-especial .esp-btn-add .esp-btn-ico {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* Divisor editorial */
+body.pagina-especial .esp-divider {
+    max-width: min(1180px, 100% - 2rem);
+    margin: clamp(2rem, 5vw, 3.5rem) auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(235, 178, 209, 0.55), rgba(170, 221, 241, 0.5), transparent);
+    position: relative;
+}
+
+body.pagina-especial .esp-divider::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    border-radius: 1px;
+    background: linear-gradient(135deg, var(--esp-rosa), var(--esp-azul));
+    opacity: 0.85;
+}
+
+/* Bloco secundário (presente / experiência) */
+body.pagina-especial .esp-showpiece--gift .esp-showpiece-inner {
+    border-color: rgba(170, 221, 241, 0.4);
+    background:
+        linear-gradient(160deg, rgba(255, 254, 251, 0.99) 0%, rgba(252, 248, 255, 0.97) 100%),
+        radial-gradient(ellipse 55% 50% at 100% 20%, rgba(235, 178, 209, 0.12), transparent 55%);
+}
+
+body.pagina-especial .esp-showpiece--gift .esp-visual {
+    min-height: clamp(13rem, 32vw, 18rem);
+}
+
+body.pagina-especial .esp-showpiece--gift .esp-product-title {
+    font-size: clamp(1.45rem, 3.2vw, 1.95rem);
+}
+
+/* —— Personalização (não genérico) —— */
+body.pagina-especial .esp-personal {
+    max-width: min(720px, 100% - 2rem);
+    margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+    padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.35rem, 3vw, 2.25rem);
+    border-radius: clamp(20px, 3.5vw, 28px);
+    background:
+        linear-gradient(165deg, rgba(255, 252, 249, 0.98) 0%, rgba(255, 248, 252, 0.96) 100%),
+        linear-gradient(90deg, rgba(235, 178, 209, 0.12) 0%, transparent 35%, rgba(170, 221, 241, 0.1) 100%);
+    border: 1px solid rgba(235, 178, 209, 0.38);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.92) inset,
+        0 22px 56px rgba(146, 106, 45, 0.07);
+}
+
+body.pagina-especial .esp-personal-head {
+    text-align: center;
+    margin-bottom: clamp(1.35rem, 3vw, 2rem);
+}
+
+body.pagina-especial .esp-personal-eyebrow {
+    font-family: var(--esp-font-accent);
+    font-size: 0.72rem;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(146, 106, 45, 0.65);
+    margin: 0 0 0.4rem;
+}
+
+body.pagina-especial .esp-personal-title {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.45rem, 3.2vw, 1.95rem);
+    font-weight: 600;
+    color: var(--esp-ink);
+    margin: 0 0 0.45rem;
+}
+
+body.pagina-especial .esp-personal-lead {
+    font-family: var(--esp-font-sans);
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: rgba(44, 36, 28, 0.62);
+    margin: 0 auto;
+    max-width: 28rem;
+}
+
+body.pagina-especial .esp-personal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+body.pagina-especial .esp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+body.pagina-especial .esp-field--full {
+    grid-column: 1 / -1;
+}
+
+body.pagina-especial .esp-field label {
+    font-family: var(--esp-font-accent);
+    font-size: 0.78rem;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(146, 106, 45, 0.78);
+}
+
+body.pagina-especial .esp-field input,
+body.pagina-especial .esp-field textarea {
+    width: 100%;
+    font-family: var(--esp-font-sans);
+    font-size: 0.88rem;
+    padding: 0.72rem 0.95rem;
+    border-radius: 12px;
+    border: 1px solid rgba(146, 106, 45, 0.12);
+    background: rgba(255, 252, 249, 0.95);
+    color: var(--esp-ink);
+    box-shadow: 0 2px 10px rgba(44, 36, 28, 0.04);
+    transition:
+        border-color 0.28s ease,
+        box-shadow 0.28s ease,
+        background 0.28s ease;
+}
+
+body.pagina-especial .esp-field textarea {
+    min-height: 5.5rem;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+body.pagina-especial .esp-field input::placeholder,
+body.pagina-especial .esp-field textarea::placeholder {
+    color: rgba(44, 36, 28, 0.38);
+}
+
+body.pagina-especial .esp-field input:focus,
+body.pagina-especial .esp-field textarea:focus {
+    outline: none;
+    border-color: rgba(235, 178, 209, 0.65);
+    box-shadow:
+        0 0 0 3px rgba(170, 221, 241, 0.25),
+        0 4px 16px rgba(235, 178, 209, 0.12);
+    background: #fffefb;
+}
+
+body.pagina-especial .esp-personal-note {
+    font-family: var(--esp-font-sans);
+    font-size: 0.76rem;
+    line-height: 1.55;
+    color: rgba(44, 36, 28, 0.52);
+    margin: 1rem 0 0;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    body.pagina-especial .esp-showpiece-inner {
+        grid-template-columns: 1fr;
+    }
+
+    body.pagina-especial .esp-editorial {
+        text-align: center;
+        align-items: center;
+    }
+
+    body.pagina-especial .esp-chips {
+        justify-content: center;
+    }
+
+    body.pagina-especial .esp-price-row {
+        justify-content: center;
+    }
+
+    body.pagina-especial .esp-btn-add {
+        max-width: 100%;
+    }
+
+    body.pagina-especial .esp-personal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body.pagina-especial .esp-hero,
+    body.pagina-especial .esp-showpiece,
+    body.pagina-especial .esp-divider,
+    body.pagina-especial .esp-personal {
+        margin-left: max(0.75rem, env(safe-area-inset-left, 0));
+        margin-right: max(0.75rem, env(safe-area-inset-right, 0));
+    }
+}

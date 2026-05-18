@@ -4,6 +4,10 @@
  */
 
 function qtdMinDoItemCarrinho(item) {
+    if (item && item.luxo === true) {
+        var n = parseInt(String(item.qtdMin != null ? item.qtdMin : 1), 10);
+        return Number.isFinite(n) && n >= 1 ? n : 1;
+    }
     if (typeof resolverQtdMin === 'function') {
         return resolverQtdMin(item && item.qtdMin != null ? item.qtdMin : null);
     }
