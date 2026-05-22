@@ -9,8 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false
+            }
+        };
+    </script>
 </head>
-<body>
+<body class="pagina-bolo-corte bg-[#fff9f2] text-[#2c241c] antialiased">
     <button type="button" class="scroll-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
@@ -59,17 +67,191 @@
         </nav>
     </header>
 
-    <section class="page-hero">
-        <h1>Bolo de corte</h1>
-        <p>Fatias generosas e sabores de vitrine, ideais para servir na hora.</p>
+    <section class="bc-hero relative isolate flex min-h-[min(860px,92vh)] items-end overflow-hidden bg-[#2c241c] px-4 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40" aria-labelledby="bc-title">
+        <img src="../assets/bolo-de-corte/bolo-de-corte-hero.svg" alt="" class="bc-hero-bg-img absolute inset-0 -z-30 h-full w-full scale-[1.03] object-cover object-center opacity-95" width="900" height="1200" loading="eager" decoding="async" aria-hidden="true">
+        <div class="bc-hero-bg absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_75%,rgba(235,178,209,.36),transparent_26rem),linear-gradient(90deg,rgba(30,20,13,.93),rgba(86,54,30,.72)_45%,rgba(44,36,28,.18))]" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-4 -z-10 rounded-[2rem] border border-[#EDDEC3]/35 md:inset-7 md:rounded-[3rem]" aria-hidden="true"></div>
+        <div class="container bc-hero-grid grid w-full max-w-7xl grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+            <div class="bc-hero-copy relative max-w-4xl border-l border-[#EDDEC3]/35 pl-6 text-white md:pl-8">
+                <span class="bc-eyebrow inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-[#EDDEC3]">Ateliê de bolo artesanal</span>
+                <h1 id="bc-title" class="mt-5 max-w-[9ch] font-display text-[clamp(4rem,11vw,9rem)] font-semibold leading-[0.82] tracking-[-0.075em] text-white drop-shadow-2xl">Bolo de Corte</h1>
+                <p class="mt-6 max-w-2xl text-lg font-light leading-8 text-white/90 md:text-2xl md:leading-10">Monte seu bolo artesanal com sabores e combinações preparadas para momentos especiais.</p>
+                <a href="#monte-seu-bolo" class="bc-hero-cta mt-8 inline-flex items-center justify-center rounded-full border border-[#EDDEC3]/45 bg-[#EDDEC3]/15 px-6 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-white shadow-[0_18px_44px_rgba(0,0,0,.2)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white/20">Iniciar composição</a>
+            </div>
+            <div class="bc-hero-card hidden rounded-[1.75rem] border border-white/25 bg-white/15 p-5 text-white shadow-[0_24px_54px_rgba(0,0,0,.18)] backdrop-blur-xl lg:block" aria-hidden="true">
+                <span class="block text-xs uppercase tracking-[0.22em] text-[#EDDEC3]">Casa do Brigadeiro</span>
+                <strong class="mt-2 block font-display text-3xl font-semibold leading-none">coberturas por kg</strong>
+            </div>
+        </div>
     </section>
 
-    <main class="container">
-        <div class="cardapio-intro">
-            <p>Esta categoria está em curadoria ativa. Fale com a equipe pelo WhatsApp para disponibilidade, sabores e valores.</p>
-        </div>
-        <div class="btn-orcamento">
-            <a href="https://wa.me/5519974190997?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20da%20Casa%20do%20Brigadeiro%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Bolo%20de%20corte." class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+    <main class="bc-main px-4 py-16 md:px-8 md:py-24" id="monte-seu-bolo">
+        <div class="container mx-auto max-w-7xl">
+            <div class="bc-atelier grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(20rem,.92fr)_minmax(0,1.08fr)] xl:gap-14">
+                <section class="bc-visual relative min-h-[32rem] lg:sticky lg:top-24 lg:min-h-[54rem]" aria-label="Vitrine artesanal do bolo de corte">
+                    <div class="pointer-events-none absolute -left-8 top-16 h-52 w-52 rounded-full bg-[#EBB2D1]/30 blur-sm" aria-hidden="true"></div>
+                    <div class="pointer-events-none absolute bottom-20 right-5 h-36 w-36 rounded-full border border-[#AADDF1]/80" aria-hidden="true"></div>
+                    <div class="bc-visual-frame bc-visual-frame--main absolute inset-x-0 top-0 overflow-hidden rounded-[2.5rem] border border-[#926A2D]/20 bg-[#EDDEC3] shadow-premium lg:right-[7%] lg:h-[45rem]">
+                        <img class="h-full w-full object-cover object-center" src="../assets/bolo-de-corte/bolo-de-corte-hero.svg" alt="Bolo de corte artesanal com cobertura cremosa, camadas de recheio e acabamento de confeitaria premium" width="900" height="1200" loading="lazy" decoding="async">
+                    </div>
+                    <div class="bc-visual-frame bc-visual-frame--detail absolute bottom-16 right-0 z-20 hidden h-80 w-64 rotate-2 overflow-hidden rounded-[1.75rem] border-[8px] border-white/70 bg-white shadow-soft md:block">
+                        <img class="h-full w-full scale-150 object-cover object-center" src="../assets/bolo-de-corte/bolo-de-corte-hero.svg" alt="" width="900" height="1200" loading="lazy" decoding="async" aria-hidden="true">
+                    </div>
+                    <div class="bc-visual-caption absolute bottom-0 left-4 right-4 z-30 rounded-[1.75rem] border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur-xl md:left-8 md:right-32 md:p-6">
+                        <span class="block text-xs font-bold uppercase tracking-[0.22em] text-[#926A2D]">montagem artesanal</span>
+                        <strong class="mt-3 block font-display text-2xl font-medium leading-tight text-[#2c241c]">Texturas, recheios e cobertura em uma composição pensada para servir com elegância.</strong>
+                    </div>
+                    <div class="bc-visual-seal absolute right-2 top-8 z-40 grid h-28 w-28 -rotate-6 place-items-center rounded-full bg-[#926A2D] p-4 text-center font-display text-lg leading-none text-white shadow-[0_18px_36px_rgba(146,106,45,.24)]" aria-hidden="true">feito sob pedido</div>
+                </section>
+
+                <section class="bc-studio rounded-[2.25rem] border border-[#926A2D]/15 bg-white/80 p-5 shadow-premium backdrop-blur md:p-8" aria-labelledby="bc-studio-title">
+                    <header class="bc-studio-head border-b border-[#926A2D]/15 pb-7">
+                        <span class="bc-eyebrow inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.24em] text-[#926A2D]">Monte seu bolo</span>
+                        <h2 id="bc-studio-title" class="mt-4 max-w-xl font-display text-[clamp(2.35rem,5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-[#2c241c]">Uma montagem artesanal, passo a passo.</h2>
+                        <p class="mt-5 max-w-2xl text-base leading-8 text-[#5a5248]">Selecione cobertura, recheio, massa e peso em uma experiência guiada de confeitaria premium.</p>
+                    </header>
+
+                    <div class="bc-choice-panel bc-choice-panel--cover mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EDDEC3]/35 p-5 shadow-soft md:p-7" aria-labelledby="bc-step-cobertura">
+                        <div class="bc-step-head mb-5 flex items-end justify-between gap-4">
+                            <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 1</span>
+                            <h3 id="bc-step-cobertura" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Escolha da cobertura</h3>
+                        </div>
+                        <div class="bc-cover-grid grid grid-cols-1 gap-4 md:grid-cols-2" role="radiogroup" aria-label="Escolha da cobertura">
+                            <button type="button" class="bc-cover-card is-selected group relative min-h-44 overflow-hidden rounded-[1.5rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_12px_30px_rgba(44,36,28,.06)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-soft" data-bc-cover="Cobertura de Chantininho" data-bc-price="89.9" aria-pressed="true">
+                                <span class="bc-cover-ornament absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#EBB2D1]/35"></span>
+                                <strong class="relative z-10 block font-display text-2xl font-semibold leading-tight">Cobertura de Chantininho</strong>
+                                <small class="relative z-10 mt-3 block max-w-56 text-sm leading-6 opacity-80">Acabamento leve, delicado e elegante.</small>
+                                <em class="relative z-10 mt-5 inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-extrabold not-italic text-[#926A2D]">R$89,90/kg</em>
+                            </button>
+                            <button type="button" class="bc-cover-card group relative min-h-44 overflow-hidden rounded-[1.5rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_12px_30px_rgba(44,36,28,.06)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-soft" data-bc-cover="Cobertura de Chocolate" data-bc-price="99.9" aria-pressed="false">
+                                <span class="bc-cover-ornament bc-cover-ornament--choco absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#926A2D]/20"></span>
+                                <strong class="relative z-10 block font-display text-2xl font-semibold leading-tight">Cobertura de Chocolate</strong>
+                                <small class="relative z-10 mt-3 block max-w-56 text-sm leading-6 opacity-80">Perfil intenso, gourmet e sofisticado.</small>
+                                <em class="relative z-10 mt-5 inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-extrabold not-italic text-[#926A2D]">R$99,90/kg</em>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bc-choice-panel bc-choice-panel--flavors mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EBB2D1]/15 p-5 shadow-soft md:p-7" aria-labelledby="bc-step-sabor">
+                        <div class="bc-step-head mb-5 flex items-end justify-between gap-4">
+                            <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 2</span>
+                            <h3 id="bc-step-sabor" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Escolha do sabor</h3>
+                        </div>
+                        <div class="bc-flavor-cloud flex flex-wrap gap-3" role="radiogroup" aria-label="Escolha do sabor">
+                            <button type="button" class="bc-pill is-selected rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Brigadeiro Belga" aria-pressed="true">Brigadeiro Belga</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Brigadeiro Belga com Mousse de Chocolate" aria-pressed="false">Brigadeiro Belga com Mousse de Chocolate</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Brigadeiro Belga com Leite Condensado" aria-pressed="false">Brigadeiro Belga com Leite Condensado</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Brigadeiro Belga ao leite e Branco" aria-pressed="false">Brigadeiro Belga ao leite e Branco</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Brigadeiro Belga com Beijinho" aria-pressed="false">Brigadeiro Belga com Beijinho</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Brigadeiro Belga com Ninho" aria-pressed="false">Brigadeiro Belga com Ninho</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Doce de Leite com Brigadeiro" aria-pressed="false">Doce de Leite com Brigadeiro</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Doce de Leite com Nozes" aria-pressed="false">Doce de Leite com Nozes</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Brigadeiro Branco com Doce de Leite e Abacaxi" aria-pressed="false">Brigadeiro Branco com Doce de Leite e Abacaxi</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Doce de Leite com Ameixa" aria-pressed="false">Doce de Leite com Ameixa</button>
+                            <button type="button" class="bc-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 text-sm font-semibold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-flavor="Brigadeiro com Morango" aria-pressed="false">Brigadeiro com Morango</button>
+                        </div>
+                    </div>
+
+                    <div class="bc-choice-row mt-6 grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,.95fr)_minmax(16rem,.8fr)]">
+                        <div class="bc-choice-panel bc-choice-panel--dough rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EDDEC3]/30 p-5 shadow-soft md:p-7" aria-labelledby="bc-step-massa">
+                            <div class="bc-step-head mb-5 flex items-end justify-between gap-4">
+                                <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 3</span>
+                                <h3 id="bc-step-massa" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Escolha sua massa</h3>
+                            </div>
+                            <div class="bc-dough-grid grid gap-3" role="radiogroup" aria-label="Escolha da massa">
+                                <button type="button" class="bc-dough-card is-selected rounded-[1.25rem] border border-[#926A2D]/15 bg-white/90 p-4 text-left shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-dough="Baunilha" aria-pressed="true">
+                                    <strong class="block font-display text-xl font-semibold">Baunilha</strong>
+                                    <small class="mt-1 block text-sm leading-6 opacity-75">Clássica e leve.</small>
+                                </button>
+                                <button type="button" class="bc-dough-card rounded-[1.25rem] border border-[#926A2D]/15 bg-white/90 p-4 text-left shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-dough="Chocolate" aria-pressed="false">
+                                    <strong class="block font-display text-xl font-semibold">Chocolate</strong>
+                                    <small class="mt-1 block text-sm leading-6 opacity-75">Intensa e macia.</small>
+                                </button>
+                                <button type="button" class="bc-dough-card rounded-[1.25rem] border border-[#926A2D]/15 bg-white/90 p-4 text-left shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-dough="Cenoura" aria-pressed="false">
+                                    <strong class="block font-display text-xl font-semibold">Cenoura</strong>
+                                    <small class="mt-1 block text-sm leading-6 opacity-75">Afetiva e especial.</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bc-choice-panel bc-choice-panel--weight rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#AADDF1]/20 p-5 shadow-soft md:p-7" aria-labelledby="bc-step-peso">
+                            <div class="bc-step-head mb-5 flex items-end justify-between gap-4">
+                                <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 4</span>
+                                <h3 id="bc-step-peso" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Quantidade / Peso</h3>
+                            </div>
+                            <div class="bc-weight-options flex flex-wrap gap-3" role="radiogroup" aria-label="Peso do bolo">
+                                <button type="button" class="bc-weight is-selected rounded-full border border-[#926A2D]/15 bg-white px-5 py-3 text-sm font-extrabold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-weight="1" aria-pressed="true">1kg</button>
+                                <button type="button" class="bc-weight rounded-full border border-[#926A2D]/15 bg-white px-5 py-3 text-sm font-extrabold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-weight="1.5" aria-pressed="false">1,5kg</button>
+                                <button type="button" class="bc-weight rounded-full border border-[#926A2D]/15 bg-white px-5 py-3 text-sm font-extrabold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-weight="2" aria-pressed="false">2kg</button>
+                                <button type="button" class="bc-weight rounded-full border border-[#926A2D]/15 bg-white px-5 py-3 text-sm font-extrabold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-weight="2.5" aria-pressed="false">2,5kg</button>
+                                <button type="button" class="bc-weight rounded-full border border-[#926A2D]/15 bg-white px-5 py-3 text-sm font-extrabold text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-weight="3" aria-pressed="false">3kg</button>
+                            </div>
+                            <div class="bc-qty-wrap mt-6 rounded-[1.35rem] border border-[#926A2D]/15 bg-gradient-to-br from-[#AADDF1]/25 to-white/85 p-4">
+                                <span class="block text-xs font-extrabold uppercase tracking-[0.2em] text-[#926A2D]/75">Quantidade</span>
+                                <div class="bc-qty mt-3 flex items-center justify-between gap-4" role="group" aria-label="Quantidade de bolos">
+                                    <button type="button" class="bc-qty-btn grid h-11 w-11 place-items-center rounded-full bg-white text-2xl leading-none text-[#926A2D] shadow-[0_8px_18px_rgba(44,36,28,.07)] transition duration-300 hover:scale-105 hover:bg-[#926A2D] hover:text-white" data-bc-qty="minus" aria-label="Diminuir quantidade">−</button>
+                                    <strong id="bc-qty-value" class="min-w-10 text-center text-2xl font-semibold text-[#2c241c]" aria-live="polite">1</strong>
+                                    <button type="button" class="bc-qty-btn grid h-11 w-11 place-items-center rounded-full bg-white text-2xl leading-none text-[#926A2D] shadow-[0_8px_18px_rgba(44,36,28,.07)] transition duration-300 hover:scale-105 hover:bg-[#926A2D] hover:text-white" data-bc-qty="plus" aria-label="Aumentar quantidade">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="bc-combos mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/90 to-[#EBB2D1]/20 p-5 shadow-soft md:p-7" aria-labelledby="bc-combos-title">
+                        <span class="bc-eyebrow inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-[#926A2D]">Combinações mais escolhidas</span>
+                        <h3 id="bc-combos-title" class="mt-3 font-display text-3xl font-semibold leading-tight text-[#2c241c]">Atalhos de sabor do ateliê</h3>
+                        <div class="bc-combo-grid mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
+                            <button type="button" class="bc-combo min-h-32 rounded-[1.35rem] border border-[#926A2D]/15 bg-white/80 p-4 text-left shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-combo-flavor="Brigadeiro Belga" data-bc-combo-dough="Chocolate">
+                                <strong class="block font-display text-xl font-semibold leading-tight">Brigadeiro Belga</strong>
+                                <span class="mt-3 block text-sm font-semibold text-[#926A2D]">+ Massa Chocolate</span>
+                            </button>
+                            <button type="button" class="bc-combo min-h-32 rounded-[1.35rem] border border-[#926A2D]/15 bg-white/80 p-4 text-left shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-combo-flavor="Brigadeiro com Morango" data-bc-combo-dough="Baunilha">
+                                <strong class="block font-display text-xl font-semibold leading-tight">Brigadeiro com Morango</strong>
+                                <span class="mt-3 block text-sm font-semibold text-[#926A2D]">+ Massa Baunilha</span>
+                            </button>
+                            <button type="button" class="bc-combo min-h-32 rounded-[1.35rem] border border-[#926A2D]/15 bg-white/80 p-4 text-left shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/35 hover:shadow-soft" data-bc-combo-flavor="Doce de Leite com Nozes" data-bc-combo-dough="Cenoura">
+                                <strong class="block font-display text-xl font-semibold leading-tight">Doce de Leite com Nozes</strong>
+                                <span class="mt-3 block text-sm font-semibold text-[#926A2D]">+ Massa Cenoura</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <aside class="bc-summary sticky bottom-4 z-20 mt-6 grid gap-5 rounded-[1.75rem] border border-[#926A2D]/20 bg-white/90 p-5 shadow-premium backdrop-blur-xl md:p-7 xl:grid-cols-[minmax(0,1fr)_auto]" aria-labelledby="bc-summary-title">
+                        <span class="bc-summary-kicker text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/85">Etapa 5</span>
+                        <h3 id="bc-summary-title" class="font-display text-3xl font-semibold leading-none text-[#2c241c] xl:col-span-2">Sua composição</h3>
+                        <dl class="grid gap-3 sm:grid-cols-2 xl:col-span-2 xl:grid-cols-5">
+                            <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                                <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Cobertura</dt>
+                                <dd id="bc-res-cover" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">Cobertura de Chantininho</dd>
+                            </div>
+                            <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                                <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Sabor</dt>
+                                <dd id="bc-res-flavor" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">Brigadeiro Belga</dd>
+                            </div>
+                            <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                                <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Massa</dt>
+                                <dd id="bc-res-dough" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">Baunilha</dd>
+                            </div>
+                            <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                                <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Peso</dt>
+                                <dd id="bc-res-weight" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">1kg</dd>
+                            </div>
+                            <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                                <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Quantidade</dt>
+                                <dd id="bc-res-qty" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">1 bolo</dd>
+                            </div>
+                        </dl>
+                        <div class="bc-summary-total rounded-[1.35rem] border border-[#926A2D]/10 bg-gradient-to-br from-[#926A2D]/10 to-[#AADDF1]/20 p-5">
+                            <span class="block text-xs font-extrabold uppercase tracking-[0.18em] text-[#5a5248]">Valor final estimado</span>
+                            <strong id="bc-res-total" class="mt-2 block font-display text-4xl font-semibold leading-none text-[#926A2D]">R$ 89,90</strong>
+                        </div>
+                        <button type="button" class="bc-add-cart inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#926A2D] px-7 py-4 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_18px_34px_rgba(146,106,45,.26)] transition duration-300 hover:-translate-y-1 hover:bg-[#7a5a26] hover:shadow-[0_24px_48px_rgba(146,106,45,.32)] xl:w-auto" id="bc-add-cart">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                            Adicionar ao carrinho
+                        </button>
+                    </aside>
+                </section>
+            </div>
         </div>
     </main>
 
@@ -147,6 +329,7 @@
     <script src="../js/orcamentos-storage.js"></script>
     <script src="../js/carrinho.js"></script>
     <script src="../js/pedido.js"></script>
+    <script src="../js/bolo-de-corte.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>

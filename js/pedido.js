@@ -202,7 +202,6 @@ function gerarOrcamento() {
         data_pagamento_entrada: null,
         data_pagamento_final: null,
         status: statusNovo,
-        contrato_pdf: null,
         data_criacao: agora,
         nome_cliente: nome,
         data_evento: dataEvento,
@@ -217,8 +216,7 @@ function gerarOrcamento() {
         cliente_rg: rg ? rg : null,
         rg: rg ? rg : null,
         cpf: cpf ? cpf : null,
-        data: agora,
-        contrato: null
+        data: agora
     };
 
     try {

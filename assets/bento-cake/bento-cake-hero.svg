@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Bentô cakes divertidos e premium</title>
+  <desc id="desc">Composição instagramável com mini bolos coloridos, frases divertidas, doodles delicados e iluminação suave.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffafd"/>
+      <stop offset="0.38" stop-color="#EBB2D1"/>
+      <stop offset="0.72" stop-color="#EDDEC3"/>
+      <stop offset="1" stop-color="#AADDF1"/>
+    </linearGradient>
+    <linearGradient id="cakePink" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#EBB2D1"/>
+    </linearGradient>
+    <linearGradient id="cakeBlue" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#AADDF1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="42%" cy="20%" r="70%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.45" stop-color="#fffdf8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#926A2D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="34" stdDeviation="30" flood-color="#2c241c" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1400" fill="url(#bg)"/>
+  <rect width="1200" height="1400" fill="url(#glow)"/>
+  <circle cx="190" cy="240" r="240" fill="#AADDF1" opacity="0.22"/>
+  <circle cx="1000" cy="260" r="260" fill="#EDDEC3" opacity="0.3"/>
+  <circle cx="1020" cy="1110" r="280" fill="#EBB2D1" opacity="0.24"/>
+  <g fill="none" stroke="#fffdf8" stroke-width="10" stroke-linecap="round" opacity="0.68">
+    <path d="M180 188c32 36 76 36 108 0"/>
+    <path d="M932 182c32 36 76 36 108 0"/>
+    <path d="M166 1020c42-34 92-34 134 0"/>
+    <path d="M910 1032c44-42 100-42 144 0"/>
+  </g>
+  <g fill="#926A2D" opacity="0.35">
+    <circle cx="250" cy="390" r="9"/>
+    <circle cx="970" cy="560" r="8"/>
+    <circle cx="278" cy="1180" r="7"/>
+    <circle cx="792" cy="220" r="7"/>
+  </g>
+  <g filter="url(#shadow)">
+    <ellipse cx="430" cy="990" rx="255" ry="52" fill="#fffdf8" opacity="0.82"/>
+    <path d="M245 640c0-72 58-130 130-130h110c72 0 130 58 130 130v292c0 62-50 112-112 112H357c-62 0-112-50-112-112V640Z" fill="url(#cakePink)"/>
+    <path d="M245 673c62 28 128 38 200 30 62-7 119-27 170-60v82c-110 65-234 72-370 20v-72Z" fill="#fffdf8" opacity="0.76"/>
+    <path d="M313 602c34-42 75-63 123-63 50 0 91 23 123 69" fill="none" stroke="#fffdf8" stroke-width="22" stroke-linecap="round"/>
+    <text x="430" y="790" text-anchor="middle" fill="#926A2D" font-family="Poppins, Arial, sans-serif" font-size="46" font-weight="700">mood:</text>
+    <text x="430" y="850" text-anchor="middle" fill="#926A2D" font-family="Poppins, Arial, sans-serif" font-size="42" font-weight="700">bolo</text>
+    <circle cx="350" cy="570" r="21" fill="#EBB2D1"/>
+    <circle cx="428" cy="548" r="24" fill="#AADDF1"/>
+    <circle cx="508" cy="574" r="21" fill="#EBB2D1"/>
+  </g>
+  <g filter="url(#shadow)">
+    <ellipse cx="790" cy="1046" rx="270" ry="54" fill="#fffdf8" opacity="0.82"/>
+    <path d="M590 692c0-78 63-141 141-141h118c78 0 141 63 141 141v310c0 63-51 114-114 114H704c-63 0-114-51-114-114V692Z" fill="url(#cakeBlue)"/>
+    <path d="M590 732c72 28 148 38 229 29 66-8 124-30 171-66v90c-104 72-238 82-400 30v-83Z" fill="#fffdf8" opacity="0.8"/>
+    <path d="M666 647c34-48 78-72 132-72 58 0 105 27 140 80" fill="none" stroke="#fffdf8" stroke-width="24" stroke-linecap="round"/>
+    <text x="790" y="842" text-anchor="middle" fill="#926A2D" font-family="Poppins, Arial, sans-serif" font-size="44" font-weight="800">feliz</text>
+    <text x="790" y="902" text-anchor="middle" fill="#926A2D" font-family="Poppins, Arial, sans-serif" font-size="42" font-weight="800">seu dia!</text>
+    <circle cx="698" cy="610" r="22" fill="#EBB2D1"/>
+    <circle cx="786" cy="585" r="26" fill="#AADDF1"/>
+    <circle cx="877" cy="618" r="22" fill="#EBB2D1"/>
+  </g>
+  <g fill="none" stroke="#926A2D" stroke-width="5" stroke-linecap="round" opacity="0.34">
+    <path d="M128 760c28-26 58-26 86 0"/>
+    <path d="M1022 758c30-28 64-28 94 0"/>
+    <path d="M482 322l42 42"/>
+    <path d="M524 322l-42 42"/>
+  </g>
+</svg>

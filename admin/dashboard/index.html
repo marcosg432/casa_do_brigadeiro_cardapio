@@ -47,7 +47,6 @@
                 degustacao_agendada: "#1976d2",
                 degustacao_realizada: "#7b1fa2",
                 desconto_aplicado: "#f57c00",
-                contrato_gerado: "#f9a825",
                 fechado: "#388e3c",
                 perdido: "#c62828"
             };
@@ -84,7 +83,7 @@
                     var k = statusNormalizado(o);
                     porStatus[k] = (porStatus[k] || 0) + 1;
                     if (k === "degustacao_agendada" || k === "degustacao_realizada") emDeg++;
-                    if (k === "desconto_aplicado" || k === "contrato_gerado") aprovados++;
+                    if (k === "desconto_aplicado") aprovados++;
                     if (k === "fechado") fechados++;
                     if (k === "perdido") perdidos++;
                     var vf = valorFinalOrc(o);

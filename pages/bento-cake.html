@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Bento Cake | Casa do Brigadeiro</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <title>Bentô Cake | Casa do Brigadeiro</title>
+    <link rel="stylesheet" href="../css/style.css?v=bento-premium-1">
+    <link rel="stylesheet" href="../css/cart.css?v=bento-premium-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind = {
+            config: {
+                corePlugins: { preflight: false },
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            display: ['Playfair Display', 'Georgia', 'serif'],
+                            fun: ['Nunito', 'Poppins', 'system-ui', 'sans-serif'],
+                            sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="pagina-bento-cake bg-[#fff9f7] font-sans text-[#2c241c] antialiased">
     <button type="button" class="scroll-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
@@ -59,17 +76,166 @@
         </nav>
     </header>
 
-    <section class="page-hero">
-        <h1>Bento Cake</h1>
-        <p>Formato compacto, estética delicada e personalização artística na cobertura.</p>
+    <section class="bt-hero relative isolate flex min-h-[min(860px,92vh)] items-end overflow-hidden bg-[#2c241c] px-4 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40" aria-labelledby="bt-title">
+        <img src="../assets/bento-cake/bento-cake-hero.svg" alt="" class="absolute inset-0 -z-30 h-full w-full scale-[1.03] object-cover object-center opacity-95" width="1200" height="1400" loading="eager" decoding="async" aria-hidden="true">
+        <div class="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_75%,rgba(235,178,209,.44),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(170,221,241,.34),transparent_22rem),linear-gradient(90deg,rgba(30,20,13,.88),rgba(92,55,44,.62)_45%,rgba(44,36,28,.12))]" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-4 -z-10 rounded-[2rem] border border-white/35 md:inset-7 md:rounded-[3rem]" aria-hidden="true"></div>
+        <div class="container grid w-full max-w-7xl grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+            <div class="max-w-4xl border-l border-[#EDDEC3]/45 pl-6 text-white md:pl-8">
+                <span class="inline-flex items-center gap-3 font-fun text-xs font-black uppercase tracking-[0.24em] text-[#EDDEC3]">Ateliê criativo e instagramável</span>
+                <h1 id="bt-title" class="mt-5 max-w-[8ch] font-display text-[clamp(4.2rem,11vw,8.8rem)] font-semibold leading-[0.84] tracking-[-0.07em] text-white drop-shadow-2xl">Bentô Cake</h1>
+                <p class="mt-6 max-w-2xl text-lg font-light leading-8 text-white/90 md:text-2xl md:leading-10">Mini bolos personalizados para surpreender, presentear e transformar momentos em memórias divertidas.</p>
+                <a href="#monte-seu-bento" class="mt-8 inline-flex min-h-14 items-center justify-center rounded-full border border-[#EDDEC3]/45 bg-white/15 px-6 py-4 font-fun text-sm font-black uppercase tracking-[0.14em] text-white shadow-[0_18px_44px_rgba(0,0,0,.22)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white/22">Montar meu bentô</a>
+            </div>
+            <div class="hidden rotate-2 rounded-[1.75rem] border border-white/25 bg-white/15 p-5 text-white shadow-[0_24px_54px_rgba(0,0,0,.18)] backdrop-blur-xl lg:block" aria-hidden="true">
+                <span class="block font-fun text-xs font-black uppercase tracking-[0.22em] text-[#EDDEC3]">frase do dia</span>
+                <strong class="mt-2 block font-fun text-3xl font-black leading-none">“só aceito parabéns com bolo”</strong>
+            </div>
+        </div>
     </section>
 
-    <main class="container">
-        <div class="cardapio-intro">
-            <p>Esta categoria está em curadoria ativa. Fale com a equipe pelo WhatsApp para disponibilidade, sabores e valores.</p>
-        </div>
-        <div class="btn-orcamento">
-            <a href="https://wa.me/5519974190997?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20da%20Casa%20do%20Brigadeiro%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Bento%20Cake." class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+    <main class="px-4 py-16 md:px-8 md:py-24" id="monte-seu-bento">
+        <div class="container mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(20rem,.92fr)_minmax(0,1.08fr)] xl:gap-14">
+            <section class="relative min-h-[36rem] lg:sticky lg:top-24 lg:min-h-[56rem]" aria-label="Galeria instagramável de Bentô Cakes">
+                <div class="pointer-events-none absolute -left-8 top-12 h-52 w-52 rounded-full bg-[#EBB2D1]/35 blur-sm" aria-hidden="true"></div>
+                <div class="pointer-events-none absolute bottom-24 right-5 h-36 w-36 rounded-full border border-[#AADDF1]/90" aria-hidden="true"></div>
+                <div class="absolute inset-x-0 top-0 h-[clamp(31rem,60vw,45rem)] overflow-hidden rounded-[2.5rem] border border-[#926A2D]/15 bg-[#EBB2D1]/40 shadow-[0_28px_78px_rgba(44,36,28,.15)] lg:right-[7%]">
+                    <img class="h-full w-full object-cover object-center" src="../assets/bento-cake/bento-cake-hero.svg" alt="Bentô cakes personalizados com frases divertidas e visual instagramável" width="1200" height="1400" loading="lazy" decoding="async">
+                </div>
+                <div class="absolute bottom-20 right-0 z-20 hidden h-80 w-64 -rotate-3 overflow-hidden rounded-[1.75rem] border-[8px] border-white/75 bg-white shadow-[0_18px_44px_rgba(44,36,28,.1)] md:block">
+                    <img class="h-full w-full scale-150 object-cover object-center" src="../assets/bento-cake/bento-cake-hero.svg" alt="" width="1200" height="1400" loading="lazy" decoding="async" aria-hidden="true">
+                </div>
+                <div class="absolute left-8 top-8 z-30 hidden rounded-full bg-white/85 px-5 py-3 font-fun text-sm font-black text-[#926A2D] shadow-[0_12px_30px_rgba(44,36,28,.08)] backdrop-blur md:block" aria-hidden="true">feito pra postar</div>
+                <div class="absolute bottom-0 left-4 right-4 z-30 rounded-[1.75rem] border border-white/70 bg-white/88 p-5 shadow-[0_18px_44px_rgba(44,36,28,.1)] backdrop-blur-xl md:left-8 md:right-32 md:p-6">
+                    <span class="block font-fun text-xs font-black uppercase tracking-[0.22em] text-[#926A2D]">presente com personalidade</span>
+                    <strong class="mt-3 block font-display text-2xl font-medium leading-tight text-[#2c241c]">Pequeno no tamanho, gigante na reação: frase, cor e estilo para criar o momento perfeito.</strong>
+                </div>
+                <div class="absolute right-2 top-8 z-40 grid h-28 w-28 -rotate-6 place-items-center rounded-full bg-[#926A2D] p-4 text-center font-fun text-base font-black leading-none text-white shadow-[0_18px_36px_rgba(146,106,45,.24)]" aria-hidden="true">mini bolo, maxi emoção</div>
+            </section>
+
+            <section class="rounded-[2.25rem] border border-[#926A2D]/15 bg-white/82 p-5 shadow-[0_28px_80px_rgba(44,36,28,.1)] backdrop-blur md:p-8" aria-labelledby="bt-studio-title">
+                <header class="border-b border-[#926A2D]/15 pb-7">
+                    <span class="inline-flex items-center gap-3 font-fun text-xs font-black uppercase tracking-[0.22em] text-[#926A2D]">Configure seu Bentô Cake</span>
+                    <h2 id="bt-studio-title" class="mt-4 max-w-xl font-display text-[clamp(2.3rem,4.8vw,3.9rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-[#2c241c]">Escolha o tamanho, o estilo e a frase da surpresa.</h2>
+                    <p class="mt-5 max-w-2xl text-base leading-8 text-[#5a5248]">Uma experiência rápida, divertida e organizada para montar um presente com cara de post especial.</p>
+                </header>
+
+                <div class="mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EBB2D1]/20 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="bt-step-size">
+                    <div class="mb-5 flex items-end justify-between gap-4">
+                        <span class="font-fun text-xs font-black uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 1</span>
+                        <h3 id="bt-step-size" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Escolha do tamanho</h3>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2" role="radiogroup" aria-label="Escolha do tamanho do Bentô Cake">
+                        <button type="button" class="bt-size-card is-selected relative min-h-44 overflow-hidden rounded-[1.5rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_12px_30px_rgba(44,36,28,.06)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bt-size="PP" data-bt-slices="até 4 fatias" data-bt-weight="400g" data-bt-diameter="10cm" aria-pressed="true">
+                            <span class="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#AADDF1]/30"></span>
+                            <strong class="relative z-10 block font-display text-5xl font-semibold leading-none">PP</strong>
+                            <span class="relative z-10 mt-4 block font-fun text-sm font-extrabold text-[#926A2D]">Rende até 4 fatias · 400g</span>
+                            <small class="relative z-10 mt-2 block text-sm leading-6 opacity-80">10cm tradicional</small>
+                            <em class="relative z-10 mt-5 inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-black not-italic text-[#926A2D]">R$ 65,00</em>
+                        </button>
+                        <button type="button" class="bt-size-card relative min-h-44 overflow-hidden rounded-[1.5rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_12px_30px_rgba(44,36,28,.06)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bt-size="P" data-bt-slices="13 a 15 fatias" data-bt-weight="1,3kg" data-bt-diameter="15cm" aria-pressed="false">
+                            <span class="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#EBB2D1]/35"></span>
+                            <strong class="relative z-10 block font-display text-5xl font-semibold leading-none">P</strong>
+                            <span class="relative z-10 mt-4 block font-fun text-sm font-extrabold text-[#926A2D]">Rende de 13 a 15 fatias · 1,3kg</span>
+                            <small class="relative z-10 mt-2 block text-sm leading-6 opacity-80">15cm tradicional ou especial</small>
+                            <em class="relative z-10 mt-5 block text-sm font-black not-italic text-[#926A2D]">Trad. R$120 · Especial R$140</em>
+                        </button>
+                        <button type="button" class="bt-size-card relative min-h-44 overflow-hidden rounded-[1.5rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_12px_30px_rgba(44,36,28,.06)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bt-size="M" data-bt-slices="18 a 20 fatias" data-bt-weight="1,8kg" data-bt-diameter="18cm" aria-pressed="false">
+                            <span class="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#AADDF1]/30"></span>
+                            <strong class="relative z-10 block font-display text-5xl font-semibold leading-none">M</strong>
+                            <span class="relative z-10 mt-4 block font-fun text-sm font-extrabold text-[#926A2D]">Rende de 18 a 20 fatias · 1,8kg</span>
+                            <small class="relative z-10 mt-2 block text-sm leading-6 opacity-80">18cm tradicional ou especial</small>
+                            <em class="relative z-10 mt-5 block text-sm font-black not-italic text-[#926A2D]">Trad. R$160 · Especial R$180</em>
+                        </button>
+                        <button type="button" class="bt-size-card relative min-h-44 overflow-hidden rounded-[1.5rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_12px_30px_rgba(44,36,28,.06)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bt-size="G" data-bt-slices="22 a 25 fatias" data-bt-weight="2,3kg" data-bt-diameter="22cm" aria-pressed="false">
+                            <span class="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#EBB2D1]/35"></span>
+                            <strong class="relative z-10 block font-display text-5xl font-semibold leading-none">G</strong>
+                            <span class="relative z-10 mt-4 block font-fun text-sm font-extrabold text-[#926A2D]">Rende de 22 a 25 fatias · 2,3kg</span>
+                            <small class="relative z-10 mt-2 block text-sm leading-6 opacity-80">22cm tradicional ou especial</small>
+                            <em class="relative z-10 mt-5 block text-sm font-black not-italic text-[#926A2D]">Trad. R$200 · Especial R$220</em>
+                        </button>
+                    </div>
+                    <div class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Escolha do acabamento">
+                        <button type="button" class="bt-variant-card is-selected rounded-[1.25rem] border border-[#926A2D]/15 bg-white/85 p-4 text-left shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1" data-bt-variant="tradicional" aria-pressed="true">
+                            <strong class="block font-fun text-lg font-black text-[#2c241c]">Tradicional</strong>
+                            <span class="mt-1 block text-sm leading-6 text-[#5a5248]">Visual clean, fofo e direto ao ponto.</span>
+                        </button>
+                        <button type="button" class="bt-variant-card rounded-[1.25rem] border border-[#926A2D]/15 bg-white/85 p-4 text-left shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1" data-bt-variant="especial" aria-pressed="false">
+                            <strong class="block font-fun text-lg font-black text-[#2c241c]">Especial <span class="ml-2 rounded-full bg-[#EBB2D1]/40 px-2 py-1 text-xs text-[#926A2D]">premium</span></strong>
+                            <span class="mt-1 block text-sm leading-6 text-[#5a5248]">Mais detalhes, acabamento extra e presença de presente.</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#AADDF1]/20 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="bt-step-style">
+                    <div class="mb-5 flex items-end justify-between gap-4">
+                        <span class="font-fun text-xs font-black uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 2</span>
+                        <h3 id="bt-step-style" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Escolha do estilo</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3" role="radiogroup" aria-label="Escolha do estilo do Bentô Cake">
+                        <button type="button" class="bt-style-pill is-selected rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 font-fun text-sm font-black text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1" data-bt-style="Engraçado" aria-pressed="true">Engraçado</button>
+                        <button type="button" class="bt-style-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 font-fun text-sm font-black text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1" data-bt-style="Romântico" aria-pressed="false">Romântico</button>
+                        <button type="button" class="bt-style-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 font-fun text-sm font-black text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1" data-bt-style="Aniversário" aria-pressed="false">Aniversário</button>
+                        <button type="button" class="bt-style-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 font-fun text-sm font-black text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1" data-bt-style="Meme" aria-pressed="false">Meme</button>
+                        <button type="button" class="bt-style-pill rounded-full border border-[#926A2D]/15 bg-white px-4 py-3 font-fun text-sm font-black text-[#4b4036] shadow-[0_8px_20px_rgba(44,36,28,.04)] transition duration-300 hover:-translate-y-1" data-bt-style="Minimalista" aria-pressed="false">Minimalista</button>
+                    </div>
+                </div>
+
+                <div class="mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EBB2D1]/20 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="bt-step-phrase">
+                    <div class="mb-5 flex items-end justify-between gap-4">
+                        <span class="font-fun text-xs font-black uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 3</span>
+                        <h3 id="bt-step-phrase" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Personalize sua frase</h3>
+                    </div>
+                    <div class="grid gap-4">
+                        <label class="grid gap-2">
+                            <span class="font-fun text-xs font-black uppercase tracking-[0.16em] text-[#926A2D]">Frase do bentô</span>
+                            <textarea id="bt-phrase" class="min-h-28 rounded-[1.25rem] border border-[#926A2D]/15 bg-white/90 p-4 text-base leading-7 text-[#2c241c] shadow-[inset_0_1px_0_rgba(255,255,255,.7),0_8px_22px_rgba(44,36,28,.04)] outline-none transition focus:border-[#926A2D]/45 focus:ring-4 focus:ring-[#EBB2D1]/25" maxlength="90" placeholder="Ex: parabéns, agora paga um boleto e come bolo"></textarea>
+                        </label>
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <label class="grid gap-2">
+                                <span class="font-fun text-xs font-black uppercase tracking-[0.16em] text-[#926A2D]">Nome</span>
+                                <input id="bt-name" class="rounded-full border border-[#926A2D]/15 bg-white/90 px-4 py-3 text-base text-[#2c241c] shadow-[0_8px_22px_rgba(44,36,28,.04)] outline-none transition focus:border-[#926A2D]/45 focus:ring-4 focus:ring-[#AADDF1]/25" placeholder="Para quem é?">
+                            </label>
+                            <label class="grid gap-2">
+                                <span class="font-fun text-xs font-black uppercase tracking-[0.16em] text-[#926A2D]">Observações</span>
+                                <input id="bt-note" class="rounded-full border border-[#926A2D]/15 bg-white/90 px-4 py-3 text-base text-[#2c241c] shadow-[0_8px_22px_rgba(44,36,28,.04)] outline-none transition focus:border-[#926A2D]/45 focus:ring-4 focus:ring-[#AADDF1]/25" placeholder="Cores, referência, tema...">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/90 to-[#AADDF1]/20 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="bt-perfect-title">
+                    <span class="inline-flex items-center gap-3 font-fun text-xs font-black uppercase tracking-[0.22em] text-[#926A2D]">Perfeito para</span>
+                    <h3 id="bt-perfect-title" class="mt-3 font-display text-3xl font-semibold leading-tight text-[#2c241c]">Pequenas surpresas com reação gigante</h3>
+                    <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 font-fun text-sm font-black text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)]">aniversários</span>
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 font-fun text-sm font-black text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)]">presente criativo</span>
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 font-fun text-sm font-black text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)]">datas especiais</span>
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 font-fun text-sm font-black text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)]">surpresas</span>
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 font-fun text-sm font-black text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)]">comemorações divertidas</span>
+                    </div>
+                </section>
+
+                <aside class="bt-summary sticky bottom-4 z-20 mt-6 grid gap-5 rounded-[1.75rem] border border-[#926A2D]/20 bg-white/92 p-5 shadow-[0_28px_80px_rgba(44,36,28,.14)] backdrop-blur-xl md:p-7 xl:grid-cols-[minmax(0,1fr)_auto]" aria-labelledby="bt-summary-title">
+                    <span class="font-fun text-xs font-black uppercase tracking-[0.22em] text-[#926A2D]/85">Etapa 4</span>
+                    <h3 id="bt-summary-title" class="font-display text-3xl font-semibold leading-none text-[#2c241c] xl:col-span-2">Seu bentô</h3>
+                    <dl class="grid gap-3 sm:grid-cols-2 xl:col-span-2 xl:grid-cols-5">
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4"><dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Tamanho</dt><dd id="bt-res-size" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">PP</dd></div>
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4"><dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Fatias</dt><dd id="bt-res-slices" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">até 4 fatias</dd></div>
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4"><dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Estilo</dt><dd id="bt-res-style" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">Engraçado</dd></div>
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4"><dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Frase</dt><dd id="bt-res-phrase" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">A definir</dd></div>
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4"><dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Acabamento</dt><dd id="bt-res-variant" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">Tradicional</dd></div>
+                    </dl>
+                    <div class="rounded-[1.35rem] border border-[#926A2D]/10 bg-gradient-to-br from-[#926A2D]/10 to-[#EBB2D1]/25 p-5">
+                        <span class="block text-xs font-extrabold uppercase tracking-[0.18em] text-[#5a5248]">Valor final estimado</span>
+                        <strong id="bt-res-total" class="mt-2 block font-display text-4xl font-semibold leading-none text-[#926A2D]">R$ 65,00</strong>
+                    </div>
+                    <button type="button" class="bt-add-cart inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#926A2D] px-7 py-4 font-fun text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_18px_34px_rgba(146,106,45,.26)] transition duration-300 hover:-translate-y-1 hover:bg-[#7a5a26] hover:shadow-[0_24px_48px_rgba(146,106,45,.32)] xl:w-auto" id="bt-add-cart">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        Adicionar ao carrinho
+                    </button>
+                </aside>
+            </section>
         </div>
     </main>
 
@@ -147,6 +313,7 @@
     <script src="../js/orcamentos-storage.js"></script>
     <script src="../js/carrinho.js"></script>
     <script src="../js/pedido.js"></script>
+    <script src="../js/bento-cake.js?v=bento-premium-1"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>

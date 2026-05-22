@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Atendimento premium para encomendas</title>
+  <desc id="desc">Composição editorial acolhedora com bolos artesanais, cartão de atendimento, flores delicadas e iluminação suave.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffaf4"/>
+      <stop offset="0.45" stop-color="#EDDEC3"/>
+      <stop offset="1" stop-color="#AADDF1"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#f4e6d2"/>
+    </linearGradient>
+    <linearGradient id="cake" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#EBB2D1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="36%" cy="18%" r="68%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="0.45" stop-color="#EBB2D1" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#926A2D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="34" stdDeviation="32" flood-color="#2c241c" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1400" fill="url(#bg)"/>
+  <rect width="1200" height="1400" fill="url(#glow)"/>
+  <circle cx="170" cy="230" r="230" fill="#EBB2D1" opacity="0.22"/>
+  <circle cx="1005" cy="320" r="250" fill="#AADDF1" opacity="0.24"/>
+  <circle cx="980" cy="1110" r="280" fill="#EDDEC3" opacity="0.24"/>
+  <g fill="none" stroke="#fffdf8" stroke-width="2" opacity="0.42">
+    <path d="M120 260c180-80 332-62 456 52 142 130 322 142 512 36"/>
+    <path d="M156 1140c198-72 370-45 516 82 130 113 278 106 444-20"/>
+    <path d="M180 188h760"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="210" y="348" width="520" height="640" rx="52" fill="url(#paper)"/>
+    <path d="M268 465h392" stroke="#926A2D" stroke-width="8" stroke-linecap="round" opacity="0.24"/>
+    <path d="M268 558h308" stroke="#EBB2D1" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
+    <path d="M268 642h380" stroke="#AADDF1" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
+    <path d="M268 732h326" stroke="#926A2D" stroke-width="8" stroke-linecap="round" opacity="0.24"/>
+    <path d="M268 815h250" stroke="#EBB2D1" stroke-width="16" stroke-linecap="round" opacity="0.65"/>
+    <circle cx="630" cy="850" r="54" fill="#926A2D"/>
+    <path d="M604 850l18 18 38-48" fill="none" stroke="#fffdf8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <ellipse cx="825" cy="1042" rx="255" ry="54" fill="#fffdf8" opacity="0.82"/>
+    <path d="M640 650c0-72 58-130 130-130h108c72 0 130 58 130 130v334c0 62-50 112-112 112H752c-62 0-112-50-112-112V650Z" fill="url(#cake)"/>
+    <path d="M640 690c70 26 142 35 216 25 58-8 109-28 152-58v86c-100 62-222 70-368 24v-77Z" fill="#fffdf8" opacity="0.78"/>
+    <path d="M708 590c34-46 76-69 128-69 54 0 99 25 134 75" fill="none" stroke="#fffdf8" stroke-width="24" stroke-linecap="round"/>
+    <circle cx="728" cy="565" r="23" fill="#EBB2D1"/>
+    <circle cx="824" cy="540" r="27" fill="#AADDF1"/>
+    <circle cx="920" cy="575" r="23" fill="#EBB2D1"/>
+    <path d="M730 826h190" stroke="#926A2D" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+    <path d="M760 890h130" stroke="#926A2D" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+  </g>
+  <g fill="#926A2D" opacity="0.35">
+    <circle cx="198" cy="650" r="7"/>
+    <circle cx="1000" cy="540" r="8"/>
+    <circle cx="220" cy="1080" r="6"/>
+    <circle cx="785" cy="235" r="6"/>
+  </g>
+</svg>

@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cart.css">
     <link rel="preload" href="assets/logo-casa-do-brigadeiro.png" as="image">
-    <link rel="preload" href="assets/bolos-vitrine/bolo_chocolate.webp" as="image">
-    <link rel="preload" href="assets/bolos-vitrine/bolo_ninho.webp" as="image">
-    <link rel="preload" href="assets/bolos-vitrine/bolo_dois_amores.webp" as="image">
-    <link rel="preload" href="assets/sobremesas-tortas/sobremesa_ninho_morango.webp" as="image">
-    <link rel="preload" href="assets/sobremesas-tortas/cheesecake_frutas_vermelhas.webp" as="image">
-    <link rel="preload" href="assets/doces-finos/brigadeiro_gourmet.webp" as="image">
-    <link rel="preload" href="assets/doces-festas/bandeja_enorme_doces.webp" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -78,58 +71,43 @@
         </nav>
     </header>
 
-    <!-- Hero: imagens exclusivas em assets/carrossel-home/ (não reutilizar em categorias) -->
-    <section class="hero hero-carousel">
-        <div class="hero-slides">
-            <div class="hero-slide active">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_001.webp');"></div>
-            </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_002.webp');"></div>
-            </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_003.webp');"></div>
-            </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_004.webp');"></div>
-            </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_005.webp');"></div>
-            </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_006.webp');"></div>
-            </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_007.webp');"></div>
-            </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_008.webp');"></div>
-            </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('assets/carrossel-home/carrossel_009.webp');"></div>
-            </div>
+    <!-- Hero: editorial premium minimalista -->
+    <section class="hero hero--home-cover">
+        <div class="hero-bg-layer" aria-hidden="true">
+            <span class="hero-glow hero-glow--rose"></span>
+            <span class="hero-glow hero-glow--blue"></span>
+            <span class="hero-grain"></span>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">Doces finos artesanais</p>
-            <div class="hero-brand" aria-hidden="true">
-                <img src="assets/logo-casa-do-brigadeiro.png" alt="Casa do Brigadeiro — confeitaria gourmet" class="hero-brand-img" width="560" height="160" decoding="async">
+            <div class="hero-copy">
+                <p class="hero-eyebrow">Doces finos artesanais</p>
+                <h1 class="hero-title">Confeitaria artesanal para celebrações memoráveis.</h1>
+                <p class="hero-subtitle">Doces finos preparados com estética, delicadeza e presença para transformar cada mesa em uma experiência premium.</p>
+                <p class="hero-text">Uma curadoria de sabores, texturas e acabamentos pensada para quem valoriza beleza, cuidado e sofisticação em cada detalhe.</p>
+                <div class="hero-buttons">
+                    <a href="#categorias" class="btn btn-primary">Explorar coleção</a>
+                    <a href="https://wa.me/5519974190997?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Casa%20do%20Brigadeiro%20e%20gostaria%20de%20encomendar%20doces%20finos." class="btn btn-whatsapp" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Conversar no WhatsApp
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://www.instagram.com/casadobrigadeiro?igsh=Y21tNGNtdXNraTBi&amp;utm_source=qr" class="hero-social-link" target="_blank" rel="noopener noreferrer" aria-label="Casa do Brigadeiro no Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
             </div>
-            <h1 class="visually-hidden">Casa do Brigadeiro</h1>
-            <p class="hero-subtitle">Cada detalhe é pensado para transformar momentos em experiências únicas.</p>
-            <p class="hero-text">Nossos doces finos são preparados com ingredientes selecionados, unindo delicadeza, sabor e apresentação impecável.</p>
-            <p class="hero-text">Uma confeitaria que valoriza o cuidado, a estética e o prazer de apreciar o que é feito com excelência.</p>
-            <div class="hero-buttons">
-                <a href="#categorias" class="btn btn-primary">Explorar coleção</a>
-                <a href="https://wa.me/5519974190997?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Casa%20do%20Brigadeiro%20e%20gostaria%20de%20encomendar%20doces%20finos." class="btn btn-whatsapp" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Conversar no WhatsApp
-                </a>
-            </div>
-            <div class="hero-social">
-                <a href="https://www.instagram.com/casadobrigadeiro?igsh=Y21tNGNtdXNraTBi&amp;utm_source=qr" class="hero-social-link" target="_blank" rel="noopener noreferrer" aria-label="Casa do Brigadeiro no Instagram">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
+            <div class="hero-art" aria-hidden="true">
+                <span class="hero-art-orbit"></span>
+                <span class="hero-art-plate"></span>
+                <span class="hero-brigadeiro hero-brigadeiro--one"></span>
+                <span class="hero-brigadeiro hero-brigadeiro--two"></span>
+                <span class="hero-brigadeiro hero-brigadeiro--three"></span>
+                <span class="hero-brigadeiro hero-brigadeiro--four"></span>
+                <span class="hero-art-petal hero-art-petal--rose"></span>
+                <span class="hero-art-petal hero-art-petal--blue"></span>
+                <span class="hero-art-line"></span>
             </div>
         </div>
     </section>
@@ -146,7 +124,6 @@
                     <h3 class="categoria-bloco-titulo">Doces</h3>
                     <div class="categoria-grid">
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/linha-afetiva/linha-afetiva-doces-classicos-nozes.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Docinhos tradicionais</h3>
                                 <p>Receitas que honram a mesa brasileira, com textura macia e acabamento cuidadoso.</p>
@@ -155,7 +132,6 @@
                             </div>
                         </article>
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/doces-finos/brigadeiro_gourmet.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Brigadeiros recheados</h3>
                                 <p>Centro surpresa, banho brilhante e equilíbrio entre doçura e contraste.</p>
@@ -164,7 +140,6 @@
                             </div>
                         </article>
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/linha-exclusiva/linha-exclusiva-categoria-home.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Brigadeiros Belga</h3>
                                 <p>Chocolate nobre, brilho intenso e mordida cremosa em formato elegante.</p>
@@ -173,7 +148,6 @@
                             </div>
                         </article>
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/doces-festas/bandeja_enorme_doces.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Doces especiais</h3>
                                 <p>Criações fora do óbvio, pensadas para surpreender paladar e olhar.</p>
@@ -182,7 +156,6 @@
                             </div>
                         </article>
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/linha-classica/linha-classica-categoria-home.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Brigadeiros especiais</h3>
                                 <p>Acabamentos artesanais e camadas que valorizam o brigadeiro como joia da vitrine.</p>
@@ -191,7 +164,6 @@
                             </div>
                         </article>
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/lembrancinhas-especiais/lembrancinhas-casamento-doces.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Especiais</h3>
                                 <p>Seleção curada para momentos únicos — edições limitadas e combinações exclusivas.</p>
@@ -205,7 +177,6 @@
                     <h3 class="categoria-bloco-titulo">Bolos</h3>
                     <div class="categoria-grid">
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/bolos-vitrine/bolo_chocolate.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Bolo de corte</h3>
                                 <p>Fatias generosas, massas equilibradas e coberturas com brilho sedoso.</p>
@@ -214,7 +185,6 @@
                             </div>
                         </article>
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/bolos-vitrine/bolo_ninho.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Bolos personalizados</h3>
                                 <p>Projetos sob medida: camadas, decoração e narrativa visual alinhadas ao seu evento.</p>
@@ -223,7 +193,6 @@
                             </div>
                         </article>
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/bolos-vitrine/bolo_dois_amores.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Bento Cake</h3>
                                 <p>Formato compacto, estética delicada e personalização artística na cobertura.</p>
@@ -232,7 +201,6 @@
                             </div>
                         </article>
                         <article class="categoria-card">
-                            <div class="categoria-img" style="background-image: url('assets/carrossel-bolos/bolos-banner-01.webp');"></div>
                             <div class="categoria-content">
                                 <h3>Informações de encomendas</h3>
                                 <p>Prazos, retirada, entrega e orientações para planejar com tranquilidade.</p>
@@ -254,113 +222,72 @@
                 <p class="section-subtitle">Escolha com calma — cada sugestão é preparada com o rigor de uma confeitaria de alto padrão.</p>
             </header>
             <div class="produtos-grid-home">
-                <article class="produto-card-home" data-produto-nome="Camafeu" data-produto-preco="4.5" data-produto-descricao="Doce tradicional com nozes e cobertura brilhante, formato clássico à mesa de festas." data-produto-ingredientes="Nozes | Ovos | Açúcar | Chocolate" data-produto-pedido="R$ 4,50">
-                    <div class="produto-img-home produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
+                <article class="produto-card-home" data-produto-nome="Cento de docinhos tradicionais" data-produto-preco="1.6" data-produto-qtd-min="100" data-produto-descricao="Cento (100 unidades) de docinhos tradicionais artesanais. Sabores disponíveis: Bicho de É, Casadinho e Beijinho." data-produto-ingredientes="Bicho de É | Casadinho | Beijinho" data-produto-pedido="R$ 160,00 o cento">
+                    <div class="produto-img-home" style="background-image: url('assets/docinhos-tradicionais/variedade-de-brigadeiros.png');" role="img" aria-label="Variedade de brigadeiros e docinhos tradicionais artesanais"></div>
+                    <div class="produto-content-home">
+                        <h3>Cento de docinhos tradicionais</h3>
+                        <p>Bicho de É, Casadinho e Beijinho em uma seleção artesanal para mesa de festa.</p>
+                        <span class="produto-preco">R$ 160,00 o cento</span>
+                        <div class="produto-buttons">
+                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="produto-card-home" data-produto-nome="Cento de brigadeiros recheados" data-produto-preco="3.3" data-produto-qtd-min="100" data-produto-descricao="Cento (100 unidades) de brigadeiros recheados artesanais, com acabamento sofisticado." data-produto-ingredientes="Doce de Leite | Leite Condensado | Ninho com Nutella | Prestígio | Ovomaltine | Confete | Caipirinha | Amendoim" data-produto-pedido="R$ 330,00 o cento">
+                    <div class="produto-img-home" style="background-image: url('assets/brigadeiros-recheados/brigadeiros-recheados-hero.png');" role="img" aria-label="Brigadeiros recheados gourmet com coberturas variadas"></div>
+                    <div class="produto-content-home">
+                        <h3>Cento de brigadeiros recheados</h3>
+                        <p>Brigadeiros com centro surpresa, brilho delicado e sabores especiais.</p>
+                        <span class="produto-preco">R$ 330,00 o cento</span>
+                        <div class="produto-buttons">
+                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="produto-card-home" data-produto-nome="Cento de brigadeiros Belga" data-produto-preco="3.2" data-produto-qtd-min="100" data-produto-descricao="Cento (100 unidades) de brigadeiros Belga com chocolate nobre e acabamento refinado." data-produto-ingredientes="Belga ao leite | Meio amargo | Amargo | Branco" data-produto-pedido="R$ 320,00 o cento">
+                    <div class="produto-img-home" style="background-image: url('assets/brigadeiros-belga/brigadeiros-belga-hero.png');" role="img" aria-label="Brigadeiros Belga artesanais com coberturas variadas"></div>
+                    <div class="produto-content-home">
+                        <h3>Cento de brigadeiros Belga</h3>
+                        <p>Chocolate premium, acabamento refinado e sabores Belga para uma mesa elegante.</p>
+                        <span class="produto-preco">R$ 320,00 o cento</span>
+                        <div class="produto-buttons">
+                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="produto-card-home" data-produto-nome="Cento de brigadeiros especiais" data-produto-preco="3.6" data-produto-qtd-min="100" data-produto-descricao="Cento (100 unidades) de brigadeiros especiais artesanais, com ingredientes refinados e acabamento sofisticado." data-produto-ingredientes="Amêndoa | Cereja | Pistache | Nozes" data-produto-pedido="R$ 360,00 o cento">
+                    <div class="produto-img-home" style="background-image: url('assets/brigadeiros-recheados/brigadeiros-recheados-hero.png');" role="img" aria-label="Brigadeiros especiais gourmet em forminhas com coberturas nobres"></div>
+                    <div class="produto-content-home">
+                        <h3>Cento de brigadeiros especiais</h3>
+                        <p>Sabores com amêndoa, cereja, pistache e nozes em acabamento gourmet.</p>
+                        <span class="produto-preco">R$ 360,00 o cento</span>
+                        <div class="produto-buttons">
+                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="produto-card-home" data-produto-nome="Camafeu — Doces especiais" data-produto-preco="380" data-produto-qtd-min="1" data-produto-luxo="true" data-produto-descricao="Camafeu (15g): nozes selecionadas e acabamento premium." data-produto-ingredientes="Nozes selecionadas | Cobertura premium" data-produto-pedido="R$ 380,00">
+                    <div class="produto-img-home" style="background-image: url('assets/doces-especiais/camafeu-nozes.png');" role="img" aria-label="Camafeus artesanais com nozes e acabamento premium"></div>
                     <div class="produto-content-home">
                         <h3>Camafeu</h3>
-                        <p>Linha Clássica — nozes, cobertura brilhante e tradição de festa.</p>
-                        <span class="produto-preco">R$ 4,50</span>
+                        <p>Doce especial com nozes selecionadas, textura delicada e acabamento premium.</p>
+                        <span class="produto-preco">R$ 380,00</span>
                         <div class="produto-buttons">
                             <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                         </div>
                     </div>
                 </article>
-                <article class="produto-card-home" data-produto-nome="Bombom Bueno" data-produto-preco="6" data-produto-descricao="Bombom com camadas crocantes, creme de avelã e banho de chocolate — inspiração Bueno." data-produto-ingredientes="Chocolate | Avelã | Wafer | Creme" data-produto-pedido="R$ 6,00">
-                    <div class="produto-img-home produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
+                <article class="produto-card-home" data-produto-nome="Surpresa de Uva — Doces especiais" data-produto-preco="420" data-produto-qtd-min="1" data-produto-luxo="true" data-produto-descricao="Surpresa de Uva: uva fresca envolvida em brigadeiro gourmet." data-produto-ingredientes="Uva fresca | Brigadeiro gourmet" data-produto-pedido="R$ 420,00">
+                    <div class="produto-img-home" style="background-image: url('assets/doces-especiais/surpresa-de-uva-morango.png');" role="img" aria-label="Surpresa de uva envolvida em brigadeiro gourmet"></div>
                     <div class="produto-content-home">
-                        <h3>Bombom Bueno</h3>
-                        <p>Linha Exclusiva — crocante, avelã e chocolate em camadas.</p>
-                        <span class="produto-preco">R$ 6,00</span>
+                        <h3>Surpresa de Uva</h3>
+                        <p>Uva fresca envolvida em brigadeiro gourmet com presença marcante na mesa.</p>
+                        <span class="produto-preco">R$ 420,00</span>
                         <div class="produto-buttons">
                             <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
                         </div>
                     </div>
                 </article>
-                <article class="produto-card-home" data-produto-nome="Brigadeiro gourmet" data-produto-preco="4.5" data-produto-descricao="Brigadeiro gourmet com chocolate e leite condensado, textura cremosa e acabamento cuidadoso — linha clássica." data-produto-ingredientes="Leite condensado | Chocolate em pó | Manteiga | Chocolate granulado" data-produto-pedido="R$ 4,50">
-                    <div class="produto-img-home produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
-                    <div class="produto-content-home">
-                        <h3>Brigadeiro gourmet</h3>
-                        <p>Linha Clássica — sabor de infância e textura cremosa.</p>
-                        <span class="produto-preco">R$ 4,50</span>
-                        <div class="produto-buttons">
-                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
-                        </div>
-                    </div>
-                </article>
-                <article class="produto-card-home" data-produto-nome="Morango imperial" data-produto-preco="6" data-produto-descricao="Morango inteiro sobre base de creme e chocolate — apresentação elegante em forminha." data-produto-ingredientes="Morango | Chocolate | Creme" data-produto-pedido="R$ 6,00">
-                    <div class="produto-img-home produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
-                    <div class="produto-content-home">
-                        <h3>Morango imperial</h3>
-                        <p>Linha Exclusiva — morango, creme e chocolate com acabamento fino.</p>
-                        <span class="produto-preco">R$ 6,00</span>
-                        <div class="produto-buttons">
-                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
-                        </div>
-                    </div>
-                </article>
-                <article class="produto-card-home" data-produto-nome="Surpresa de avelã" data-produto-preco="4.5" data-produto-descricao="Bombom com recheio cremoso de avelã e acabamento em chocolate com brilho dourado." data-produto-ingredientes="Chocolate | Avelã | Creme de leite | Manteiga" data-produto-pedido="R$ 4,50">
-                    <div class="produto-img-home produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
-                    <div class="produto-content-home">
-                        <h3>Surpresa de avelã</h3>
-                        <p>Linha Clássica — centro cremoso de avelã e chocolate brilhante.</p>
-                        <span class="produto-preco">R$ 4,50</span>
-                        <div class="produto-buttons">
-                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
-                        </div>
-                    </div>
-                </article>
-                <article class="produto-card-home" data-produto-nome="Bombom Amaretto Folhado" data-produto-preco="4" data-produto-descricao="Bombom com massa folhada crocante, notas de amaretto e cobertura delicada — final com amêndoa." data-produto-ingredientes="Chocolate | Amaretto | Massa folhada | Amêndoa" data-produto-pedido="R$ 4,00">
-                    <div class="produto-img-home produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
-                    <div class="produto-content-home">
-                        <h3>Bombom Amaretto Folhado</h3>
-                        <p>Catálogo doces finos — folha crocante, amaretto e amêndoa.</p>
-                        <span class="produto-preco">R$ 4,00</span>
-                        <div class="produto-buttons">
-                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
-                        </div>
-                    </div>
-                </article>
-                <article class="produto-card-home" data-produto-nome="Verrine cream cheese com geleia de frutas vermelhas" data-produto-preco="6" data-produto-descricao="Camadas de cream cheese e geleia de frutas vermelhas no copinho — sobremesa em formato de verrine." data-produto-ingredientes="Cream cheese | Frutas vermelhas | Açúcar | Biscoito (opcional)" data-produto-pedido="R$ 6,00">
-                    <div class="produto-img-home produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
-                    <div class="produto-content-home">
-                        <h3>Verrine cream cheese e frutas vermelhas</h3>
-                        <p>Linha Exclusiva — camadas no copinho, sabor sofisticado.</p>
-                        <span class="produto-preco">R$ 6,00</span>
-                        <div class="produto-buttons">
-                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
-                        </div>
-                    </div>
-                </article>
-                <article class="produto-card-home" data-produto-nome="Mini cheesecake maracujá com chocolate" data-produto-preco="6" data-produto-descricao="Base crocante, cheesecake de maracujá e camada ou mousse de chocolate — versão mini na linha exclusiva para mesa de doces." data-produto-ingredientes="Cream cheese | Maracujá | Chocolate | Biscoito" data-produto-pedido="R$ 6,00">
-                    <div class="produto-img-home produto-img--em-breve" role="img" aria-label="Em breve"><span class="produto-em-breve">Em breve</span></div>
-                    <div class="produto-content-home">
-                        <h3>Mini cheesecake maracujá com chocolate</h3>
-                        <p>Linha Exclusiva — contraste azedinho do maracujá com chocolate.</p>
-                        <span class="produto-preco">R$ 6,00</span>
-                        <div class="produto-buttons">
-                            <button type="button" class="btn-adicionar-carrinho">Adicionar ao carrinho</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galeria -->
-    <section class="galeria section">
-        <div class="container">
-            <header class="section-head">
-                <h2 class="section-title">Nosso olhar</h2>
-                <p class="section-subtitle">Mesa e detalhe que traduzem a assinatura Casa do Brigadeiro.</p>
-            </header>
-            <!-- Imagens: assets/carrossel-home/ (seleção para não repetir só o 1º slide do hero) -->
-            <div class="galeria-grid">
-                <div class="galeria-item" style="background-image: url('assets/carrossel-home/carrossel_002.webp');"></div>
-                <div class="galeria-item" style="background-image: url('assets/carrossel-home/carrossel_004.webp');"></div>
-                <div class="galeria-item" style="background-image: url('assets/carrossel-home/carrossel_005.webp');"></div>
-                <div class="galeria-item" style="background-image: url('assets/carrossel-home/carrossel_006.webp');"></div>
-                <div class="galeria-item" style="background-image: url('assets/carrossel-home/carrossel_008.webp');"></div>
-                <div class="galeria-item" style="background-image: url('assets/carrossel-home/carrossel_009.webp');"></div>
             </div>
         </div>
     </section>

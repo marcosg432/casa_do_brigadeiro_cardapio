@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Bolos personalizados premium</title>
+  <desc id="desc">Composicao editorial com bolos artesanais personalizados, flores delicadas, cobertura cremosa e luz sofisticada.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffaf4"/>
+      <stop offset="0.45" stop-color="#EDDEC3"/>
+      <stop offset="1" stop-color="#926A2D"/>
+    </linearGradient>
+    <linearGradient id="cream" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#EDDEC3"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" x2="1">
+      <stop offset="0" stop-color="#EBB2D1"/>
+      <stop offset="1" stop-color="#fff8ef"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="35%" cy="18%" r="70%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="0.48" stop-color="#EBB2D1" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#2c241c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="38" stdDeviation="34" flood-color="#2c241c" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1400" fill="url(#bg)"/>
+  <rect width="1200" height="1400" fill="url(#glow)"/>
+  <circle cx="170" cy="215" r="235" fill="#EBB2D1" opacity="0.24"/>
+  <circle cx="1020" cy="350" r="270" fill="#AADDF1" opacity="0.24"/>
+  <circle cx="980" cy="1130" r="260" fill="#EDDEC3" opacity="0.25"/>
+  <g fill="none" stroke="#fffdf8" stroke-width="2" opacity="0.35">
+    <path d="M130 310c210-88 384-72 520 48 128 112 278 130 438 42"/>
+    <path d="M120 1122c190-70 356-46 498 72 130 108 288 104 464-10"/>
+    <path d="M190 184h770"/>
+    <path d="M228 1210h650"/>
+  </g>
+  <g filter="url(#shadow)">
+    <ellipse cx="605" cy="1110" rx="405" ry="70" fill="#fffdf8" opacity="0.82"/>
+    <ellipse cx="605" cy="1088" rx="325" ry="44" fill="#AADDF1" opacity="0.34"/>
+    <path d="M328 563c0-92 75-167 167-167h212c92 0 167 75 167 167v430c0 75-61 136-136 136H464c-75 0-136-61-136-136V563Z" fill="url(#cream)"/>
+    <path d="M328 593c76 34 158 48 246 42 113-7 212-38 300-93v106c-90 54-190 84-300 90-91 5-173-8-246-39V593Z" fill="#EBB2D1" opacity="0.65"/>
+    <path d="M328 758c86 34 174 48 265 41 104-8 198-37 281-87v114c-80 48-176 77-286 84-93 6-180-9-260-45V758Z" fill="#fffdf8" opacity="0.92"/>
+    <path d="M328 918c82 34 171 49 267 41 105-8 199-38 279-86v115c0 78-63 141-141 141H469c-78 0-141-63-141-141v-70Z" fill="#926A2D" opacity="0.82"/>
+    <path d="M395 424c62-88 134-132 216-132 86 0 158 47 216 142" fill="none" stroke="#fffdf8" stroke-width="28" stroke-linecap="round"/>
+    <path d="M436 373c70-66 143-69 218-10" fill="none" stroke="#EBB2D1" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+    <g>
+      <circle cx="443" cy="466" r="28" fill="#EBB2D1"/>
+      <circle cx="512" cy="428" r="23" fill="#AADDF1"/>
+      <circle cx="605" cy="407" r="31" fill="#EBB2D1"/>
+      <circle cx="702" cy="431" r="24" fill="#AADDF1"/>
+      <circle cx="773" cy="477" r="28" fill="#EBB2D1"/>
+      <circle cx="445" cy="466" r="9" fill="#fffdf8"/>
+      <circle cx="605" cy="407" r="10" fill="#fffdf8"/>
+      <circle cx="773" cy="477" r="9" fill="#fffdf8"/>
+    </g>
+    <path d="M385 520c118 50 250 48 396-5" fill="none" stroke="#926A2D" stroke-width="7" stroke-linecap="round" opacity="0.42"/>
+  </g>
+  <g filter="url(#shadow)" opacity="0.92">
+    <ellipse cx="918" cy="1040" rx="170" ry="32" fill="#fffdf8" opacity="0.82"/>
+    <path d="M805 753c0-54 44-98 98-98h52c54 0 98 44 98 98v252c0 37-30 67-67 67H872c-37 0-67-30-67-67V753Z" fill="url(#rose)"/>
+    <path d="M805 792c64 24 130 24 198 0 16-6 33-14 50-25v76c-74 42-156 50-248 24v-75Z" fill="#fffdf8" opacity="0.8"/>
+    <circle cx="871" cy="682" r="21" fill="#926A2D"/>
+    <circle cx="931" cy="666" r="25" fill="#EBB2D1"/>
+    <circle cx="993" cy="696" r="19" fill="#AADDF1"/>
+  </g>
+  <g opacity="0.65">
+    <circle cx="208" cy="670" r="6" fill="#fffdf8"/>
+    <circle cx="1010" cy="580" r="7" fill="#fffdf8"/>
+    <circle cx="252" cy="952" r="5" fill="#EBB2D1"/>
+    <circle cx="1045" cy="920" r="5" fill="#AADDF1"/>
+    <circle cx="740" cy="236" r="5" fill="#fffdf8"/>
+  </g>
+</svg>

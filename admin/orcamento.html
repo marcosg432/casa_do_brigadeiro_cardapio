@@ -43,108 +43,6 @@
                 <p><strong>Entrega / retirada:</strong> <span id="view-entrega"></span></p>
                 <p><strong>Observações:</strong> <span id="view-obs"></span></p>
 
-                <details class="admin-contrato-anexo" open>
-                    <summary class="admin-contrato-anexo-sumario">Anexo contratual (PDF) — dados opcionais</summary>
-                    <p class="admin-contrato-anexo-hint">Preencha para o contrato sair completo como na planilha (RG, CPF, horários, cerimonialista etc.). O que ficar em branco aparece como “—” no PDF. O PDF gerado usa sempre os valores que estão nestes campos na hora de clicar em «Gerar contrato (PDF)»; para gravar também no servidor (corrige erros e persiste antes de gerar outro PDF), use o botão «Salvar dados do anexo» ou «Salvar alterações» no fim da página.</p>
-
-                    <h3 class="admin-secao-titulo">Contratante e evento no PDF</h3>
-                    <p class="admin-hint-text">Nome, e-mail, telefone e data/tipo do evento vindos do pedido aparecem no quadro superior só para consulta — edite abaixo se precisar corrigir o que sai no contrato (nome grafado errado, evento adiado, etc.).</p>
-                    <label for="contrato-pdf-nome-cliente">Nome do contratante (no PDF)</label>
-                    <input type="text" id="contrato-pdf-nome-cliente" autocomplete="name" placeholder="Como deve aparecer no contrato">
-                    <div class="admin-grid-2">
-                        <div>
-                            <label for="contrato-pdf-email">E-mail (no PDF)</label>
-                            <input type="email" id="contrato-pdf-email" autocomplete="email">
-                        </div>
-                        <div>
-                            <label for="contrato-pdf-telefone">Celular (linha central do anexo, tabela cliente)</label>
-                            <input type="tel" id="contrato-pdf-telefone" autocomplete="off" inputmode="tel" placeholder="Igual campo telefone principal do pedido">
-                        </div>
-                    </div>
-                    <div class="admin-grid-2">
-                        <div>
-                            <label for="contrato-pdf-data-evento">Data do evento (no PDF)</label>
-                            <input type="date" id="contrato-pdf-data-evento">
-                        </div>
-                        <div>
-                            <label for="contrato-pdf-tipo-evento">Tipo do evento (no PDF)</label>
-                            <input type="text" id="contrato-pdf-tipo-evento" placeholder="Ex.: Casamento" autocomplete="off">
-                        </div>
-                    </div>
-
-                    <label for="contrato-numero-exibicao">Nº do contrato (exibição no PDF)</label>
-                    <input type="text" id="contrato-numero-exibicao" placeholder="Ex.: 2027346 — vazio usa o ID do orçamento" autocomplete="off">
-                    <div class="admin-grid-2">
-                        <div>
-                            <label for="contrato-cliente-rg">RG</label>
-                            <input type="text" id="contrato-cliente-rg" autocomplete="off">
-                        </div>
-                        <div>
-                            <label for="contrato-cliente-cpf">CPF</label>
-                            <input type="text" id="contrato-cliente-cpf" autocomplete="off">
-                        </div>
-                    </div>
-                    <label for="contrato-cliente-nasc">Data de nascimento (cliente)</label>
-                    <input type="date" id="contrato-cliente-nasc">
-                    <label for="contrato-cliente-endereco">Endereço (logradouro, cidade)</label>
-                    <input type="text" id="contrato-cliente-endereco" placeholder="Se vazio, pode usar o local do evento no PDF onde aplicável" autocomplete="street-address">
-                    <label for="contrato-cliente-cep">CEP</label>
-                    <input type="text" id="contrato-cliente-cep" inputmode="numeric" autocomplete="postal-code">
-                    <div class="admin-grid-2">
-                        <div>
-                            <label for="contrato-telefone-fixo">Telefone fixo</label>
-                            <input type="tel" id="contrato-telefone-fixo" autocomplete="off" inputmode="tel">
-                        </div>
-                        <div>
-                            <label for="contrato-contato-nome">Nome de contato (evento)</label>
-                            <input type="text" id="contrato-contato-nome" autocomplete="name">
-                        </div>
-                    </div>
-                    <label for="contrato-contato-celular">Celular (contato)</label>
-                    <input type="tel" id="contrato-contato-celular" autocomplete="off" inputmode="tel">
-                    <h3 class="admin-secao-titulo">Evento (anexo)</h3>
-                    <label for="contrato-local-festa">Local da festa</label>
-                    <input type="text" id="contrato-local-festa" placeholder="Se vazio, usa o campo Local do orçamento">
-                    <div class="admin-grid-2">
-                        <div>
-                            <label for="contrato-horario-entrega">Horário de entrega</label>
-                            <input type="text" id="contrato-horario-entrega" placeholder="Ex.: 14h">
-                        </div>
-                        <div>
-                            <label for="contrato-horario-festa">Horário da festa</label>
-                            <input type="text" id="contrato-horario-festa" placeholder="Ex.: 17h">
-                        </div>
-                    </div>
-                    <label for="contrato-local-cerimonia">Local da cerimônia</label>
-                    <input type="text" id="contrato-local-cerimonia">
-                    <div class="admin-grid-2">
-                        <div>
-                            <label for="contrato-cerimonialista">Cerimonialista</label>
-                            <input type="text" id="contrato-cerimonialista">
-                        </div>
-                        <div>
-                            <label for="contrato-cerimonialista-tel">Telefone (cerimonialista)</label>
-                            <input type="tel" id="contrato-cerimonialista-tel" autocomplete="off" inputmode="tel">
-                        </div>
-                    </div>
-                    <div class="admin-grid-2">
-                        <div>
-                            <label for="contrato-fotografo">Fotógrafo</label>
-                            <input type="text" id="contrato-fotografo">
-                        </div>
-                        <div>
-                            <label for="contrato-fotografo-tel">Telefone (fotógrafo)</label>
-                            <input type="tel" id="contrato-fotografo-tel" autocomplete="off" inputmode="tel">
-                        </div>
-                    </div>
-                    <label for="contrato-quitado-em">Valor quitado em (data)</label>
-                    <input type="date" id="contrato-quitado-em">
-                    <div class="admin-contrato-anexo-acoes">
-                        <button type="button" class="admin-btn admin-btn-sec" id="btn-salvar-anexo-contrato">Salvar dados do anexo</button>
-                        <p class="admin-hint-text">Equivale aos mesmos dados que «Salvar alterações» envia ao servidor — inclui nome/e-mail/data do contratante, anexo opcional etc., sem precisar descer até o fim da página.</p>
-                    </div>
-                </details>
-
                 <h2>Itens</h2>
                 <p id="itens-editar-ajuda" class="admin-itens-dica"></p>
                 <ul id="lista-itens" class="admin-lista-itens"></ul>
@@ -234,7 +132,6 @@
                     <button type="button" class="admin-btn" id="btn-salvar">Salvar alterações</button>
                     <button type="button" class="admin-btn admin-btn-whats" id="btn-whatsapp-orc">Enviar orçamento no WhatsApp</button>
                     <button type="button" class="admin-btn" id="btn-pdf-orcamento" style="background:#6d5345">Gerar orçamento PDF</button>
-                    <button type="button" class="admin-btn admin-btn-sec" id="btn-contrato">Gerar contrato (PDF)</button>
                     <button type="button" class="admin-btn admin-btn-sec" id="btn-voltar">Voltar à lista</button>
                 </div>
             </div>
@@ -247,7 +144,6 @@
     <script src="../js/orcamentos-compat.js"></script>
     <script src="../js/orcamentos-storage.js"></script>
     <script src="../js/admin-common.js"></script>
-    <script src="../js/contrato-pdf.js"></script>
     <script src="../js/orcamento-pdf.js"></script>
     <script src="../js/admin-detalhe-orcamento.js"></script>
 </body>

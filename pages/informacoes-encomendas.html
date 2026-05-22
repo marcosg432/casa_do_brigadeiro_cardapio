@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Informações de encomendas | Casa do Brigadeiro</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/style.css?v=encomendas-premium-1">
+    <link rel="stylesheet" href="../css/cart.css?v=encomendas-premium-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind = {
+            config: {
+                corePlugins: { preflight: false },
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            display: ['Playfair Display', 'Georgia', 'serif'],
+                            sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="pagina-informacoes-encomendas bg-[#fffaf4] font-sans text-[#2c241c] antialiased">
     <button type="button" class="scroll-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
@@ -59,17 +75,100 @@
         </nav>
     </header>
 
-    <section class="page-hero">
-        <h1>Informações de encomendas</h1>
-        <p>Prazos, retirada, entrega e orientações para planejar com tranquilidade.</p>
+    <section class="relative isolate flex min-h-[min(820px,88vh)] items-end overflow-hidden bg-[#2c241c] px-4 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40" aria-labelledby="ie-title">
+        <img src="../assets/informacoes-encomendas/informacoes-encomendas-hero.svg" alt="" class="absolute inset-0 -z-30 h-full w-full scale-[1.03] object-cover object-center opacity-95" width="1200" height="1400" loading="eager" decoding="async" aria-hidden="true">
+        <div class="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_20%_72%,rgba(235,178,209,.28),transparent_24rem),radial-gradient(circle_at_82%_18%,rgba(170,221,241,.26),transparent_22rem),linear-gradient(90deg,rgba(30,20,13,.9),rgba(78,50,28,.68)_45%,rgba(44,36,28,.14))]" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-4 -z-10 rounded-[2rem] border border-[#EDDEC3]/35 md:inset-7 md:rounded-[3rem]" aria-hidden="true"></div>
+        <div class="container grid w-full max-w-7xl grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+            <div class="max-w-4xl border-l border-[#EDDEC3]/45 pl-6 text-white md:pl-8">
+                <span class="inline-flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.24em] text-[#EDDEC3]">Concierge de encomendas</span>
+                <h1 id="ie-title" class="mt-5 max-w-[11ch] font-display text-[clamp(3.6rem,9vw,8rem)] font-semibold leading-[0.86] tracking-[-0.065em] text-white drop-shadow-2xl">Informações de Encomendas</h1>
+                <p class="mt-6 max-w-2xl text-lg font-light leading-8 text-white/90 md:text-2xl md:leading-10">Tudo o que você precisa saber para realizar sua encomenda com tranquilidade, praticidade e segurança.</p>
+                <a href="#central-encomendas" class="mt-8 inline-flex min-h-14 items-center justify-center rounded-full border border-[#EDDEC3]/45 bg-[#EDDEC3]/15 px-6 py-4 text-sm font-extrabold uppercase tracking-[0.14em] text-white shadow-[0_18px_44px_rgba(0,0,0,.22)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white/20">Ver orientações</a>
+            </div>
+            <div class="hidden rounded-[1.75rem] border border-white/25 bg-white/15 p-5 text-white shadow-[0_24px_54px_rgba(0,0,0,.18)] backdrop-blur-xl lg:block" aria-hidden="true">
+                <span class="block text-xs uppercase tracking-[0.22em] text-[#EDDEC3]">atendimento premium</span>
+                <strong class="mt-2 block font-display text-3xl font-semibold leading-none">clareza para encomendar com segurança</strong>
+            </div>
+        </div>
     </section>
 
-    <main class="container">
-        <div class="cardapio-intro">
-            <p>Esta categoria está em curadoria ativa. Fale com a equipe pelo WhatsApp para disponibilidade, sabores e valores.</p>
-        </div>
-        <div class="btn-orcamento">
-            <a href="https://wa.me/5519974190997?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20da%20Casa%20do%20Brigadeiro%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Informa%C3%A7%C3%B5es%20de%20encomendas." class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+    <main class="px-4 py-16 md:px-8 md:py-24" id="central-encomendas">
+        <div class="container mx-auto max-w-7xl">
+            <section class="grid gap-8 lg:grid-cols-[minmax(0,.95fr)_minmax(0,1.05fr)] lg:items-start">
+                <div class="relative overflow-hidden rounded-[2.25rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 via-[#EDDEC3]/30 to-[#AADDF1]/15 p-6 shadow-[0_28px_80px_rgba(44,36,28,.1)] md:p-8 lg:sticky lg:top-24">
+                    <div class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#EBB2D1]/30"></div>
+                    <div class="relative z-10 grid gap-6">
+                        <span class="inline-flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]">Como funciona</span>
+                        <h2 class="max-w-xl font-display text-[clamp(2.2rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2c241c]">Uma encomenda organizada do primeiro contato até a entrega.</h2>
+                        <div class="rounded-[1.75rem] border border-[#926A2D]/15 bg-white/80 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)]">
+                            <div class="grid h-14 w-14 place-items-center rounded-full bg-[#926A2D] text-white shadow-[0_12px_28px_rgba(146,106,45,.24)]" aria-hidden="true">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7l7-4z"/><path d="M9 12l2 2 4-5"/></svg>
+                            </div>
+                            <p class="mt-5 text-xl leading-8 text-[#2c241c]">Trabalhamos com <strong class="text-[#926A2D]">50% de entrada</strong> no ato da encomenda e o restante na entrega do bolo.</p>
+                        </div>
+                        <blockquote class="rounded-[1.75rem] border border-[#926A2D]/10 bg-[#fffdf8]/70 p-5 font-display text-2xl leading-tight text-[#926A2D] shadow-[0_14px_34px_rgba(44,36,28,.06)]">
+                            “Cada encomenda é preparada artesanalmente com atenção aos detalhes para tornar seu momento ainda mais especial.”
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="grid gap-6">
+                    <section class="rounded-[1.75rem] border border-[#926A2D]/15 bg-white/88 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="ie-pagamentos">
+                        <div class="mb-5 flex items-end justify-between gap-4">
+                            <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/80">Pagamento</span>
+                            <h3 id="ie-pagamentos" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Formas de pagamento</h3>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <div class="group rounded-[1.35rem] border border-[#926A2D]/12 bg-gradient-to-br from-white to-[#EDDEC3]/30 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]"><span class="grid h-11 w-11 place-items-center rounded-full bg-[#AADDF1]/45 text-[#926A2D]">◇</span><strong class="mt-4 block text-lg font-extrabold">Pix</strong></div>
+                            <div class="group rounded-[1.35rem] border border-[#926A2D]/12 bg-gradient-to-br from-white to-[#EBB2D1]/20 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]"><span class="grid h-11 w-11 place-items-center rounded-full bg-[#EBB2D1]/45 text-[#926A2D]">▣</span><strong class="mt-4 block text-lg font-extrabold">Cartão de Crédito</strong></div>
+                            <div class="group rounded-[1.35rem] border border-[#926A2D]/12 bg-gradient-to-br from-white to-[#AADDF1]/20 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]"><span class="grid h-11 w-11 place-items-center rounded-full bg-[#AADDF1]/45 text-[#926A2D]">▤</span><strong class="mt-4 block text-lg font-extrabold">Cartão de Débito</strong></div>
+                            <div class="group rounded-[1.35rem] border border-[#926A2D]/12 bg-gradient-to-br from-white to-[#EDDEC3]/35 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]"><span class="grid h-11 w-11 place-items-center rounded-full bg-[#EDDEC3] text-[#926A2D]">R$</span><strong class="mt-4 block text-lg font-extrabold">Dinheiro</strong></div>
+                        </div>
+                    </section>
+
+                    <section class="rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EBB2D1]/18 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="ie-prazo">
+                        <div class="grid gap-4 md:grid-cols-[auto_1fr] md:items-center">
+                            <div class="grid h-14 w-14 place-items-center rounded-full bg-[#926A2D] text-white shadow-[0_12px_28px_rgba(146,106,45,.24)]" aria-hidden="true">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>
+                            </div>
+                            <div>
+                                <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/80">Prazo</span>
+                                <h3 id="ie-prazo" class="mt-2 font-display text-3xl font-semibold leading-tight text-[#2c241c]">Encomendas devem ser feitas no mínimo com 2 dias de antecedência.</h3>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section class="mt-8 rounded-[2rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/92 to-[#AADDF1]/18 p-5 shadow-[0_20px_56px_rgba(44,36,28,.08)] md:p-8" aria-labelledby="ie-fluxo">
+                <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]">Fluxo do pedido</span>
+                <h2 id="ie-fluxo" class="mt-3 font-display text-[clamp(2rem,4.8vw,3.4rem)] font-semibold leading-tight text-[#2c241c]">Como funciona o pedido</h2>
+                <div class="mt-7 grid gap-4 md:grid-cols-5">
+                    <div class="rounded-[1.35rem] border border-[#926A2D]/12 bg-white/80 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)]"><span class="font-display text-4xl text-[#926A2D]">1</span><strong class="mt-3 block leading-tight">Escolha seus produtos</strong></div>
+                    <div class="rounded-[1.35rem] border border-[#926A2D]/12 bg-white/80 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)]"><span class="font-display text-4xl text-[#926A2D]">2</span><strong class="mt-3 block leading-tight">Personalize seu pedido</strong></div>
+                    <div class="rounded-[1.35rem] border border-[#926A2D]/12 bg-white/80 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)]"><span class="font-display text-4xl text-[#926A2D]">3</span><strong class="mt-3 block leading-tight">Confirme sua encomenda</strong></div>
+                    <div class="rounded-[1.35rem] border border-[#926A2D]/12 bg-white/80 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)]"><span class="font-display text-4xl text-[#926A2D]">4</span><strong class="mt-3 block leading-tight">Efetue a entrada</strong></div>
+                    <div class="rounded-[1.35rem] border border-[#926A2D]/12 bg-white/80 p-5 shadow-[0_10px_24px_rgba(44,36,28,.05)]"><span class="font-display text-4xl text-[#926A2D]">5</span><strong class="mt-3 block leading-tight">Receba seu pedido</strong></div>
+                </div>
+            </section>
+
+            <section class="mt-8 overflow-hidden rounded-[2.25rem] border border-[#926A2D]/15 bg-[#2c241c] p-6 text-white shadow-[0_28px_80px_rgba(44,36,28,.16)] md:p-8" aria-labelledby="ie-contato">
+                <div class="grid gap-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+                    <div>
+                        <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#EDDEC3]">Contato direto</span>
+                        <h2 id="ie-contato" class="mt-3 max-w-2xl font-display text-[clamp(2.2rem,5vw,4rem)] font-semibold leading-tight">Fale com a equipe e finalize sua encomenda com segurança.</h2>
+                        <div class="mt-5 grid gap-2 text-white/80">
+                            <p>Instagram: <strong class="text-white">@casadobrigadeiro</strong></p>
+                            <p>Telefone: <strong class="text-white">(19) 974190997</strong></p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                        <a href="https://wa.me/5519974190997?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20e%20gostaria%20de%20fazer%20uma%20encomenda." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-14 items-center justify-center rounded-full bg-[#926A2D] px-6 py-4 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_18px_34px_rgba(146,106,45,.3)] transition duration-300 hover:-translate-y-1 hover:bg-[#7a5a26]">Chamar no WhatsApp</a>
+                        <a href="https://www.instagram.com/casadobrigadeiro?igsh=Y21tNGNtdXNraTBi&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-14 items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-4 text-sm font-extrabold uppercase tracking-[0.12em] text-white backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/18">Ver Instagram</a>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 

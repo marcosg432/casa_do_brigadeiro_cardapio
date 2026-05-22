@@ -173,34 +173,6 @@
         document.getElementById("view-entrega").textContent = (o.entrega || o.entrega_retirada || "") + (o.endereco ? " — " + o.endereco : "");
         document.getElementById("view-obs").textContent = o.observacoes || "—";
 
-        function setCampoContrato(id, valor) {
-            var el = document.getElementById(id);
-            if (el) el.value = valor != null && valor !== "" ? String(valor) : "";
-        }
-        setCampoContrato("contrato-pdf-nome-cliente", o.nome_cliente || o.cliente);
-        setCampoContrato("contrato-pdf-email", o.email);
-        setCampoContrato("contrato-pdf-telefone", o.telefone);
-        setCampoContrato("contrato-pdf-data-evento", eventoDataOrc(o));
-        setCampoContrato("contrato-pdf-tipo-evento", eventoTipoOrc(o));
-        setCampoContrato("contrato-numero-exibicao", o.contrato_numero_exibicao);
-        setCampoContrato("contrato-cliente-rg", o.cliente_rg || o.rg);
-        setCampoContrato("contrato-cliente-cpf", o.cliente_cpf || o.cpf);
-        setCampoContrato("contrato-cliente-nasc", o.cliente_data_nascimento);
-        setCampoContrato("contrato-cliente-endereco", o.cliente_endereco_linha);
-        setCampoContrato("contrato-cliente-cep", o.cliente_cep);
-        setCampoContrato("contrato-telefone-fixo", o.telefone_fixo);
-        setCampoContrato("contrato-contato-nome", o.contato_nome);
-        setCampoContrato("contrato-contato-celular", o.contato_celular);
-        setCampoContrato("contrato-local-festa", o.evento_local_festa);
-        setCampoContrato("contrato-horario-entrega", o.evento_horario_entrega);
-        setCampoContrato("contrato-local-cerimonia", o.evento_local_cerimonia);
-        setCampoContrato("contrato-horario-festa", o.evento_horario_festa);
-        setCampoContrato("contrato-cerimonialista", o.evento_cerimonialista);
-        setCampoContrato("contrato-cerimonialista-tel", o.evento_cerimonialista_tel);
-        setCampoContrato("contrato-fotografo", o.evento_fotografo);
-        setCampoContrato("contrato-fotografo-tel", o.evento_fotografo_tel);
-        setCampoContrato("contrato-quitado-em", o.pagamento_valor_quitado_em);
-
         if (extraItemEdicaoIndex != null) {
             var itEdit = (o.itens || [])[extraItemEdicaoIndex];
             if (!itEdit || itEdit.extra_pedido_admin !== true) extraItemEdicaoIndex = null;
@@ -392,33 +364,6 @@
         return isNaN(n) ? null : Math.round(n * 100) / 100;
     }
 
-    /**
-     * Nome, e-mail, celular principal e data/tipo do evento usados no PDF e no texto introdutório do contrato.
-     * Estes campos não existiam como inputs (só leitura no topo); sem isto o PDF ignora correções.
-     */
-    function patchCamposClienteEventoPdfDom() {
-        var nome = strInput("contrato-pdf-nome-cliente");
-        var em = strInput("contrato-pdf-email");
-        var tel = strInput("contrato-pdf-telefone");
-        var dEvt = strInput("contrato-pdf-data-evento");
-        var tipoEvt = strInput("contrato-pdf-tipo-evento");
-        var nomeOrNull = nome ? nome : null;
-        var emOrNull = em ? em : null;
-        var telOrNull = tel ? tel : null;
-        var dOrNull = dEvt ? dEvt : null;
-        var tOrNull = tipoEvt ? tipoEvt : null;
-        return {
-            nome_cliente: nomeOrNull,
-            cliente: nomeOrNull,
-            email: emOrNull,
-            telefone: telOrNull,
-            evento_data: dOrNull,
-            data_evento: dOrNull,
-            evento_tipo: tOrNull,
-            tipo_evento: tOrNull
-        };
-    }
-
     function patchComumExtra() {
         var tipo = document.getElementById("desconto-tipo").value || null;
         var valRaw = document.getElementById("desconto-valor").value;
@@ -436,8 +381,7 @@
         var entrada = numeroInput("entrada");
         var restante = calcularValorRestanteOrcamento(vf, entrada == null ? null : entrada);
 
-        return Object.assign(
-            {
+        return {
             desconto_tipo: tipo || null,
             desconto_valor: tipo ? val : null,
             valor_desconto: vDesc,
@@ -456,59 +400,9 @@
             restante: restante,
             data_pagamento_entrada: strInput("data-pag-entrada") || null,
             data_pagamento_final: strInput("data-pag-final") || null,
-            contrato_numero_exibicao: strInput("contrato-numero-exibicao") || null,
-            cliente_rg: strInput("contrato-cliente-rg") || null,
-            cliente_cpf: strInput("contrato-cliente-cpf") || null,
-            cliente_data_nascimento: strInput("contrato-cliente-nasc") || null,
-            cliente_endereco_linha: strInput("contrato-cliente-endereco") || null,
-            cliente_cep: strInput("contrato-cliente-cep") || null,
-            telefone_fixo: strInput("contrato-telefone-fixo") || null,
-            contato_nome: strInput("contrato-contato-nome") || null,
-            contato_celular: strInput("contrato-contato-celular") || null,
-            evento_local_festa: strInput("contrato-local-festa") || null,
-            evento_horario_entrega: strInput("contrato-horario-entrega") || null,
-            evento_local_cerimonia: strInput("contrato-local-cerimonia") || null,
-            evento_horario_festa: strInput("contrato-horario-festa") || null,
-            evento_cerimonialista: strInput("contrato-cerimonialista") || null,
-            evento_cerimonialista_tel: strInput("contrato-cerimonialista-tel") || null,
-            evento_fotografo: strInput("contrato-fotografo") || null,
-            evento_fotografo_tel: strInput("contrato-fotografo-tel") || null,
-            pagamento_valor_quitado_em: strInput("contrato-quitado-em") || null,
             /* Obrigatório para PATCH: sem isto o servidor mantinha itens antigos ao incluir complementos manuais */
             itens: JSON.parse(JSON.stringify(orcamentoAtual.itens || []))
-            },
-            patchCamposClienteEventoPdfDom()
-        );
-    }
-
-    /**
-     * Somente campos do anexo (inputs #contrato-*): lê do DOM e não sobrescreve itens nem totais.
-     * Mesclado no objeto enviado a gerarContratoPDF porque a resposta do PATCH pode omitir/atrasar campos opcionais.
-     */
-    function patchCamposAnexoPdf() {
-        return Object.assign(
-            {
-            contrato_numero_exibicao: strInput("contrato-numero-exibicao") || null,
-            cliente_rg: strInput("contrato-cliente-rg") || null,
-            cliente_cpf: strInput("contrato-cliente-cpf") || null,
-            cliente_data_nascimento: strInput("contrato-cliente-nasc") || null,
-            cliente_endereco_linha: strInput("contrato-cliente-endereco") || null,
-            cliente_cep: strInput("contrato-cliente-cep") || null,
-            telefone_fixo: strInput("contrato-telefone-fixo") || null,
-            contato_nome: strInput("contrato-contato-nome") || null,
-            contato_celular: strInput("contrato-contato-celular") || null,
-            evento_local_festa: strInput("contrato-local-festa") || null,
-            evento_horario_entrega: strInput("contrato-horario-entrega") || null,
-            evento_horario_festa: strInput("contrato-horario-festa") || null,
-            evento_local_cerimonia: strInput("contrato-local-cerimonia") || null,
-            evento_cerimonialista: strInput("contrato-cerimonialista") || null,
-            evento_cerimonialista_tel: strInput("contrato-cerimonialista-tel") || null,
-            evento_fotografo: strInput("contrato-fotografo") || null,
-            evento_fotografo_tel: strInput("contrato-fotografo-tel") || null,
-            pagamento_valor_quitado_em: strInput("contrato-quitado-em") || null
-            },
-            patchCamposClienteEventoPdfDom()
-        );
+        };
     }
 
     function init() {
@@ -589,116 +483,11 @@
             }
             var patch = patchComumExtra();
             var base = getOrcamentoPorId(orcamentoAtual.id);
-            /* Mesma lógica do contrato: patch traz sempre itens atuais e totais corretos */
+            /* Patch traz sempre itens atuais e totais corretos para o PDF do orçamento. */
             var dadosProposta =
                 Object.assign({}, base || orcamentoAtual, patch);
             dadosProposta.itens = patch.itens ? patch.itens : dadosProposta.itens || [];
             gerarOrcamentoPropostaPDF(dadosProposta);
-        });
-
-        document.getElementById("btn-contrato").addEventListener("click", function () {
-            var oid = orcamentoAtual.id;
-            var tipoC = document.getElementById("desconto-tipo").value || null;
-            var valC = parseFloat(String(document.getElementById("desconto-valor").value).replace(",", ".")) || 0;
-            if (tipoC && valC <= 0) {
-                alert("Ajuste o desconto ou deixe sem desconto antes de gerar o contrato.");
-                return;
-            }
-            var ddR = strCampoMoeda("desconto-degustacao");
-            var dcR = strCampoMoeda("desconto-cerimonialista");
-            var teR = strCampoMoeda("taxa-entrega");
-
-            /*
-             * Snapshot imutável dos itens antes de gravar/contrato: o PDF deve refletir exatamente
-             * as linhas visíveis neste momento; totais ficam sempre alinhados a essa lista.
-             */
-            var itensContrato = JSON.parse(JSON.stringify(orcamentoAtual.itens || []));
-            var voSnap = somaSubtotalItens(itensContrato);
-            var vfSnap = calcularValorFinalOrcamento(voSnap, tipoC, valC, ddR, dcR, teR);
-            var vDescSnap = tipoC ? descontoEquivalenteEmReais(voSnap, tipoC, valC) : 0;
-
-            var stContrato = CONFIG.STATUS_ORCAMENTO && CONFIG.STATUS_ORCAMENTO.CONTRATO_GERADO;
-
-            var extra = patchComumExtra();
-            extra.itens = itensContrato;
-            extra.valor_original = voSnap;
-            extra.total = voSnap;
-            extra.valor_final = vfSnap;
-            extra.valor_desconto = vDescSnap;
-
-            var patchContrato = Object.assign(extra, {
-                desconto_tipo: tipoC || null,
-                desconto_valor: tipoC ? valC : null,
-                valor_final: vfSnap,
-                valor_desconto: vDescSnap,
-                valor_original: voSnap,
-                total: voSnap,
-                itens: itensContrato,
-                contrato: {
-                    valor_final: vfSnap,
-                    data_contrato: new Date().toISOString(),
-                    status: "emitido"
-                },
-                contrato_pdf: {
-                    tipo: "contrato",
-                    gerado_em: new Date().toISOString()
-                },
-                status: stContrato || "contrato_gerado"
-            });
-
-            var salvo = atualizarOrcamentoParcial(oid, patchContrato);
-            /* Alguns navegadores só atualizam o .value ao perder foco (tel/e-mail): consolida antes do PDF */
-            if (document.activeElement && typeof document.activeElement.blur === "function") {
-                document.activeElement.blur();
-            }
-            var dadosPdf = salvo &&
-                Array.isArray(salvo.itens) &&
-                salvo.itens.length === itensContrato.length
-                ? salvo
-                : Object.assign({}, orcamentoAtual, patchContrato);
-            /* Tudo que está nos campos #contrato-* / #contrato-pdf-* do anexo sobrepõe o objeto do servidor antes do PDF */
-            var anexoDoForm = patchCamposAnexoPdf();
-            dadosPdf = Object.assign({}, dadosPdf, anexoDoForm);
-            /* Se não bater com o servidor, o PDF mesmo assim sai certo pelo merge local */
-
-            gerarContratoPDF(dadosPdf);
-            /* Evita regressão: não substituir memória só por uma leitura que possa estar desatualizada */
-            if (salvo &&
-                salvo.itens &&
-                salvo.itens.length === itensContrato.length) {
-                /* PATCH pode devolver objeto sem campos opcionais do anexo; manter o que foi lido do formulário (#contrato-*) */
-                orcamentoAtual = Object.assign({}, salvo, anexoDoForm);
-            } else {
-                if (salvo && salvo.itens && salvo.itens.length !== itensContrato.length) {
-                    console.warn(
-                        "[admin] Lista de itens devolvida após PATCH diverge do ecrã. A manter dados mesclados com o último PATCH."
-                    );
-                }
-                orcamentoAtual = dadosPdf;
-                atualizarOrcamentoParcial(oid, patchContrato);
-            }
-            renderOrcamento(orcamentoAtual);
-            alert("Contrato PDF gerado.");
-        });
-
-        document.getElementById("btn-salvar-anexo-contrato").addEventListener("click", function () {
-            var tipo = document.getElementById("desconto-tipo").value || null;
-            var valRaw = document.getElementById("desconto-valor").value;
-            var val = parseFloat(String(valRaw).replace(",", ".")) || 0;
-            if (tipo && val <= 0) {
-                alert("Informe um valor de desconto válido ou deixe o tipo em branco.");
-                return;
-            }
-            var status = document.getElementById("status-orcamento").value;
-            var patch = Object.assign(patchComumExtra(), { status: status });
-            var atualizado = atualizarOrcamentoParcial(orcamentoAtual.id, patch);
-            if (atualizado) {
-                orcamentoAtual = atualizado;
-                alert("Dados do anexo e do orçamento guardados.");
-                renderOrcamento(orcamentoAtual);
-            } else {
-                alert("Não foi possível guardar. Verifique a ligação ou use «Salvar alterações» no fim da página.");
-            }
         });
 
         document.getElementById("lista-itens").addEventListener("click", function (ev) {

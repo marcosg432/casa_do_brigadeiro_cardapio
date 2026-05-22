@@ -25,7 +25,6 @@ const CONFIG = {
         DEGUST_AGENDADA: "degustacao_agendada",
         DEGUST_REALIZADA: "degustacao_realizada",
         DESCONTO_APLICADO: "desconto_aplicado",
-        CONTRATO_GERADO: "contrato_gerado",
         FECHADO: "fechado",
         PERDIDO: "perdido"
     },
@@ -35,22 +34,9 @@ const CONFIG = {
         degustacao_agendada: "Degustação agendada",
         degustacao_realizada: "Degustação realizada",
         desconto_aplicado: "Desconto aplicado",
-        contrato_gerado: "Contrato gerado",
         fechado: "Fechado",
         perdido: "Perdido"
     },
-    /**
-     * Dados da CONTRATADA no contrato de prestação de serviços (PDF admin).
-     * Ajuste nome, CPF e endereço conforme documento da empresa.
-     */
-    contratadaLegal: {
-        nome: "ALINE FERNANDA MANOEL",
-        cpf: "334.444.138.82",
-        endereco: "Rua Raul Dantas Darce, 171, Piracicaba / SP"
-    },
-    /** Texto exibido na cláusula de pagamento (PIX / comprovante) */
-    contratoPixCnpj: "41.919.042/0001-08",
-    contratoEmailsComprovante: "candylidoces@hotmail.com",
     /** Dias de validade exibidos no PDF do orçamento */
     validadeOrcamentoDias: 15,
     /**

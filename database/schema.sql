@@ -24,7 +24,6 @@ CREATE TYPE status_orcamento AS ENUM (
     'degustacao_agendada',
     'degustacao_realizada',
     'desconto_aplicado',
-    'contrato_gerado',
     'fechado',
     'perdido'
 );
@@ -55,15 +54,6 @@ CREATE TABLE IF NOT EXISTS itens_orcamento (
     nome_snapshot       VARCHAR(255) NOT NULL,
     quantidade          INT NOT NULL CHECK (quantidade > 0),
     preco_unitario      NUMERIC(12, 2) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS contratos (
-    id                  BIGSERIAL PRIMARY KEY,
-    orcamento_id        BIGINT NOT NULL REFERENCES orcamentos(id) ON DELETE CASCADE,
-    valor_final         NUMERIC(12, 2) NOT NULL,
-    data_contrato       TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    status              VARCHAR(40) NOT NULL DEFAULT 'rascunho',
-    observacoes_snapshot TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_orcamentos_status ON orcamentos(status);

@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Bolos Personalizados | Casa do Brigadeiro</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/style.css?v=bolos-personalizados-premium-2">
+    <link rel="stylesheet" href="../css/cart.css?v=bolos-personalizados-premium-2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind = {
+            config: {
+                corePlugins: { preflight: false },
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            display: ['Playfair Display', 'Georgia', 'serif'],
+                            sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="pagina-bolos-personalizados bg-[#fff9f2] font-sans text-[#2c241c] antialiased">
     <button type="button" class="scroll-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
@@ -62,36 +78,156 @@
         </nav>
     </header>
 
-    <section class="page-hero">
-        <h1>Bolos sob encomenda</h1>
-        <p>Criações em confeitaria fina, pensadas sob medida — paladar, proporção e acabamento alinhados à sua celebração.</p>
+    <section class="bp-hero relative isolate flex min-h-[min(880px,92vh)] items-end overflow-hidden bg-[#2c241c] px-4 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40" aria-labelledby="bp-title">
+        <img src="../assets/bolos-personalizados/bolos-personalizados-hero.svg" alt="" class="bp-hero-img absolute inset-0 -z-30 h-full w-full scale-[1.03] object-cover object-center opacity-95" width="1200" height="1400" loading="eager" decoding="async" aria-hidden="true">
+        <div class="bp-hero-overlay absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_75%,rgba(235,178,209,.36),transparent_26rem),linear-gradient(90deg,rgba(30,20,13,.94),rgba(86,54,30,.72)_45%,rgba(44,36,28,.18))]" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-4 -z-10 rounded-[2rem] border border-[#EDDEC3]/35 md:inset-7 md:rounded-[3rem]" aria-hidden="true"></div>
+        <div class="container bp-hero-inner grid w-full max-w-7xl grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+            <div class="bp-hero-copy max-w-4xl border-l border-[#EDDEC3]/40 pl-6 text-white md:pl-8">
+                <span class="bp-eyebrow inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.24em] text-[#EDDEC3]">Ateliê de criações exclusivas</span>
+                <h1 id="bp-title" class="mt-5 max-w-[10ch] font-display text-[clamp(3.8rem,10vw,8.5rem)] font-semibold leading-[0.84] tracking-[-0.07em] text-white drop-shadow-2xl">Bolos Personalizados</h1>
+                <p class="mt-6 max-w-2xl text-lg font-light leading-8 text-white/90 md:text-2xl md:leading-10">Criações artesanais desenvolvidas para transformar comemorações em momentos inesquecíveis.</p>
+                <a href="#configure-seu-bolo" class="bp-hero-cta mt-8 inline-flex min-h-14 items-center justify-center rounded-full border border-[#EDDEC3]/45 bg-[#EDDEC3]/15 px-6 py-4 text-sm font-extrabold uppercase tracking-[0.14em] text-white shadow-[0_18px_44px_rgba(0,0,0,.22)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white/20">Configurar meu bolo</a>
+            </div>
+            <div class="bp-hero-note hidden rounded-[1.75rem] border border-white/25 bg-white/15 p-5 text-white shadow-[0_24px_54px_rgba(0,0,0,.18)] backdrop-blur-xl lg:block" aria-hidden="true">
+                <span class="block text-xs uppercase tracking-[0.22em] text-[#EDDEC3]">feito sob encomenda</span>
+                <strong class="mt-2 block font-display text-3xl font-semibold leading-none">cada detalhe pensado para a sua celebração</strong>
+            </div>
+        </div>
     </section>
 
-    <main class="container">
-        <div class="cardapio-intro">
-            <p>Sabores e acabamentos que conversam com a estética da Casa do Brigadeiro. Solicite proposta pelo WhatsApp com data e inspiração.</p>
-        </div>
+    <main class="bp-main px-4 py-16 md:px-8 md:py-24" id="configure-seu-bolo">
+        <div class="container bp-shell mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(20rem,.92fr)_minmax(0,1.08fr)] xl:gap-14">
+            <section class="bp-visual relative min-h-[34rem] lg:sticky lg:top-24 lg:min-h-[56rem]" aria-label="Vitrine de bolos personalizados">
+                <div class="bp-visual-glow bp-visual-glow--rose pointer-events-none absolute -left-8 top-16 h-52 w-52 rounded-full bg-[#EBB2D1]/30 blur-sm" aria-hidden="true"></div>
+                <div class="bp-visual-glow bp-visual-glow--blue pointer-events-none absolute bottom-24 right-5 h-36 w-36 rounded-full border border-[#AADDF1]/80" aria-hidden="true"></div>
+                <div class="bp-photo bp-photo--main absolute inset-x-0 top-0 h-[clamp(32rem,60vw,46rem)] overflow-hidden rounded-[2.5rem] border border-[#926A2D]/20 bg-[#EDDEC3] shadow-[0_28px_78px_rgba(44,36,28,.15)] lg:right-[7%]">
+                    <img class="h-full w-full object-cover object-center" src="../assets/bolos-personalizados/bolos-personalizados-hero.svg" alt="Bolos personalizados artesanais com flores delicadas e acabamento premium" width="1200" height="1400" loading="lazy" decoding="async">
+                </div>
+                <div class="bp-photo bp-photo--detail absolute bottom-20 right-0 z-20 hidden h-80 w-64 rotate-2 overflow-hidden rounded-[1.75rem] border-[8px] border-white/70 bg-white shadow-[0_18px_44px_rgba(44,36,28,.08)] md:block" aria-hidden="true">
+                    <img class="h-full w-full scale-150 object-cover object-center" src="../assets/bolos-personalizados/bolos-personalizados-hero.svg" alt="" width="1200" height="1400" loading="lazy" decoding="async">
+                </div>
+                <div class="bp-visual-card absolute bottom-0 left-4 right-4 z-30 rounded-[1.75rem] border border-white/70 bg-white/85 p-5 shadow-[0_18px_44px_rgba(44,36,28,.1)] backdrop-blur-xl md:left-8 md:right-32 md:p-6">
+                    <span class="block text-xs font-bold uppercase tracking-[0.22em] text-[#926A2D]">confeitaria de celebração</span>
+                    <strong class="mt-3 block font-display text-2xl font-medium leading-tight text-[#2c241c]">Proporção, cobertura e acabamento em uma criação com presença de festa.</strong>
+                </div>
+                <div class="bp-seal absolute right-2 top-8 z-40 grid h-28 w-28 -rotate-6 place-items-center rounded-full bg-[#926A2D] p-4 text-center font-display text-lg leading-none text-white shadow-[0_18px_36px_rgba(146,106,45,.24)]" aria-hidden="true">exclusivo</div>
+            </section>
 
-        <div class="sabores-lista">
-            <h3 style="text-align: center; margin-bottom: 1rem; font-family: var(--fonte-titulo); color: var(--marrom);">Sabores disponíveis</h3>
-            <ul>
-                <li>Chocolate</li>
-                <li>Ninho</li>
-                <li>Ninho com morango</li>
-                <li>Chocolate com morango</li>
-                <li>Dois amores</li>
-                <li>Prestígio</li>
-                <li>Abacaxi com coco</li>
-                <li>Brigadeiro</li>
-                <li>Leite condensado com morango</li>
-            </ul>
-        </div>
+            <section class="bp-studio rounded-[2.25rem] border border-[#926A2D]/15 bg-white/80 p-5 shadow-[0_28px_80px_rgba(44,36,28,.1)] backdrop-blur md:p-8" aria-labelledby="bp-studio-title">
+                <header class="bp-studio-head border-b border-[#926A2D]/15 pb-7">
+                    <span class="bp-eyebrow inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-[#926A2D]">Configure seu bolo personalizado</span>
+                    <h2 id="bp-studio-title" class="mt-4 max-w-xl font-display text-[clamp(2.3rem,4.8vw,3.9rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-[#2c241c]">Escolha tamanho e cobertura com clareza, sem perder o encanto.</h2>
+                    <p class="mt-5 max-w-2xl text-base leading-8 text-[#5a5248]">Visualize rendimento, peso aproximado e valor final em uma experiência guiada de ateliê premium.</p>
+                </header>
 
-        <div class="btn-orcamento">
-            <a href="https://wa.me/5519974190997?text=Ol%C3%A1%2C%20vim%20pelo%20card%C3%A1pio%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20bolo%20personalizado." class="btn btn-primary btn-large" target="_blank">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Solicitar proposta no WhatsApp
-            </a>
+                <div class="bp-step bp-step--sizes mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EDDEC3]/35 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="bp-step-size">
+                    <div class="bp-step-head mb-5 flex items-end justify-between gap-4">
+                        <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 1</span>
+                        <h3 id="bp-step-size" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Escolha do tamanho</h3>
+                    </div>
+                    <div class="bp-size-grid grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5" role="radiogroup" aria-label="Escolha do tamanho do bolo">
+                        <button type="button" class="bp-size-card is-selected group relative min-h-36 overflow-hidden rounded-[1.35rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_10px_26px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bp-size="PP" data-bp-weight="Aproximadamente 1,5kg" data-bp-slices="até 10 fatias" aria-pressed="true">
+                            <strong class="block font-display text-4xl font-semibold leading-none">PP</strong>
+                            <span class="mt-4 block text-sm leading-5 opacity-80">Aproximadamente 1,5kg</span>
+                            <em class="mt-3 block text-sm font-extrabold not-italic">Serve até 10 fatias</em>
+                        </button>
+                        <button type="button" class="bp-size-card group relative min-h-36 overflow-hidden rounded-[1.35rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_10px_26px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bp-size="P" data-bp-weight="Aproximadamente 2kg a 2,3kg" data-bp-slices="até 18 fatias" aria-pressed="false">
+                            <strong class="block font-display text-4xl font-semibold leading-none">P</strong>
+                            <span class="mt-4 block text-sm leading-5 opacity-80">Aproximadamente 2kg a 2,3kg</span>
+                            <em class="mt-3 block text-sm font-extrabold not-italic">Serve até 18 fatias</em>
+                        </button>
+                        <button type="button" class="bp-size-card group relative min-h-36 overflow-hidden rounded-[1.35rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_10px_26px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bp-size="M" data-bp-weight="Aproximadamente 2,6kg a 2,8kg" data-bp-slices="até 28 fatias" aria-pressed="false">
+                            <strong class="block font-display text-4xl font-semibold leading-none">M</strong>
+                            <span class="mt-4 block text-sm leading-5 opacity-80">Aproximadamente 2,6kg a 2,8kg</span>
+                            <em class="mt-3 block text-sm font-extrabold not-italic">Serve até 28 fatias</em>
+                        </button>
+                        <button type="button" class="bp-size-card group relative min-h-36 overflow-hidden rounded-[1.35rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_10px_26px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bp-size="G" data-bp-weight="Aproximadamente 3kg a 3,2kg" data-bp-slices="até 35 fatias" aria-pressed="false">
+                            <strong class="block font-display text-4xl font-semibold leading-none">G</strong>
+                            <span class="mt-4 block text-sm leading-5 opacity-80">Aproximadamente 3kg a 3,2kg</span>
+                            <em class="mt-3 block text-sm font-extrabold not-italic">Serve até 35 fatias</em>
+                        </button>
+                        <button type="button" class="bp-size-card group relative min-h-36 overflow-hidden rounded-[1.35rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_10px_26px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bp-size="GG" data-bp-weight="Aproximadamente 4kg a 4,5kg" data-bp-slices="até 45 fatias" aria-pressed="false">
+                            <strong class="block font-display text-4xl font-semibold leading-none">GG</strong>
+                            <span class="mt-4 block text-sm leading-5 opacity-80">Aproximadamente 4kg a 4,5kg</span>
+                            <em class="mt-3 block text-sm font-extrabold not-italic">Serve até 45 fatias</em>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bp-step bp-step--covers mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EBB2D1]/15 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="bp-step-cover">
+                    <div class="bp-step-head mb-5 flex items-end justify-between gap-4">
+                        <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/80">Etapa 2</span>
+                        <h3 id="bp-step-cover" class="font-display text-3xl font-semibold leading-none text-[#2c241c]">Escolha da cobertura</h3>
+                    </div>
+                    <div class="bp-cover-grid grid grid-cols-1 gap-4 md:grid-cols-2" role="radiogroup" aria-label="Escolha da cobertura do bolo">
+                        <button type="button" class="bp-cover-card is-selected group relative min-h-44 overflow-hidden rounded-[1.5rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_12px_30px_rgba(44,36,28,.06)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bp-cover="Chantininho" aria-pressed="true">
+                            <span class="bp-cover-art absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#EBB2D1]/35"></span>
+                            <strong class="relative z-10 block font-display text-2xl font-semibold leading-tight">Chantininho</strong>
+                            <small class="relative z-10 mt-3 block max-w-60 text-sm leading-6 opacity-80">Acabamento leve, delicado e sofisticado.</small>
+                            <em id="bp-price-chantininho" class="relative z-10 mt-5 inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-extrabold not-italic text-[#926A2D]">R$ 165,00</em>
+                        </button>
+                        <button type="button" class="bp-cover-card group relative min-h-44 overflow-hidden rounded-[1.5rem] border border-[#926A2D]/15 bg-white/90 p-5 text-left shadow-[0_12px_30px_rgba(44,36,28,.06)] transition duration-300 hover:-translate-y-1 hover:border-[#926A2D]/40 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]" data-bp-cover="Chocolate" aria-pressed="false">
+                            <span class="bp-cover-art bp-cover-art--choco absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#926A2D]/20"></span>
+                            <strong class="relative z-10 block font-display text-2xl font-semibold leading-tight">Chocolate</strong>
+                            <small class="relative z-10 mt-3 block max-w-60 text-sm leading-6 opacity-80">Cobertura intensa com acabamento gourmet premium.</small>
+                            <em id="bp-price-chocolate" class="relative z-10 mt-5 inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-extrabold not-italic text-[#926A2D]">R$ 220,00</em>
+                        </button>
+                    </div>
+                </div>
+
+                <section class="bp-perfect mt-6 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/90 to-[#AADDF1]/20 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:p-7" aria-labelledby="bp-perfect-title">
+                    <span class="bp-eyebrow inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-[#926A2D]">Perfeito para</span>
+                    <h3 id="bp-perfect-title" class="mt-3 font-display text-3xl font-semibold leading-tight text-[#2c241c]">Celebrações com presença e memória afetiva</h3>
+                    <div class="bp-perfect-grid mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 text-sm font-extrabold text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]">aniversários</span>
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 text-sm font-extrabold text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]">eventos especiais</span>
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 text-sm font-extrabold text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]">festas infantis</span>
+                        <span class="flex min-h-24 items-end rounded-[1.25rem] border border-[#926A2D]/15 bg-white/80 p-4 text-sm font-extrabold text-[#926A2D] shadow-[0_10px_24px_rgba(44,36,28,.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(44,36,28,.09)]">comemorações sofisticadas</span>
+                    </div>
+                </section>
+
+                <div class="bp-note mt-6 grid gap-4 rounded-[1.75rem] border border-[#926A2D]/15 bg-gradient-to-br from-white/95 to-[#EBB2D1]/20 p-5 shadow-[0_18px_44px_rgba(44,36,28,.08)] md:grid-cols-[auto_1fr] md:p-7">
+                    <div class="grid h-12 w-12 place-items-center rounded-full bg-[#926A2D] text-white shadow-[0_12px_28px_rgba(146,106,45,.24)]" aria-hidden="true">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7l7-4z"/><path d="M9 12l2 2 4-5"/></svg>
+                    </div>
+                    <div>
+                        <strong class="block font-display text-2xl font-semibold leading-tight text-[#926A2D]">Detalhes decorativos</strong>
+                        <p class="mt-2 text-base leading-7 text-[#5a5248]">Topo de bolo, flores naturais, flores artificiais e itens decorativos são cobrados separadamente.</p>
+                    </div>
+                </div>
+
+                <aside class="bp-summary sticky bottom-4 z-20 mt-6 grid gap-5 rounded-[1.75rem] border border-[#926A2D]/20 bg-white/90 p-5 shadow-[0_28px_80px_rgba(44,36,28,.14)] backdrop-blur-xl md:p-7 xl:grid-cols-[minmax(0,1fr)_auto]" aria-labelledby="bp-summary-title">
+                    <span class="bp-summary-kicker text-xs font-extrabold uppercase tracking-[0.22em] text-[#926A2D]/85">Resumo premium</span>
+                    <h3 id="bp-summary-title" class="font-display text-3xl font-semibold leading-none text-[#2c241c] xl:col-span-2">Sua criação</h3>
+                    <dl class="grid gap-3 sm:grid-cols-2 xl:col-span-2 xl:grid-cols-4">
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                            <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Tamanho</dt>
+                            <dd id="bp-res-size" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">PP</dd>
+                        </div>
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                            <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Rendimento</dt>
+                            <dd id="bp-res-slices" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">até 10 fatias</dd>
+                        </div>
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                            <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Cobertura</dt>
+                            <dd id="bp-res-cover" class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">Chantininho</dd>
+                        </div>
+                        <div class="rounded-2xl border border-[#926A2D]/10 bg-white/65 p-4">
+                            <dt class="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5a5248]/70">Observação</dt>
+                            <dd class="mt-2 text-sm font-semibold leading-6 text-[#2c241c]">Decorativos à parte</dd>
+                        </div>
+                    </dl>
+                    <div class="bp-summary-total rounded-[1.35rem] border border-[#926A2D]/10 bg-gradient-to-br from-[#926A2D]/10 to-[#AADDF1]/20 p-5">
+                        <span class="block text-xs font-extrabold uppercase tracking-[0.18em] text-[#5a5248]">Valor final estimado</span>
+                        <strong id="bp-res-total" class="mt-2 block font-display text-4xl font-semibold leading-none text-[#926A2D]">R$ 165,00</strong>
+                    </div>
+                    <button type="button" class="bp-add-cart inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#926A2D] px-7 py-4 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_18px_34px_rgba(146,106,45,.26)] transition duration-300 hover:-translate-y-1 hover:bg-[#7a5a26] hover:shadow-[0_24px_48px_rgba(146,106,45,.32)] xl:w-auto" id="bp-add-cart">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        Adicionar ao carrinho
+                    </button>
+                </aside>
+            </section>
         </div>
     </main>
 
@@ -186,6 +322,7 @@
     <script src="../js/orcamentos-storage.js"></script>
     <script src="../js/carrinho.js"></script>
     <script src="../js/pedido.js"></script>
+    <script src="../js/bolos-personalizados.js?v=bolos-personalizados-premium-2"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>
