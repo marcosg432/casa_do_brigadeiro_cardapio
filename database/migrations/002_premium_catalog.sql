@@ -1,54 +1,46 @@
--- Schema canônico SQLite — Casa do Brigadeiro
--- O runtime usa database/db.js + database/migrations/*.sql.
--- Este arquivo documenta o estado desejado após as migrations 001 e 002.
+-- SQLite — arquitetura premium do cardápio Casa do Brigadeiro
+-- Esta migration preserva as tabelas legadas (categorias, produtos, orcamentos)
+-- e adiciona uma camada normalizada para categorias dinâmicas, produtos
+-- configuráveis, mídia, regras de preço e snapshots estruturados de orçamento.
 
 PRAGMA foreign_keys = ON;
 
-CREATE TABLE IF NOT EXISTS categorias (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT NOT NULL,
-    slug TEXT NOT NULL UNIQUE,
-    ordem INTEGER NOT NULL DEFAULT 0,
-    tipo TEXT NOT NULL DEFAULT 'catalogo'
-        CHECK (tipo IN ('catalogo', 'configuravel', 'especial', 'informativo')),
-    titulo TEXT,
-    subtitulo TEXT,
-    descricao TEXT,
-    status TEXT NOT NULL DEFAULT 'ativo'
-        CHECK (status IN ('ativo', 'rascunho', 'arquivado')),
-    parent_id INTEGER REFERENCES categorias(id) ON DELETE SET NULL,
-    layout_key TEXT,
-    configuracao_json TEXT,
-    created_at TEXT NOT NULL DEFAULT (datetime('now')),
-    updated_at TEXT
-);
+-- Enriquecimento compatível das tabelas existentes.
+ALTER TABLE categorias ADD COLUMN tipo TEXT NOT NULL DEFAULT 'catalogo'
+    CHECK (tipo IN ('catalogo', 'configuravel', 'especial', 'informativo'));
+ALTER TABLE categorias ADD COLUMN titulo TEXT;
+ALTER TABLE categorias ADD COLUMN subtitulo TEXT;
+ALTER TABLE categorias ADD COLUMN descricao TEXT;
+ALTER TABLE categorias ADD COLUMN status TEXT NOT NULL DEFAULT 'ativo'
+    CHECK (status IN ('ativo', 'rascunho', 'arquivado'));
+ALTER TABLE categorias ADD COLUMN parent_id INTEGER REFERENCES categorias(id) ON DELETE SET NULL;
+ALTER TABLE categorias ADD COLUMN layout_key TEXT;
+ALTER TABLE categorias ADD COLUMN configuracao_json TEXT;
+ALTER TABLE categorias ADD COLUMN updated_at TEXT;
 
-CREATE TABLE IF NOT EXISTS produtos (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    categoria_id INTEGER REFERENCES categorias(id) ON DELETE SET NULL,
-    nome TEXT NOT NULL,
-    preco REAL NOT NULL DEFAULT 0,
-    imagem TEXT,
-    descricao TEXT,
-    ingredientes TEXT,
-    pedido_texto TEXT,
-    ativo INTEGER NOT NULL DEFAULT 1,
-    slug TEXT UNIQUE,
-    sku TEXT,
-    tipo TEXT NOT NULL DEFAULT 'simples'
-        CHECK (tipo IN ('simples', 'cento', 'unitario', 'kg', 'configuravel', 'informativo')),
-    unidade_preco TEXT NOT NULL DEFAULT 'unidade'
-        CHECK (unidade_preco IN ('unidade', 'cento', 'kg', 'tamanho', 'configuracao', 'sob_consulta')),
-    qtd_min INTEGER NOT NULL DEFAULT 1 CHECK (qtd_min >= 1),
-    ordem INTEGER NOT NULL DEFAULT 0,
-    destaque INTEGER NOT NULL DEFAULT 0 CHECK (destaque IN (0, 1)),
-    status TEXT NOT NULL DEFAULT 'ativo'
-        CHECK (status IN ('ativo', 'rascunho', 'arquivado')),
-    configuracao_json TEXT,
-    created_at TEXT NOT NULL DEFAULT (datetime('now')),
-    updated_at TEXT
-);
+ALTER TABLE produtos ADD COLUMN slug TEXT;
+ALTER TABLE produtos ADD COLUMN sku TEXT;
+ALTER TABLE produtos ADD COLUMN tipo TEXT NOT NULL DEFAULT 'simples'
+    CHECK (tipo IN ('simples', 'cento', 'unitario', 'kg', 'configuravel', 'informativo'));
+ALTER TABLE produtos ADD COLUMN unidade_preco TEXT NOT NULL DEFAULT 'unidade'
+    CHECK (unidade_preco IN ('unidade', 'cento', 'kg', 'tamanho', 'configuracao', 'sob_consulta'));
+ALTER TABLE produtos ADD COLUMN qtd_min INTEGER NOT NULL DEFAULT 1 CHECK (qtd_min >= 1);
+ALTER TABLE produtos ADD COLUMN ordem INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE produtos ADD COLUMN destaque INTEGER NOT NULL DEFAULT 0 CHECK (destaque IN (0, 1));
+ALTER TABLE produtos ADD COLUMN status TEXT NOT NULL DEFAULT 'ativo'
+    CHECK (status IN ('ativo', 'rascunho', 'arquivado'));
+ALTER TABLE produtos ADD COLUMN configuracao_json TEXT;
+ALTER TABLE produtos ADD COLUMN updated_at TEXT;
 
+CREATE UNIQUE INDEX IF NOT EXISTS idx_produtos_slug ON produtos(slug) WHERE slug IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_produtos_categoria_ordem ON produtos(categoria_id, ordem, id);
+CREATE INDEX IF NOT EXISTS idx_produtos_tipo ON produtos(tipo);
+CREATE INDEX IF NOT EXISTS idx_produtos_status ON produtos(status);
+
+UPDATE categorias SET updated_at = COALESCE(updated_at, created_at, datetime('now'));
+UPDATE produtos SET updated_at = COALESCE(updated_at, created_at, datetime('now'));
+
+-- Mídia flexível: hero, thumbnail, galeria, banner e imagens editoriais.
 CREATE TABLE IF NOT EXISTS midias (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     entidade_tipo TEXT NOT NULL CHECK (entidade_tipo IN ('categoria', 'produto', 'opcao', 'site')),
@@ -65,6 +57,10 @@ CREATE TABLE IF NOT EXISTS midias (
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE INDEX IF NOT EXISTS idx_midias_entidade ON midias(entidade_tipo, entidade_id, papel, ordem);
+CREATE INDEX IF NOT EXISTS idx_midias_ativo ON midias(ativo);
+
+-- Variações de produto: tamanho, peso, rendimento, variante tradicional/especial etc.
 CREATE TABLE IF NOT EXISTS produto_variacoes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     produto_id INTEGER NOT NULL REFERENCES produtos(id) ON DELETE CASCADE,
@@ -86,6 +82,10 @@ CREATE TABLE IF NOT EXISTS produto_variacoes (
     UNIQUE (produto_id, slug)
 );
 
+CREATE INDEX IF NOT EXISTS idx_variacoes_produto ON produto_variacoes(produto_id, ordem);
+CREATE INDEX IF NOT EXISTS idx_variacoes_tipo ON produto_variacoes(tipo);
+
+-- Grupos de opções reutilizáveis por produto: sabores, massas, coberturas, estilos etc.
 CREATE TABLE IF NOT EXISTS produto_opcao_grupos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     produto_id INTEGER NOT NULL REFERENCES produtos(id) ON DELETE CASCADE,
@@ -104,6 +104,9 @@ CREATE TABLE IF NOT EXISTS produto_opcao_grupos (
     UNIQUE (produto_id, slug)
 );
 
+CREATE INDEX IF NOT EXISTS idx_opcao_grupos_produto ON produto_opcao_grupos(produto_id, ordem);
+CREATE INDEX IF NOT EXISTS idx_opcao_grupos_tipo ON produto_opcao_grupos(tipo);
+
 CREATE TABLE IF NOT EXISTS produto_opcoes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     grupo_id INTEGER NOT NULL REFERENCES produto_opcao_grupos(id) ON DELETE CASCADE,
@@ -121,6 +124,10 @@ CREATE TABLE IF NOT EXISTS produto_opcoes (
     UNIQUE (grupo_id, slug)
 );
 
+CREATE INDEX IF NOT EXISTS idx_opcoes_grupo ON produto_opcoes(grupo_id, ordem);
+CREATE INDEX IF NOT EXISTS idx_opcoes_ativo ON produto_opcoes(ativo);
+
+-- Campos livres de personalização: frase, nome, observação, data etc.
 CREATE TABLE IF NOT EXISTS produto_campos_personalizacao (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     produto_id INTEGER NOT NULL REFERENCES produtos(id) ON DELETE CASCADE,
@@ -140,6 +147,9 @@ CREATE TABLE IF NOT EXISTS produto_campos_personalizacao (
     UNIQUE (produto_id, slug)
 );
 
+CREATE INDEX IF NOT EXISTS idx_campos_produto ON produto_campos_personalizacao(produto_id, ordem);
+
+-- Preços por contexto: base, variação, combinação de opção/variação e regras futuras.
 CREATE TABLE IF NOT EXISTS produto_precos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     produto_id INTEGER NOT NULL REFERENCES produtos(id) ON DELETE CASCADE,
@@ -154,9 +164,19 @@ CREATE TABLE IF NOT EXISTS produto_precos (
     ativo INTEGER NOT NULL DEFAULT 1 CHECK (ativo IN (0, 1)),
     regra_json TEXT,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
-    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+    updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+    CHECK (
+        (vigencia_inicio IS NULL OR vigencia_fim IS NULL)
+        OR datetime(vigencia_inicio) <= datetime(vigencia_fim)
+    )
 );
 
+CREATE INDEX IF NOT EXISTS idx_precos_produto ON produto_precos(produto_id, ativo);
+CREATE INDEX IF NOT EXISTS idx_precos_variacao ON produto_precos(variacao_id);
+CREATE INDEX IF NOT EXISTS idx_precos_opcao ON produto_precos(opcao_id);
+CREATE INDEX IF NOT EXISTS idx_precos_vigencia ON produto_precos(vigencia_inicio, vigencia_fim);
+
+-- Restrições/regras de configurador: disponibilidade, dependências e limites.
 CREATE TABLE IF NOT EXISTS produto_regras (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     produto_id INTEGER NOT NULL REFERENCES produtos(id) ON DELETE CASCADE,
@@ -170,13 +190,9 @@ CREATE TABLE IF NOT EXISTS produto_regras (
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
-CREATE TABLE IF NOT EXISTS orcamentos (
-    id INTEGER PRIMARY KEY,
-    payload TEXT NOT NULL,
-    created_at TEXT NOT NULL DEFAULT (datetime('now')),
-    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
-);
+CREATE INDEX IF NOT EXISTS idx_regras_produto ON produto_regras(produto_id, ativo, ordem);
 
+-- Snapshots estruturados do orçamento sem remover o payload JSON legado.
 CREATE TABLE IF NOT EXISTS orcamento_clientes (
     orcamento_id INTEGER PRIMARY KEY REFERENCES orcamentos(id) ON DELETE CASCADE,
     nome TEXT NOT NULL,
@@ -218,6 +234,9 @@ CREATE TABLE IF NOT EXISTS orcamento_itens (
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE INDEX IF NOT EXISTS idx_orcamento_itens_orcamento ON orcamento_itens(orcamento_id);
+CREATE INDEX IF NOT EXISTS idx_orcamento_itens_produto ON orcamento_itens(produto_id);
+
 CREATE TABLE IF NOT EXISTS orcamento_pagamentos (
     orcamento_id INTEGER PRIMARY KEY REFERENCES orcamentos(id) ON DELETE CASCADE,
     forma_pagamento_ref TEXT,
@@ -236,26 +255,4 @@ CREATE TABLE IF NOT EXISTS orcamento_pagamentos (
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
-CREATE INDEX IF NOT EXISTS idx_produtos_categoria ON produtos(categoria_id);
-CREATE INDEX IF NOT EXISTS idx_produtos_ativo ON produtos(ativo);
-CREATE INDEX IF NOT EXISTS idx_produtos_categoria_ordem ON produtos(categoria_id, ordem, id);
-CREATE INDEX IF NOT EXISTS idx_produtos_tipo ON produtos(tipo);
-CREATE INDEX IF NOT EXISTS idx_produtos_status ON produtos(status);
-CREATE INDEX IF NOT EXISTS idx_midias_entidade ON midias(entidade_tipo, entidade_id, papel, ordem);
-CREATE INDEX IF NOT EXISTS idx_midias_ativo ON midias(ativo);
-CREATE INDEX IF NOT EXISTS idx_variacoes_produto ON produto_variacoes(produto_id, ordem);
-CREATE INDEX IF NOT EXISTS idx_variacoes_tipo ON produto_variacoes(tipo);
-CREATE INDEX IF NOT EXISTS idx_opcao_grupos_produto ON produto_opcao_grupos(produto_id, ordem);
-CREATE INDEX IF NOT EXISTS idx_opcao_grupos_tipo ON produto_opcao_grupos(tipo);
-CREATE INDEX IF NOT EXISTS idx_opcoes_grupo ON produto_opcoes(grupo_id, ordem);
-CREATE INDEX IF NOT EXISTS idx_opcoes_ativo ON produto_opcoes(ativo);
-CREATE INDEX IF NOT EXISTS idx_campos_produto ON produto_campos_personalizacao(produto_id, ordem);
-CREATE INDEX IF NOT EXISTS idx_precos_produto ON produto_precos(produto_id, ativo);
-CREATE INDEX IF NOT EXISTS idx_precos_variacao ON produto_precos(variacao_id);
-CREATE INDEX IF NOT EXISTS idx_precos_opcao ON produto_precos(opcao_id);
-CREATE INDEX IF NOT EXISTS idx_precos_vigencia ON produto_precos(vigencia_inicio, vigencia_fim);
-CREATE INDEX IF NOT EXISTS idx_regras_produto ON produto_regras(produto_id, ativo, ordem);
-CREATE INDEX IF NOT EXISTS idx_orcamentos_updated ON orcamentos(updated_at);
 CREATE INDEX IF NOT EXISTS idx_orcamentos_created ON orcamentos(created_at);
-CREATE INDEX IF NOT EXISTS idx_orcamento_itens_orcamento ON orcamento_itens(orcamento_id);
-CREATE INDEX IF NOT EXISTS idx_orcamento_itens_produto ON orcamento_itens(produto_id);

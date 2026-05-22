@@ -4,6 +4,7 @@
 const orcamentosRepo = require('../database/repositories/orcamentosRepository');
 const categoriasRepo = require('../database/repositories/categoriasRepository');
 const produtosRepo = require('../database/repositories/produtosRepository');
+const catalogoRepo = require('../database/repositories/catalogoRepository');
 
 function readJsonBody(req, callback) {
   const chunks = [];
@@ -45,6 +46,13 @@ function matchEntity(pathname, plural) {
   if (pathname === base || pathname === `${base}/`) return { type: 'collection' };
   const m = pathname.match(new RegExp('^' + base.replace(/\//g, '\\/') + '\\/(\\d+)$'));
   if (m) return { type: 'item', id: m[1] };
+  return null;
+}
+
+function matchCatalogo(pathname) {
+  if (pathname === '/api/catalogo' || pathname === '/api/catalogo/') return { type: 'collection' };
+  const m = pathname.match(/^\/api\/catalogo\/categoria\/([a-z0-9_-]+)$/i);
+  if (m) return { type: 'categoria', slug: m[1] };
   return null;
 }
 
@@ -210,7 +218,37 @@ function crudGeneric(req, res, pathname, repo, apiDbReady, namePt) {
   sendJson(res, 405, { error: 'Método não permitido' });
 }
 
+function handleCatalogo(req, res, pathname, apiDbReady) {
+  if (!apiDbReady) {
+    sendJson(res, 503, { error: 'Banco SQLite indisponível' });
+    return;
+  }
+  if (req.method !== 'GET') {
+    sendJson(res, 405, { error: 'Método não permitido' });
+    return;
+  }
+  const ctx = matchCatalogo(pathname);
+  if (!ctx) {
+    sendJson(res, 404, { error: 'Não encontrado' });
+    return;
+  }
+
+  try {
+    if (ctx.type === 'collection') {
+      return sendJson(res, 200, catalogoRepo.listar());
+    }
+    const categoria = catalogoRepo.buscarCategoriaPorSlug(ctx.slug);
+    if (!categoria) return sendJson(res, 404, { error: 'Categoria não encontrada' });
+    return sendJson(res, 200, categoria);
+  } catch (e) {
+    return sendJson(res, 500, { error: String(e.message || e) });
+  }
+}
+
 function handleApi(req, res, pathname, apiDbReady) {
+  if (pathname.startsWith('/api/catalogo')) {
+    return handleCatalogo(req, res, pathname, apiDbReady);
+  }
   if (pathname.startsWith('/api/orcamentos')) {
     return handleOrcamentos(req, res, pathname, apiDbReady);
   }
