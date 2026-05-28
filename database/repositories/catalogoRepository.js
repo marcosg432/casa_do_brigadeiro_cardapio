@@ -97,9 +97,20 @@ function listarProdutosCategoria(categoriaId) {
   `).all(Number(categoriaId)).map(montarProduto);
 }
 
+function buscarRegraVendaCategoria(slug) {
+  return getDb().prepare(`
+    SELECT id, categoria_slug, nome, permite_unitario, permite_cento, preco_unitario,
+           minimo_unitario, maximo_unitario, unidades_por_cento, multiplo_cento,
+           regra_json, ativo, created_at, updated_at
+    FROM regras_venda_categoria
+    WHERE categoria_slug = ? AND ativo = 1
+  `).get(slug) || null;
+}
+
 function montarCategoria(categoria) {
   return Object.assign({}, categoria, {
     midias: listarMidias('categoria', categoria.id),
+    regra_venda: buscarRegraVendaCategoria(categoria.slug),
     produtos: listarProdutosCategoria(categoria.id)
   });
 }

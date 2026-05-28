@@ -170,6 +170,23 @@ CREATE TABLE IF NOT EXISTS produto_regras (
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE TABLE IF NOT EXISTS regras_venda_categoria (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    categoria_slug TEXT NOT NULL UNIQUE,
+    nome TEXT NOT NULL,
+    permite_unitario INTEGER NOT NULL DEFAULT 1 CHECK (permite_unitario IN (0, 1)),
+    permite_cento INTEGER NOT NULL DEFAULT 1 CHECK (permite_cento IN (0, 1)),
+    preco_unitario REAL NOT NULL DEFAULT 0,
+    minimo_unitario INTEGER NOT NULL DEFAULT 10 CHECK (minimo_unitario >= 1),
+    maximo_unitario INTEGER NOT NULL DEFAULT 49 CHECK (maximo_unitario >= minimo_unitario),
+    unidades_por_cento INTEGER NOT NULL DEFAULT 50 CHECK (unidades_por_cento >= 1),
+    multiplo_cento INTEGER NOT NULL DEFAULT 50 CHECK (multiplo_cento >= 1),
+    regra_json TEXT,
+    ativo INTEGER NOT NULL DEFAULT 1 CHECK (ativo IN (0, 1)),
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS orcamentos (
     id INTEGER PRIMARY KEY,
     payload TEXT NOT NULL,
@@ -255,6 +272,7 @@ CREATE INDEX IF NOT EXISTS idx_precos_variacao ON produto_precos(variacao_id);
 CREATE INDEX IF NOT EXISTS idx_precos_opcao ON produto_precos(opcao_id);
 CREATE INDEX IF NOT EXISTS idx_precos_vigencia ON produto_precos(vigencia_inicio, vigencia_fim);
 CREATE INDEX IF NOT EXISTS idx_regras_produto ON produto_regras(produto_id, ativo, ordem);
+CREATE INDEX IF NOT EXISTS idx_regras_venda_categoria_ativo ON regras_venda_categoria(ativo);
 CREATE INDEX IF NOT EXISTS idx_orcamentos_updated ON orcamentos(updated_at);
 CREATE INDEX IF NOT EXISTS idx_orcamentos_created ON orcamentos(created_at);
 CREATE INDEX IF NOT EXISTS idx_orcamento_itens_orcamento ON orcamento_itens(orcamento_id);

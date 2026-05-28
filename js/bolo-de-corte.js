@@ -6,7 +6,7 @@
 
     var state = {
         cover: 'Cobertura de Chantininho',
-        priceKg: 89.9,
+        priceKg: 99.9,
         flavor: 'Brigadeiro Belga',
         dough: 'Baunilha',
         weight: 1,

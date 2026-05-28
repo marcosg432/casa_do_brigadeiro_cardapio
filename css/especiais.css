@@ -226,6 +226,15 @@ body.pagina-especial .esp-showpiece--hero .esp-visual {
     min-height: clamp(18.5rem, 44vw, 28rem);
 }
 
+body.pagina-especial .esp-visual-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 body.pagina-especial .esp-visual-glow {
     position: absolute;
     inset: 0;
@@ -434,6 +443,228 @@ body.pagina-especial .esp-showpiece--gift .esp-product-title {
     font-size: clamp(1.45rem, 3.2vw, 1.95rem);
 }
 
+/* —— Diversos artesanais: grid boutique —— */
+body.pagina-especial .esp-diversos {
+    max-width: min(1180px, 100% - 2rem);
+    margin: clamp(2.75rem, 7vw, 5rem) auto 0;
+    position: relative;
+}
+
+body.pagina-especial .esp-diversos::before {
+    content: '';
+    position: absolute;
+    inset: -2rem -1rem auto;
+    height: 18rem;
+    border-radius: 999px;
+    background:
+        radial-gradient(ellipse at 22% 30%, rgba(235, 178, 209, 0.18), transparent 58%),
+        radial-gradient(ellipse at 86% 15%, rgba(170, 221, 241, 0.18), transparent 56%);
+    filter: blur(2px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+body.pagina-especial .esp-diversos-head {
+    max-width: 46rem;
+    margin: 0 auto clamp(1.75rem, 4vw, 2.65rem);
+    text-align: center;
+}
+
+body.pagina-especial .esp-diversos-eyebrow {
+    font-family: var(--esp-font-accent);
+    font-size: 0.78rem;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(146, 106, 45, 0.66);
+    margin: 0 0 0.45rem;
+}
+
+body.pagina-especial .esp-diversos-title {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(2rem, 5.2vw, 3.15rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--esp-ink);
+    margin: 0;
+}
+
+body.pagina-especial .esp-diversos-lead {
+    max-width: 36rem;
+    margin: 0.85rem auto 0;
+    font-family: var(--esp-font-sans);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.75;
+    color: rgba(44, 36, 28, 0.64);
+}
+
+body.pagina-especial .esp-diversos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2.5vw, 1.45rem);
+}
+
+body.pagina-especial .esp-diverso-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 100%;
+    border-radius: clamp(20px, 3vw, 28px);
+    background:
+        linear-gradient(165deg, rgba(255, 254, 251, 0.98) 0%, rgba(255, 252, 249, 0.94) 58%, rgba(237, 222, 195, 0.48) 100%);
+    border: 1px solid rgba(146, 106, 45, 0.14);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.9) inset,
+        0 18px 48px rgba(44, 36, 28, 0.075);
+    transition:
+        transform 0.36s cubic-bezier(0.25, 0.9, 0.3, 1),
+        box-shadow 0.36s ease,
+        border-color 0.36s ease;
+}
+
+body.pagina-especial .esp-diverso-card:nth-child(4n + 2) {
+    background:
+        linear-gradient(168deg, rgba(255, 254, 251, 0.98), rgba(170, 221, 241, 0.18) 54%, rgba(255, 252, 249, 0.96));
+    border-color: rgba(170, 221, 241, 0.34);
+}
+
+body.pagina-especial .esp-diverso-card:nth-child(4n + 3) {
+    background:
+        linear-gradient(170deg, rgba(255, 254, 251, 0.98), rgba(235, 178, 209, 0.18) 52%, rgba(255, 252, 249, 0.96));
+    border-color: rgba(235, 178, 209, 0.34);
+}
+
+body.pagina-especial .esp-diverso-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(146, 106, 45, 0.28);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.95) inset,
+        0 28px 68px rgba(146, 106, 45, 0.13);
+}
+
+body.pagina-especial .esp-diverso-visual {
+    position: relative;
+    min-height: clamp(12rem, 19vw, 15.5rem);
+    margin: clamp(0.85rem, 2vw, 1.05rem) clamp(0.85rem, 2vw, 1.05rem) 0;
+    border-radius: clamp(18px, 2.6vw, 24px);
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 28% 26%, rgba(255, 255, 255, 0.68), transparent 34%),
+        radial-gradient(circle at 80% 18%, rgba(235, 178, 209, 0.32), transparent 34%),
+        linear-gradient(145deg, rgba(237, 222, 195, 0.74), rgba(255, 252, 249, 0.9) 48%, rgba(170, 221, 241, 0.24));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 16px 38px rgba(44, 36, 28, 0.08);
+}
+
+body.pagina-especial .esp-diverso-visual::before,
+body.pagina-especial .esp-diverso-visual::after {
+    content: '';
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+body.pagina-especial .esp-diverso-visual::before {
+    width: 8rem;
+    height: 8rem;
+    right: -2.2rem;
+    top: -2.2rem;
+    background: rgba(235, 178, 209, 0.3);
+}
+
+body.pagina-especial .esp-diverso-visual::after {
+    width: 5.5rem;
+    height: 5.5rem;
+    left: -1.4rem;
+    bottom: -1.6rem;
+    border: 1px solid rgba(146, 106, 45, 0.15);
+    background: rgba(255, 252, 249, 0.24);
+}
+
+body.pagina-especial .esp-diverso-visual--photo::before,
+body.pagina-especial .esp-diverso-visual--photo::after {
+    display: none;
+}
+
+body.pagina-especial .esp-diverso-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+body.pagina-especial .esp-diverso-visual span {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--esp-font-serif);
+    font-size: clamp(2.25rem, 5vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(146, 106, 45, 0.36);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+body.pagina-especial .esp-diverso-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: clamp(1.05rem, 2.4vw, 1.35rem);
+}
+
+body.pagina-especial .esp-diverso-body h3 {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.2rem, 2.5vw, 1.48rem);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--esp-ink);
+    margin: 0;
+}
+
+body.pagina-especial .esp-diverso-body p {
+    margin: 0.6rem 0 1rem;
+    font-family: var(--esp-font-sans);
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: rgba(44, 36, 28, 0.64);
+}
+
+body.pagina-especial .esp-diverso-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    margin-top: auto;
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(146, 106, 45, 0.1);
+}
+
+body.pagina-especial .esp-diverso-foot strong {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.18rem, 2.5vw, 1.42rem);
+    font-weight: 600;
+    color: var(--esp-marrom);
+    white-space: nowrap;
+}
+
+body.pagina-especial .esp-diverso-btn {
+    width: auto;
+    min-width: 7.4rem;
+    max-width: none;
+    margin: 0;
+    padding: 0.72rem 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow: 0 12px 26px rgba(146, 106, 45, 0.22);
+}
+
 /* —— Personalização (não genérico) —— */
 body.pagina-especial .esp-personal {
     max-width: min(720px, 100% - 2rem);
@@ -560,6 +791,10 @@ body.pagina-especial .esp-personal-note {
         grid-template-columns: 1fr;
     }
 
+    body.pagina-especial .esp-diversos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     body.pagina-especial .esp-editorial {
         text-align: center;
         align-items: center;
@@ -586,8 +821,27 @@ body.pagina-especial .esp-personal-note {
     body.pagina-especial .esp-hero,
     body.pagina-especial .esp-showpiece,
     body.pagina-especial .esp-divider,
+    body.pagina-especial .esp-diversos,
     body.pagina-especial .esp-personal {
         margin-left: max(0.75rem, env(safe-area-inset-left, 0));
         margin-right: max(0.75rem, env(safe-area-inset-right, 0));
+    }
+
+    body.pagina-especial .esp-diversos-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    body.pagina-especial .esp-diverso-visual {
+        min-height: 13.5rem;
+    }
+
+    body.pagina-especial .esp-diverso-foot {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    body.pagina-especial .esp-diverso-btn {
+        width: 100%;
     }
 }
