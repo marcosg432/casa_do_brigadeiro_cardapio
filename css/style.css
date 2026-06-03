@@ -3552,6 +3552,23 @@ ul {
     opacity: 1;
 }
 
+/* Home — enquadramento por card (foto real de cada linha) */
+.produto-img--home-tradicionais {
+    background-position: center 78%;
+}
+
+.produto-img--home-recheados {
+    background-position: center 42%;
+}
+
+.produto-img--home-belga {
+    background-position: center 48%;
+}
+
+.produto-img--home-especiais {
+    background-position: center 40%;
+}
+
 .produto-card-home:hover .produto-img-home {
     box-shadow: inset 0 0 0 1px rgba(146, 106, 45, 0.12);
 }
@@ -3859,6 +3876,228 @@ ul {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--verde-suave);
+}
+
+/* Home — Nossa loja (fachada + endereço) */
+.home-loja {
+    position: relative;
+    background:
+        radial-gradient(ellipse 55% 42% at 12% 22%, rgba(196, 181, 216, 0.38) 0%, transparent 58%),
+        radial-gradient(ellipse 48% 40% at 88% 78%, rgba(235, 178, 209, 0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(170, 221, 241, 0.2) 0%, transparent 52%),
+        linear-gradient(178deg, #fffcf9 0%, #f3ebe4 42%, #eddec3 100%);
+    overflow: hidden;
+}
+
+.home-loja::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(155, 135, 184, 0.45), rgba(146, 106, 45, 0.28), rgba(170, 221, 241, 0.4), transparent);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.home-loja-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+}
+
+.home-loja-frame {
+    position: relative;
+    margin: 0;
+    border-radius: clamp(1.35rem, 2.8vw, 2.25rem);
+    overflow: hidden;
+    border: 1px solid rgba(155, 135, 184, 0.35);
+    box-shadow:
+        0 28px 70px rgba(44, 36, 28, 0.14),
+        0 0 0 1px rgba(255, 252, 249, 0.65) inset;
+    background: #d4c8e8;
+}
+
+.home-loja-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(44, 36, 28, 0.02) 35%, rgba(44, 36, 28, 0.22) 100%);
+    pointer-events: none;
+}
+
+.home-loja-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center 42%;
+    transform: scale(1.01);
+    transition: transform 1.1s var(--ease-premium);
+}
+
+.home-loja-frame:hover img {
+    transform: scale(1.04);
+}
+
+.home-loja-badge {
+    position: absolute;
+    left: clamp(1rem, 3vw, 1.6rem);
+    bottom: clamp(1rem, 3vw, 1.6rem);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    min-width: 4.25rem;
+    min-height: 4.25rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 252, 249, 0.92);
+    border: 1px solid rgba(146, 106, 45, 0.22);
+    box-shadow: 0 12px 32px rgba(44, 36, 28, 0.16);
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #c0392b;
+}
+
+.home-loja-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #7a6a94;
+}
+
+.home-loja-eyebrow::before {
+    content: '';
+    width: 2.25rem;
+    height: 1px;
+    background: linear-gradient(90deg, #9b87b8, transparent);
+}
+
+.home-loja-title {
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4.2vw, 3.15rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 1.15rem;
+    max-width: 14ch;
+}
+
+.home-loja-lead {
+    font-size: clamp(1rem, 1.6vw, 1.12rem);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 0.85rem;
+    max-width: 36rem;
+}
+
+.home-loja-note {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    max-width: 32rem;
+}
+
+.home-loja-address {
+    font-style: normal;
+    margin: 0 0 1.85rem;
+    padding: 1.15rem 1.25rem 1.2rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 252, 249, 0.72);
+    border: 1px solid rgba(146, 106, 45, 0.14);
+    box-shadow: var(--shadow-sm);
+}
+
+.home-loja-address-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--premium);
+}
+
+.home-loja-address-line {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--text-primary);
+}
+
+.home-loja-address-line--bairro {
+    margin-top: 0.2rem;
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.home-loja-maps-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 3.25rem;
+    padding-inline: 1.65rem;
+}
+
+.home-loja-maps-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+    .home-loja-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .home-loja-title {
+        max-width: none;
+    }
+
+    .home-loja-copy {
+        order: 2;
+    }
+
+    .home-loja-media {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-loja-frame img {
+        aspect-ratio: 5 / 4;
+        object-position: center 38%;
+    }
+
+    .home-loja-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-loja-frame img,
+    .home-loja-frame:hover img {
+        transform: none;
+        transition: none;
+    }
 }
 
 /* CTA final — fechamento premium: bege + véus azul e rosa equilibrados */
@@ -7074,19 +7313,22 @@ body.pagina-catalogo-centone .dt-stack-frame .dt-produto-photo > img {
 }
 
 /* Brigadeiros recheados: recorte mais alto no quadro (apenas posição da img, sem alterar o quadro) */
-body.pagina-brigadeiros-recheados.pagina-catalogo-centone .dt-stack-frame .dt-produto-photo > img.dt-img-recheados-hero,
-body.pagina-brigadeiros-especiais.pagina-catalogo-centone .dt-stack-frame .dt-produto-photo > img.dt-img-recheados-hero {
+body.pagina-brigadeiros-recheados.pagina-catalogo-centone .dt-stack-frame .dt-produto-photo > img.dt-img-recheados-hero {
     inset: auto 0 0 0;
     height: 150%;
     object-position: 50% 100%;
     transform: none;
 }
 
-/* Brigadeiros Belga: mesmo ajuste de recorte, só na imagem dentro do quadro */
+body.pagina-brigadeiros-especiais.pagina-catalogo-centone .dt-stack-frame .dt-produto-photo > img.dt-img-especiais-hero {
+    object-position: 50% 42%;
+}
+
+/* Brigadeiros Belga: enquadramento — só a foto no quadro */
 body.pagina-brigadeiros-belga.pagina-catalogo-centone .dt-stack-frame .dt-produto-photo > img.dt-img-belga-hero {
     inset: auto 0 0 0;
     height: 150%;
-    object-position: 50% 100%;
+    object-position: 50% 32%;
     transform: none;
 }
 
@@ -9195,6 +9437,15 @@ body.pagina-bolos-personalizados .header {
     object-position: 70% 60%;
 }
 
+body.pagina-bolos-personalizados .bp-photo--main img[src*="tema-hulk"] {
+    object-position: 50% 30%;
+}
+
+body.pagina-bolos-personalizados .bp-photo--detail img[src*="tema-futebol"] {
+    object-position: 50% 36%;
+    transform: scale(1.4);
+}
+
 .bp-visual-card {
     position: absolute;
     left: clamp(1rem, 3vw, 2rem);
@@ -9272,7 +9523,7 @@ body.pagina-bolos-personalizados .header {
 .bp-studio-head,
 .bp-step,
 .bp-perfect,
-.bp-note,
+.bp-decor,
 .bp-summary {
     position: relative;
     z-index: 1;
@@ -9302,7 +9553,7 @@ body.pagina-bolos-personalizados .header {
 
 .bp-step,
 .bp-perfect,
-.bp-note,
+.bp-decor,
 .bp-summary {
     margin-top: 1rem;
     border: 1px solid rgba(146, 106, 45, 0.14);
@@ -9315,7 +9566,7 @@ body.pagina-bolos-personalizados .header {
 
 .bp-step,
 .bp-perfect,
-.bp-note {
+.bp-decor {
     padding: clamp(1rem, 2.4vw, 1.4rem);
 }
 
@@ -9537,27 +9788,163 @@ body.pagina-bolos-personalizados .header {
     transition: transform 0.24s var(--ease-premium), border-color 0.24s var(--ease-premium), box-shadow 0.24s var(--ease-premium);
 }
 
-.bp-note {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 1rem;
-    align-items: start;
+.bp-decor {
     background:
-        radial-gradient(circle at 100% 0, rgba(235, 178, 209, 0.22), transparent 10rem),
-        linear-gradient(145deg, rgba(255, 252, 249, 0.9), rgba(170, 221, 241, 0.18));
+        radial-gradient(circle at 100% 0, rgba(235, 178, 209, 0.24), transparent 11rem),
+        radial-gradient(circle at 0 100%, rgba(170, 221, 241, 0.18), transparent 9rem),
+        linear-gradient(145deg, rgba(255, 252, 249, 0.94), rgba(237, 222, 195, 0.42));
 }
 
-.bp-note strong {
-    color: #926a2d;
-    font-family: var(--fonte-titulo);
-    font-size: 1.2rem;
-    line-height: 1.05;
-}
-
-.bp-note p {
+.bp-decor-lead {
     margin: 0;
-    color: #5a5248;
-    line-height: 1.65;
+}
+
+.bp-decor-hint {
+    margin: 0;
+    letter-spacing: 0.04em;
+}
+
+.bp-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.bp-extra-card {
+    appearance: none;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.85rem;
+    align-items: start;
+    width: 100%;
+    min-height: 8.5rem;
+    padding: 1rem 1.05rem;
+    border: 1px solid rgba(146, 106, 45, 0.14);
+    border-radius: 1.35rem;
+    background: rgba(255, 252, 249, 0.92);
+    color: #2c241c;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(44, 36, 28, 0.05);
+    transition:
+        transform 0.28s var(--ease-premium),
+        border-color 0.28s var(--ease-premium),
+        box-shadow 0.28s var(--ease-premium),
+        background 0.28s var(--ease-premium),
+        color 0.28s var(--ease-premium);
+}
+
+.bp-extra-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    background: radial-gradient(circle at 88% 12%, rgba(235, 178, 209, 0.35), transparent 55%);
+    transition: opacity 0.28s var(--ease-premium);
+    pointer-events: none;
+}
+
+.bp-extra-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(146, 106, 45, 0.34);
+    box-shadow: 0 18px 44px rgba(44, 36, 28, 0.09);
+}
+
+.bp-extra-card.is-selected {
+    color: #fffcf9;
+    border-color: rgba(255, 252, 249, 0.38);
+    background:
+        radial-gradient(circle at 92% 0, rgba(235, 178, 209, 0.28), transparent 8rem),
+        linear-gradient(145deg, #926a2d, #6f4c22);
+    box-shadow:
+        0 0 0 1px rgba(255, 252, 249, 0.12),
+        0 20px 48px rgba(146, 106, 45, 0.28);
+}
+
+.bp-extra-card.is-selected::before {
+    opacity: 1;
+}
+
+.bp-extra-icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 2.65rem;
+    height: 2.65rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(237, 222, 195, 0.9), rgba(235, 178, 209, 0.35));
+    color: #926a2d;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.bp-extra-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.bp-extra-card.is-selected .bp-extra-icon {
+    background: rgba(255, 252, 249, 0.16);
+    color: #fffcf9;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.bp-extra-copy {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.bp-extra-copy strong {
+    font-family: var(--fonte-titulo);
+    line-height: 1.1;
+}
+
+.bp-extra-copy small {
+    color: inherit;
+}
+
+.bp-extra-price {
+    font-style: normal;
+}
+
+.bp-extra-card.is-selected .bp-extra-price {
+    background: rgba(255, 252, 249, 0.16) !important;
+    color: #fffcf9 !important;
+}
+
+.bp-extra-check {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    border: 1px solid rgba(146, 106, 45, 0.2);
+    background: rgba(255, 252, 249, 0.75);
+    color: transparent;
+    transition:
+        background 0.28s var(--ease-premium),
+        border-color 0.28s var(--ease-premium),
+        color 0.28s var(--ease-premium),
+        transform 0.28s var(--ease-premium),
+        box-shadow 0.28s var(--ease-premium);
+}
+
+.bp-extra-check svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.bp-extra-card.is-selected .bp-extra-check {
+    color: #926a2d;
+    border-color: rgba(255, 252, 249, 0.55);
+    background: #fffcf9;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(44, 36, 28, 0.12);
 }
 
 .bp-summary {
@@ -9682,6 +10069,7 @@ body.pagina-bolos-personalizados .header {
 
 .bp-size-card:focus-visible,
 .bp-cover-card:focus-visible,
+.bp-extra-card:focus-visible,
 .bp-add-cart:focus-visible {
     outline: 3px solid rgba(170, 221, 241, 0.75);
     outline-offset: 3px;
@@ -9794,8 +10182,8 @@ body.pagina-bolos-personalizados .header {
         border-radius: 2rem;
     }
 
-    .bp-photo--main img {
-        object-position: center 44%;
+    .bp-photo--main img[src*="tema-hulk"] {
+        object-position: 50% 28%;
     }
 
     .bp-photo--detail {
@@ -9866,7 +10254,7 @@ body.pagina-bolos-personalizados .header {
 
     .bp-step,
     .bp-perfect,
-    .bp-note,
+    .bp-decor,
     .bp-summary {
         margin-top: 1rem;
         padding: 1.15rem;
@@ -9889,6 +10277,7 @@ body.pagina-bolos-personalizados .header {
     .bp-size-grid,
     .bp-cover-grid,
     .bp-perfect-grid,
+    .bp-extra-grid,
     .bp-summary dl {
         grid-template-columns: 1fr;
     }
@@ -9913,9 +10302,9 @@ body.pagina-bolos-personalizados .header {
         min-height: 4.4rem;
     }
 
-    .bp-note {
-        grid-template-columns: 1fr;
-        gap: 0.45rem;
+    .bp-extra-card {
+        min-height: auto;
+        padding: 1.1rem;
     }
 
     .bp-summary {
@@ -9942,6 +10331,7 @@ body.pagina-bolos-personalizados .header {
 
     .bp-size-card:hover,
     .bp-cover-card:hover,
+    .bp-extra-card:hover,
     .bp-perfect-grid span:hover,
     .bp-add-cart:hover {
         transform: translateY(-1px);
@@ -9965,7 +10355,7 @@ body.pagina-bolos-personalizados .header {
 
     .bp-step,
     .bp-perfect,
-    .bp-note,
+    .bp-decor,
     .bp-summary,
     .bp-studio-head {
         padding: 1rem;

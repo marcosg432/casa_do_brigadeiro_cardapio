@@ -82,7 +82,10 @@ function serveStatic(req, res, pathname) {
 function streamFile(req, res, filePath) {
   const ext = path.extname(filePath).toLowerCase();
   const type = MIME[ext] || 'application/octet-stream';
-  const noCache = ['.html', '.css', '.js'].includes(ext);
+  const rel = path.relative(ROOT, filePath);
+  const noCache =
+    ['.html', '.css', '.js'].includes(ext) ||
+    rel.startsWith('assets' + path.sep);
   const headers = {
     'Content-Type': type,
     'Cache-Control': noCache ? 'no-cache, no-store, must-revalidate' : 'public, max-age=86400'

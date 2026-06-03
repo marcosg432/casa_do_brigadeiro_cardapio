@@ -4,7 +4,7 @@
         belga: { titulo: 'Brigadeiros Belga', unitario: 3.5 },
         recheados: { titulo: 'Brigadeiros Recheados', unitario: 3.8 },
         especiais: { titulo: 'Brigadeiros Especiais', unitario: 4.1 },
-        docesEspeciais: { titulo: 'Doces Especiais', unitario: 4.1 }
+        docesEspeciais: { titulo: 'Doces Especiais', unitario: 0 }
     };
     var active = null;
     var modal = null;
@@ -16,12 +16,18 @@
     function getConfig(card) {
         var key = card.dataset.vendaCategoria || (card.classList.contains('des-card') ? 'docesEspeciais' : 'tradicionais');
         var base = CONFIGS[key] || CONFIGS.tradicionais;
-        var unitario = parseFloat(card.dataset.precoUnitario || base.unitario);
+        var unitario = parseFloat(card.dataset.precoUnitario || card.getAttribute('data-preco-unitario') || base.unitario);
         var preco = parseFloat(card.dataset.produtoPreco || card.getAttribute('data-produto-preco') || '0') || 0;
         var qtdMin = parseInt(String(card.dataset.produtoQtdMin || card.getAttribute('data-produto-qtd-min') || '100'), 10) || 100;
-        var cento = card.dataset.precoCento != null
-            ? parseFloat(card.dataset.precoCento)
-            : ((card.dataset.produtoLuxo === 'true' || card.getAttribute('data-produto-luxo') === 'true') && qtdMin <= 1 ? preco : preco * qtdMin);
+        var luxo = card.dataset.produtoLuxo === 'true' || card.getAttribute('data-produto-luxo') === 'true';
+        var cento;
+        if (card.dataset.precoCento != null && card.dataset.precoCento !== '') {
+            cento = parseFloat(card.dataset.precoCento);
+        } else if (luxo && qtdMin <= 1) {
+            cento = preco;
+        } else {
+            cento = preco * qtdMin;
+        }
         return {
             titulo: card.dataset.vendaTitulo || base.titulo,
             unitario: unitario,

@@ -235,6 +235,11 @@ body.pagina-especial .esp-visual-img {
     object-position: center;
 }
 
+/* Placa Cigana — enquadramento (só a foto) */
+body.pagina-especial .esp-visual-img[src*="placa-cigana"] {
+    object-position: 50% 38%;
+}
+
 body.pagina-especial .esp-visual-glow {
     position: absolute;
     inset: 0;
