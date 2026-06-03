@@ -44,6 +44,45 @@
         });
     }
 
+    function getSelectedGrams(panel) {
+        var btn = panel.querySelector('.esp-weight.is-selected');
+        return parseInt(String(btn && btn.getAttribute('data-esp-grams')), 10) || 100;
+    }
+
+    function gramLabel(grams) {
+        if (grams >= 1000) return '1kg';
+        return grams + 'g';
+    }
+
+    function updateGramTotal(card) {
+        var panel = card.querySelector('[data-esp-gram-panel]');
+        if (!panel) return;
+        var priceKg = parseFloat(card.getAttribute('data-produto-preco-kg') || card.getAttribute('data-produto-preco') || '0') || 0;
+        var grams = getSelectedGrams(panel);
+        var total = (priceKg * grams) / 1000;
+        var el = card.querySelector('[data-esp-diverso-total]');
+        if (el) el.textContent = money(total);
+    }
+
+    function getSelectedSabor(card) {
+        var pill = card.querySelector('.esp-sabor-pill.is-selected');
+        return pill ? pill.getAttribute('data-esp-sabor') : '';
+    }
+
+    function selectSabor(card, activeBtn) {
+        card.querySelectorAll('.esp-sabor-pill').forEach(function (el) {
+            var on = el === activeBtn;
+            el.classList.toggle('is-selected', on);
+            el.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        var live = card.querySelector('[data-esp-sabor-live]');
+        if (live) {
+            var s = getSelectedSabor(card);
+            live.textContent = s ? 'Sabor: ' + s : 'Selecione um sabor para continuar.';
+            live.classList.toggle('esp-diverso-options-hint--ok', !!s);
+        }
+    }
+
     function updateKgTotal(card) {
         var panel = card.querySelector('[data-esp-kg-panel]');
         if (!panel) return;
@@ -59,13 +98,28 @@
     document.addEventListener('click', function (e) {
         if (!document.body.classList.contains('pagina-especial')) return;
 
+        var saborBtn = e.target.closest('.esp-sabor-pill');
+        if (saborBtn) {
+            var cardSabor = saborBtn.closest('[data-requer-sabor]');
+            if (cardSabor) {
+                selectSabor(cardSabor, saborBtn);
+            }
+            return;
+        }
+
         var weightBtn = e.target.closest('.esp-weight');
         if (weightBtn) {
-            var panel = weightBtn.closest('[data-esp-kg-panel]');
-            if (!panel) return;
-            selectWeight(panel, weightBtn);
-            var card = weightBtn.closest('[data-produto-nome]');
-            if (card) updateKgTotal(card);
+            var panelKg = weightBtn.closest('[data-esp-kg-panel]');
+            var panelGram = weightBtn.closest('[data-esp-gram-panel]');
+            if (panelKg) {
+                selectWeight(panelKg, weightBtn);
+                var cardKg = weightBtn.closest('[data-produto-nome]');
+                if (cardKg) updateKgTotal(cardKg);
+            } else if (panelGram) {
+                selectWeight(panelGram, weightBtn);
+                var cardGram = weightBtn.closest('[data-produto-nome]');
+                if (cardGram) updateGramTotal(cardGram);
+            }
             return;
         }
 
@@ -143,6 +197,28 @@
             return;
         }
 
+        var gramPanel = card.querySelector('[data-esp-gram-panel]');
+        if (gramPanel) {
+            var priceKgG = parseFloat(card.getAttribute('data-produto-preco-kg') || card.getAttribute('data-produto-preco') || '0') || 0;
+            var grams = getSelectedGrams(gramPanel);
+            var totalG = (priceKgG * grams) / 1000;
+            var nomeG = nomeBase + ' — ' + gramLabel(grams);
+            if (typeof adicionarCarrinho === 'function') {
+                adicionarCarrinho(nomeG, totalG, 1, { luxo: true, quantidade: 1 });
+            }
+            return;
+        }
+
+        if (card.getAttribute('data-requer-sabor') === 'true') {
+            var sabor = getSelectedSabor(card);
+            if (!sabor) {
+                var live = card.querySelector('[data-esp-sabor-live]');
+                if (live) live.textContent = 'Escolha um sabor antes de adicionar.';
+                return;
+            }
+            nomeBase = nomeBase + ' — Sabor: ' + sabor;
+        }
+
         var preco = parseFloat(card.dataset.produtoPreco || card.getAttribute('data-produto-preco') || '0') || 0;
         var wrap = card.querySelector('.esp-qty');
         var qElDes = wrap && wrap.querySelector('[data-des-qty-val]');
@@ -167,6 +243,8 @@
         document.querySelectorAll('.pagina-especial .esp-showpiece--por-kg').forEach(function (card) {
             updateKgTotal(card);
         });
+
+        document.querySelectorAll('.pagina-especial .esp-diverso-card--gramas').forEach(updateGramTotal);
     }
 
     if (document.readyState === 'loading') {

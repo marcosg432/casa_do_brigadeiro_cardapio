@@ -710,6 +710,18 @@ body.pagina-especial .esp-diverso-img--salgados-festa {
     object-position: center 48%;
 }
 
+body.pagina-especial .esp-diverso-img--hamburguer-doce {
+    object-position: center 42%;
+}
+
+body.pagina-especial .esp-diverso-img--copo-felicidade {
+    object-position: center 38%;
+}
+
+body.pagina-especial .esp-diverso-img--bolo-vitrine {
+    object-position: center 45%;
+}
+
 body.pagina-especial .esp-diverso-foot--dual {
     flex-wrap: wrap;
     align-items: flex-end;
@@ -769,11 +781,99 @@ body.pagina-especial .esp-diverso-body h3 {
 }
 
 body.pagina-especial .esp-diverso-body p {
-    margin: 0.6rem 0 1rem;
+    margin: 0.6rem 0 0.75rem;
     font-family: var(--esp-font-sans);
     font-size: 0.84rem;
     line-height: 1.65;
     color: rgba(44, 36, 28, 0.64);
+}
+
+body.pagina-especial .esp-diverso-options {
+    margin: 0.5rem 0 0.65rem;
+    padding: 0.7rem 0.75rem 0.75rem;
+    border-radius: 1rem;
+    background: linear-gradient(165deg, rgba(255, 252, 249, 0.98), rgba(237, 222, 195, 0.22));
+    border: 1px solid rgba(146, 106, 45, 0.1);
+}
+
+body.pagina-especial .esp-diverso-options-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(146, 106, 45, 0.72);
+    font-family: var(--esp-font-sans);
+}
+
+body.pagina-especial .esp-sabor-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+body.pagina-especial .esp-sabor-pill {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid rgba(146, 106, 45, 0.14);
+    border-radius: 999px;
+    padding: 0.42rem 0.75rem;
+    background: rgba(255, 252, 249, 0.95);
+    font-family: var(--esp-font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(44, 36, 28, 0.78);
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+body.pagina-especial .esp-sabor-pill:hover {
+    transform: translateY(-1px);
+    border-color: rgba(235, 178, 209, 0.45);
+}
+
+body.pagina-especial .esp-sabor-pill.is-selected {
+    background: linear-gradient(180deg, #a67c3d 0%, var(--esp-marrom) 55%, #7a5522 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #fffefb;
+    box-shadow: 0 6px 18px rgba(146, 106, 45, 0.2);
+}
+
+body.pagina-especial .esp-diverso-options-hint {
+    margin: 0.5rem 0 0;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: rgba(44, 36, 28, 0.5);
+    font-family: var(--esp-font-accent);
+    font-style: italic;
+}
+
+body.pagina-especial .esp-diverso-options-hint--ok {
+    color: rgba(146, 106, 45, 0.78);
+}
+
+body.pagina-especial .esp-weight-options--card {
+    gap: 0.4rem;
+}
+
+body.pagina-especial .esp-weight-options--card .esp-weight {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.74rem;
+}
+
+body.pagina-especial .esp-diverso-card--gramas .esp-diverso-foot strong,
+body.pagina-especial .esp-diverso-foot [data-esp-diverso-total] {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.18rem, 2.5vw, 1.42rem);
+    font-weight: 600;
+    color: var(--esp-marrom);
+    white-space: nowrap;
 }
 
 body.pagina-especial .esp-diverso-foot {
@@ -984,5 +1084,15 @@ body.pagina-especial .esp-personal-note {
 
     body.pagina-especial .esp-diverso-btn {
         width: 100%;
+    }
+
+    body.pagina-especial .esp-diverso-options {
+        padding: 0.65rem 0.7rem 0.7rem;
+    }
+
+    body.pagina-especial .esp-sabor-pill,
+    body.pagina-especial .esp-weight-options--card .esp-weight {
+        min-height: 2.5rem;
+        padding: 0.5rem 0.85rem;
     }
 }
