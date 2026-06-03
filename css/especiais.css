@@ -718,8 +718,10 @@ body.pagina-especial .esp-diverso-img--copo-felicidade {
     object-position: center 38%;
 }
 
-body.pagina-especial .esp-diverso-img--bolo-vitrine {
-    object-position: center 45%;
+body.pagina-especial .esp-diverso-img--brigadeiros-vitrine {
+    max-width: none;
+    max-height: none;
+    object-position: center 58%;
 }
 
 body.pagina-especial .esp-diverso-foot--dual {
