@@ -6,7 +6,7 @@
     <title>Bolos Diversos | Casa do Brigadeiro</title>
     <link rel="stylesheet" href="../css/style.css?v=20260603">
     <link rel="stylesheet" href="../css/cart.css?v=20260603">
-    <link rel="stylesheet" href="../css/especiais.css?v=20260603">
+    <link rel="stylesheet" href="../css/especiais.css?v=bolos-kg-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -73,7 +73,7 @@
 
         <main id="esp-vitrine">
             <article
-                class="esp-showpiece esp-showpiece--hero"
+                class="esp-showpiece esp-showpiece--hero esp-showpiece--por-kg"
                 data-produto-nome="Naked Cake Frutas Vermelhas — Bolos Diversos"
                 data-produto-preco="129.9"
                 data-produto-qtd-min="1"
@@ -96,10 +96,24 @@
                             <span class="esp-price">R$&nbsp;129,90</span>
                             <span class="esp-price-unit">por quilograma</span>
                         </div>
-                        <div class="esp-qty" role="group" aria-label="Quantidade em quilogramas">
-                            <button type="button" class="esp-qty-btn esp-qty-btn--minus" aria-label="Diminuir quilogramas">−</button>
-                            <span class="esp-qty-val" data-des-qty-val aria-live="polite" aria-valuenow="1" role="spinbutton" aria-valuemin="1" aria-valuemax="99">1</span>
-                            <button type="button" class="esp-qty-btn esp-qty-btn--plus" aria-label="Aumentar quilogramas">+</button>
+                        <div class="esp-kg-panel" data-esp-kg-panel>
+                            <p class="esp-kg-panel-label">Quantidade / Peso</p>
+                            <div class="esp-weight-options" role="radiogroup" aria-label="Peso do bolo">
+                                <button type="button" class="esp-weight is-selected" data-esp-weight="1" aria-pressed="true">1kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="1.5" aria-pressed="false">1,5kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="2" aria-pressed="false">2kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="2.5" aria-pressed="false">2,5kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="3" aria-pressed="false">3kg</button>
+                            </div>
+                            <div class="esp-kg-qty-wrap">
+                                <span class="esp-kg-qty-label">Quantidade</span>
+                                <div class="esp-qty esp-qty--bolos" role="group" aria-label="Quantidade de bolos">
+                                    <button type="button" class="esp-qty-btn esp-qty-btn--minus" aria-label="Diminuir quantidade">−</button>
+                                    <span class="esp-qty-val" data-esp-bolo-qty aria-live="polite" aria-valuenow="1" role="spinbutton" aria-valuemin="1" aria-valuemax="20">1</span>
+                                    <button type="button" class="esp-qty-btn esp-qty-btn--plus" aria-label="Aumentar quantidade">+</button>
+                                </div>
+                            </div>
+                            <p class="esp-kg-total" data-esp-kg-total aria-live="polite"><span class="esp-kg-total-label">Total estimado:</span> <strong></strong></p>
                         </div>
                         <button type="button" class="esp-btn-add">
                             <svg class="esp-btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
@@ -112,7 +126,7 @@
             <div class="esp-divider" aria-hidden="true"></div>
 
             <article
-                class="esp-showpiece esp-showpiece--gift"
+                class="esp-showpiece esp-showpiece--gift esp-showpiece--por-kg"
                 data-produto-nome="Placa Cigana — Bolos Diversos"
                 data-produto-preco="169.9"
                 data-produto-qtd-min="1"
@@ -134,10 +148,24 @@
                             <span class="esp-price">R$&nbsp;169,90</span>
                             <span class="esp-price-unit">por quilograma</span>
                         </div>
-                        <div class="esp-qty" role="group" aria-label="Quantidade em quilogramas">
-                            <button type="button" class="esp-qty-btn esp-qty-btn--minus" aria-label="Diminuir quilogramas">−</button>
-                            <span class="esp-qty-val" data-des-qty-val aria-live="polite" aria-valuenow="1" role="spinbutton" aria-valuemin="1" aria-valuemax="99">1</span>
-                            <button type="button" class="esp-qty-btn esp-qty-btn--plus" aria-label="Aumentar quilogramas">+</button>
+                        <div class="esp-kg-panel" data-esp-kg-panel>
+                            <p class="esp-kg-panel-label">Quantidade / Peso</p>
+                            <div class="esp-weight-options" role="radiogroup" aria-label="Peso do bolo">
+                                <button type="button" class="esp-weight is-selected" data-esp-weight="1" aria-pressed="true">1kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="1.5" aria-pressed="false">1,5kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="2" aria-pressed="false">2kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="2.5" aria-pressed="false">2,5kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="3" aria-pressed="false">3kg</button>
+                            </div>
+                            <div class="esp-kg-qty-wrap">
+                                <span class="esp-kg-qty-label">Quantidade</span>
+                                <div class="esp-qty esp-qty--bolos" role="group" aria-label="Quantidade de bolos">
+                                    <button type="button" class="esp-qty-btn esp-qty-btn--minus" aria-label="Diminuir quantidade">−</button>
+                                    <span class="esp-qty-val" data-esp-bolo-qty aria-live="polite" aria-valuenow="1" role="spinbutton" aria-valuemin="1" aria-valuemax="20">1</span>
+                                    <button type="button" class="esp-qty-btn esp-qty-btn--plus" aria-label="Aumentar quantidade">+</button>
+                                </div>
+                            </div>
+                            <p class="esp-kg-total" data-esp-kg-total aria-live="polite"><span class="esp-kg-total-label">Total estimado:</span> <strong></strong></p>
                         </div>
                         <button type="button" class="esp-btn-add">
                             <svg class="esp-btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
@@ -150,7 +178,7 @@
             <div class="esp-divider" aria-hidden="true"></div>
 
             <article
-                class="esp-showpiece esp-showpiece--gift"
+                class="esp-showpiece esp-showpiece--gift esp-showpiece--por-kg"
                 data-produto-nome="Mil Folhas — Bolos Diversos"
                 data-produto-preco="149.9"
                 data-produto-qtd-min="1"
@@ -172,10 +200,24 @@
                             <span class="esp-price">R$&nbsp;149,90</span>
                             <span class="esp-price-unit">por quilograma</span>
                         </div>
-                        <div class="esp-qty" role="group" aria-label="Quantidade em quilogramas">
-                            <button type="button" class="esp-qty-btn esp-qty-btn--minus" aria-label="Diminuir quilogramas">−</button>
-                            <span class="esp-qty-val" data-des-qty-val aria-live="polite" aria-valuenow="1" role="spinbutton" aria-valuemin="1" aria-valuemax="99">1</span>
-                            <button type="button" class="esp-qty-btn esp-qty-btn--plus" aria-label="Aumentar quilogramas">+</button>
+                        <div class="esp-kg-panel" data-esp-kg-panel>
+                            <p class="esp-kg-panel-label">Quantidade / Peso</p>
+                            <div class="esp-weight-options" role="radiogroup" aria-label="Peso do bolo">
+                                <button type="button" class="esp-weight is-selected" data-esp-weight="1" aria-pressed="true">1kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="1.5" aria-pressed="false">1,5kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="2" aria-pressed="false">2kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="2.5" aria-pressed="false">2,5kg</button>
+                                <button type="button" class="esp-weight" data-esp-weight="3" aria-pressed="false">3kg</button>
+                            </div>
+                            <div class="esp-kg-qty-wrap">
+                                <span class="esp-kg-qty-label">Quantidade</span>
+                                <div class="esp-qty esp-qty--bolos" role="group" aria-label="Quantidade de bolos">
+                                    <button type="button" class="esp-qty-btn esp-qty-btn--minus" aria-label="Diminuir quantidade">−</button>
+                                    <span class="esp-qty-val" data-esp-bolo-qty aria-live="polite" aria-valuenow="1" role="spinbutton" aria-valuemin="1" aria-valuemax="20">1</span>
+                                    <button type="button" class="esp-qty-btn esp-qty-btn--plus" aria-label="Aumentar quantidade">+</button>
+                                </div>
+                            </div>
+                            <p class="esp-kg-total" data-esp-kg-total aria-live="polite"><span class="esp-kg-total-label">Total estimado:</span> <strong></strong></p>
                         </div>
                         <button type="button" class="esp-btn-add">
                             <svg class="esp-btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
@@ -260,7 +302,7 @@
     <script src="../js/orcamentos-logic.js"></script>
     <script src="../js/orcamentos-storage.js"></script>
     <script src="../js/carrinho.js"></script>
-    <script src="../js/especiais.js"></script>
+    <script src="../js/especiais.js?v=bolos-kg-1"></script>
     <script src="../js/pedido.js"></script>
     <script src="../js/script.js"></script>
 </body>

@@ -15,6 +15,9 @@
 
     function getConfig(card) {
         var key = card.dataset.vendaCategoria || (card.classList.contains('des-card') ? 'docesEspeciais' : 'tradicionais');
+        if (card.classList.contains('esp-diverso-card--pedido-festa')) {
+            key = 'tradicionais';
+        }
         var base = CONFIGS[key] || CONFIGS.tradicionais;
         var unitario = parseFloat(card.dataset.precoUnitario || card.getAttribute('data-preco-unitario') || base.unitario);
         var preco = parseFloat(card.dataset.produtoPreco || card.getAttribute('data-produto-preco') || '0') || 0;
@@ -28,11 +31,15 @@
         } else {
             cento = preco * qtdMin;
         }
+        var titulo = card.dataset.vendaTitulo || base.titulo;
+        if (card.classList.contains('esp-diverso-card--pedido-festa')) {
+            titulo = 'Salgados de Festa';
+        }
         return {
-            titulo: card.dataset.vendaTitulo || base.titulo,
+            titulo: titulo,
             unitario: unitario,
             cento: Math.round(cento * 100) / 100,
-            unidadesPorCento: parseInt(String(card.dataset.unidadesPorCento || '50'), 10) || 50
+            unidadesPorCento: parseInt(String(card.dataset.unidadesPorCento || card.getAttribute('data-unidades-por-cento') || '50'), 10) || 50
         };
     }
 
@@ -259,9 +266,21 @@
         });
     }
 
+    function initEspFestaCard(card) {
+        var btn = card.querySelector('[data-pedido-luxo-trigger], .esp-btn-add');
+        if (!btn || btn.dataset.luxoEspBound === 'true') return;
+        btn.dataset.luxoEspBound = 'true';
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            openModal(card);
+        }, true);
+    }
+
     function init() {
         ensureModal();
         document.querySelectorAll('article.dt-centone, body.pagina-doces-especiais article.des-card').forEach(initCard);
+        document.querySelectorAll('body.pagina-especial .esp-diverso-card[data-preco-cento]').forEach(initEspFestaCard);
     }
 
     if (document.readyState === 'loading') {

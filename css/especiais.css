@@ -321,6 +321,97 @@ body.pagina-especial .esp-price-unit {
     color: rgba(146, 106, 45, 0.75);
 }
 
+/* Bolos por kg — peso + quantidade (como Bolo de Corte) */
+body.pagina-especial .esp-kg-panel {
+    margin-top: 0.65rem;
+    padding: 1rem 1.1rem 1.15rem;
+    border-radius: 1.35rem;
+    border: 1px solid rgba(146, 106, 45, 0.14);
+    background: linear-gradient(165deg, rgba(255, 252, 249, 0.98) 0%, rgba(170, 221, 241, 0.18) 100%);
+    box-shadow: 0 8px 24px rgba(44, 36, 28, 0.05);
+}
+
+body.pagina-especial .esp-kg-panel-label {
+    margin: 0 0 0.85rem;
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--esp-ink);
+    letter-spacing: -0.02em;
+}
+
+body.pagina-especial .esp-weight-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+body.pagina-especial .esp-weight {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid rgba(146, 106, 45, 0.15);
+    border-radius: 999px;
+    padding: 0.65rem 1.1rem;
+    background: rgba(255, 252, 249, 0.95);
+    font-family: var(--esp-font-sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #4b4036;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(44, 36, 28, 0.05);
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease,
+        color 0.22s ease;
+}
+
+body.pagina-especial .esp-weight:hover {
+    transform: translateY(-1px);
+    border-color: rgba(146, 106, 45, 0.32);
+}
+
+body.pagina-especial .esp-weight.is-selected {
+    background: var(--esp-marrom);
+    border-color: var(--esp-marrom);
+    color: #fffcf9;
+    box-shadow: 0 8px 22px rgba(146, 106, 45, 0.22);
+}
+
+body.pagina-especial .esp-kg-qty-wrap {
+    margin-top: 1rem;
+    padding-top: 0.95rem;
+    border-top: 1px solid rgba(146, 106, 45, 0.1);
+}
+
+body.pagina-especial .esp-kg-qty-label {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(146, 106, 45, 0.72);
+}
+
+body.pagina-especial .esp-qty--bolos {
+    margin-top: 0;
+}
+
+body.pagina-especial .esp-kg-total {
+    margin: 0.85rem 0 0;
+    font-size: 0.88rem;
+    color: rgba(44, 36, 28, 0.72);
+}
+
+body.pagina-especial .esp-kg-total strong {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+    font-weight: 600;
+    color: var(--esp-marrom);
+}
+
 body.pagina-especial .esp-qty {
     display: inline-flex;
     align-items: center;
@@ -601,6 +692,51 @@ body.pagina-especial .esp-diverso-img {
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+body.pagina-especial .esp-diverso-img--pao-de-mel {
+    object-position: 40% 48%;
+}
+
+body.pagina-especial .esp-diverso-img--morango-figo-amor {
+    object-position: 50% 42%;
+}
+
+body.pagina-especial .esp-diverso-img--salgados-vitrine {
+    object-position: center 55%;
+}
+
+body.pagina-especial .esp-diverso-img--salgados-festa {
+    object-position: center 48%;
+}
+
+body.pagina-especial .esp-diverso-foot--dual {
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+body.pagina-especial .esp-diverso-preco-duo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+body.pagina-especial .esp-diverso-preco-duo strong {
+    font-family: var(--esp-font-serif);
+    font-size: clamp(1.18rem, 2.5vw, 1.42rem);
+    font-weight: 600;
+    color: var(--esp-marrom);
+    line-height: 1.1;
+}
+
+body.pagina-especial .esp-diverso-preco-nota {
+    font-family: var(--esp-font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(44, 36, 28, 0.55);
+    line-height: 1.35;
 }
 
 body.pagina-especial .esp-diverso-visual span {
