@@ -8,6 +8,7 @@
     };
     var active = null;
     var modal = null;
+    var UNIDADES_CENTO_REF = 100;
 
     function money(value) {
         return 'R$ ' + (Number(value) || 0).toFixed(2).replace('.', ',');
@@ -202,10 +203,16 @@
         update();
     }
 
+    function precoPorBlocoCento(cfg) {
+        return Math.round(cfg.cento * (cfg.unidadesPorCento / UNIDADES_CENTO_REF) * 100) / 100;
+    }
+
     function currentTotals() {
         var units = active.mode === 'cento' ? active.centos * active.cfg.unidadesPorCento : active.qtd;
-        var total = active.mode === 'cento' ? active.centos * active.cfg.cento : units * active.cfg.unitario;
-        return { units: units, total: total };
+        var total = active.mode === 'cento'
+            ? active.centos * precoPorBlocoCento(active.cfg)
+            : units * active.cfg.unitario;
+        return { units: units, total: Math.round(total * 100) / 100 };
     }
 
     function update() {
@@ -215,7 +222,7 @@
             ? (active.centos === 1 ? 'cento' : 'centos') + ' / ' + totals.units + ' unidades'
             : 'unidades';
         modal.querySelector('[data-luxo-note]').textContent = active.mode === 'cento'
-            ? 'Valor fixo do cento: ' + money(active.cfg.cento) + '.'
+            ? 'Cento (100 unidades): ' + money(active.cfg.cento) + '. Cada ' + active.cfg.unidadesPorCento + ' un.: ' + money(precoPorBlocoCento(active.cfg)) + '.'
             : 'Entre 10 e 49 unidades. Valor unitário: ' + money(active.cfg.unitario) + '.';
         modal.querySelector('[data-luxo-summary-qtd]').textContent = totals.units + ' unidades';
         modal.querySelector('[data-luxo-summary-flavors]').textContent = active.sabores.length ? active.sabores.join(', ') : 'A escolher';
@@ -235,7 +242,7 @@
         var nome = productName(active.card, active.cfg);
         var sabores = active.sabores.length ? ' — Sabores: ' + active.sabores.join(', ') : '';
         if (active.mode === 'cento') {
-            adicionarCarrinho('Pedido por Cento — ' + nome + ' — ' + active.centos + (active.centos === 1 ? ' cento' : ' centos') + ' (' + totals.units + ' unidades)' + sabores, active.cfg.cento, 1, {
+            adicionarCarrinho('Pedido por Cento — ' + nome + ' — ' + active.centos + (active.centos === 1 ? ' cento' : ' centos') + ' (' + totals.units + ' unidades)' + sabores, precoPorBlocoCento(active.cfg), 1, {
                 luxo: true,
                 quantidade: active.centos
             });
